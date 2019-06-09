@@ -1,4 +1,5 @@
 import React from 'react';
+import '../display/main.css';
 import PropTypes from 'prop-types';
 import UserListingThumb from './UserListingThumb';
 
