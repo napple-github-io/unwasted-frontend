@@ -6,7 +6,7 @@ export default function App() {
   const review = {
     image: 'https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTE1ODA0OTcxNjUxNTk3ODM3/tom-hanks-9327661-1-402.jpg',
     name: 'Tom Hanks',
-    reccomended: 'true',
+    reccomended: true,
     content: 'Miss ya wilson'
   };
 
