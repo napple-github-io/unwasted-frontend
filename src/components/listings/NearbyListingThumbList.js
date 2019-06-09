@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import NearbyListingThumb from './NearbyListingThumb';
 
 function NearbyListingThumbList({ nearbyListingList }) {
-  console.log(nearbyListingList);
   const listItem = nearbyListingList.map(nearbyListing => (
     <li key={nearbyListing}>
       <NearbyListingThumb nearbyListing={nearbyListing} />

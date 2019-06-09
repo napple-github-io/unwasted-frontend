@@ -1,10 +1,8 @@
 import React from 'react';
-import '../display/main.css';
 import PropTypes from 'prop-types';
 import UserListingThumb from './UserListingThumb';
 
 function UserListingThumbList({ userListingList }) {
-  console.log(userListingList);
   const listItem = userListingList.map(userListing => (
     <li key={userListing}>
       <UserListingThumb userListing={userListing} />
