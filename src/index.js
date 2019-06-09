@@ -1,8 +1,9 @@
 import React from 'react';
 import { render } from 'react-dom';
-import App from './components/App';
+// import App from './components/App';
+import Search from './components/search/Search';
 
 render(
-  <App />,
+  <Search />,
   document.getElementById('root')
 );
