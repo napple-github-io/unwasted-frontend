@@ -1,5 +1,6 @@
 import React from 'react';
 import UserListingThumbList from './listings/UserListingThumbList';
+import Header from './display/Header';
 
 export default function App() {
   const userListingList = [
@@ -24,6 +25,9 @@ export default function App() {
   ];
 
   return (
-    <UserListingThumbList userListingList={userListingList} />
+    <>
+      <Header />
+      <UserListingThumbList userListingList={userListingList} />
+    </>
   );
 }
