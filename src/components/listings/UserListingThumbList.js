@@ -11,9 +11,17 @@ function UserListingThumbList({ userListingList }) {
   ));
 
   return (
-    <ul>
-      {listItem}
-    </ul>
+    <section>
+      <header>
+        <h2>Your Current Listings</h2>
+        <p>
+          <a href="#">View All</a> <span>|</span> <a href="#">New Listing</a> <span>|</span> <a href="#">Expired Listings</a>
+        </p>
+      </header>
+      <ul>
+        {listItem}
+      </ul>
+    </section>
   );
 }
 
