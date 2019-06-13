@@ -13,7 +13,8 @@ export const signup = (email, password) => {
     auth0.signup({
       email: email,
       password: password,
-      connection: 'Username-Password-Authentication'
+      connection: 'Username-Password-Authentication',
+      user_metadata: { role: 'user' }
     }, (error, results) => {
       if(error) return reject(error);
       console.log(results);
