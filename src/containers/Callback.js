@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { signInUser, setSession } from '../actions/getUserActions';
+import { setSession } from '../actions/getUserActions';
 
 class Callback extends PureComponent {
   static propTypes = {

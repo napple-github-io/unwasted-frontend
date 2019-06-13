@@ -15,4 +15,3 @@ export const [
   SET_SESSION,
   SET_SESSION_PENDING
 ] = createAction('SET_SESSION', handleAuth);
-

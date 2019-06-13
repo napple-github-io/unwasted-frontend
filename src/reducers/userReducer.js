@@ -1,11 +1,13 @@
 import { SIGNIN_USER, SIGNIN_USER_LOADING, SET_SESSION } from '../actions/getUserActions';
 
 const initialState = {
-  loading: false,
-  user: {}
+  username: '',
+  token: '',
+  imageUrl: ''
 };
 
 export default function reducer(state = initialState, action) {
+  console.log(action);
   switch(action.type) {
     case SIGNIN_USER:
       return { ...state, user: action.payload };
