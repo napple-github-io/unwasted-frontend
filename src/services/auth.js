@@ -5,7 +5,7 @@ const auth0 = new WebAuth({
   clientID: process.env.AUTH0_CLIENT_ID,
   redirectUri: process.env.AUTH0_CALLBACK,
   responseType: 'token id_token',
-  scope: 'openid profile'
+  scope: 'openid profile',
 });
 
 export const signup = (email, password) => {
@@ -23,18 +23,30 @@ export const signup = (email, password) => {
   });
 };
 
-export const login = (email, password) => {
-  auth0.login({
-    email: email, 
-    password: password
+export const signin = (email, password) => {
+  console.log('entered signin function');
+  return new Promise((resolve, reject) =>{
+    auth0.login({
+      email: email, 
+      password: password,
+      connection: 'Username-Password-Authentication'
+    }, (error, results) => {
+      console.log('made it to callback');
+      console.log(results, error);
+      if(error) return reject(error);
+      console.log('signin results', results);
+      resolve(results);
+    });
   });
 };
 
 export const handleAuth = () => {
   return new Promise((resolve, reject) => {
     auth0.parseHash((error, results) => {
+      console.log('res', results);
       if(results && results.accessToken && results.idToken) {
         auth0.client.userInfo(results.accessToken, (err, profile) => {
+          console.log('prof', profile);
           if(err) return reject('Could not access user profile');
           resolve({
             username: profile.name,
