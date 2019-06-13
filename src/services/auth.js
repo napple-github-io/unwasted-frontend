@@ -8,6 +8,20 @@ const auth0 = new WebAuth({
   scope: 'openid profile'
 });
 
+export const signup = (email, password) => {
+  return new Promise((resolve, reject) =>{
+    auth0.signup({
+      email: email,
+      password: password,
+      connection: 'Username-Password-Authentication'
+    }, (error, results) => {
+      if(error) return reject(error);
+      console.log(results);
+      resolve(results);
+    });
+  });
+};
+
 export const login = (email, password) => {
   auth0.login({
     email: email, 
