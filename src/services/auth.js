@@ -19,37 +19,32 @@ export const signup = (email, password, username, address, zip) => {
       user_metadata: { role: 'user' }
     }, (error, results) => {
       if(error) return reject(error);
-      console.log(results);
       resolve(results);
     });
   })
     .then(results => {
       console.log(results);
       return request('/auth/signup', 'POST', {
-        username:results.username,
+        username:results.name,
         email,
         location: {
           address,
           zip
         },
-        authId: results._id
+        authId: results.Id
       })
         .then(res => console.log(res));
     });
 };
 
 export const signin = (email, password) => {
-  console.log('entered signin function');
   return new Promise((resolve, reject) =>{
     auth0.login({
       email: email, 
       password: password,
       connection: 'Username-Password-Authentication'
     }, (error, results) => {
-      console.log('made it to callback');
-      console.log(results, error);
       if(error) return reject(error);
-      console.log('signin results', results);
       resolve(results);
     });
   });
@@ -58,10 +53,8 @@ export const signin = (email, password) => {
 export const handleAuth = () => {
   return new Promise((resolve, reject) => {
     auth0.parseHash((error, results) => {
-      console.log('res', results);
       if(results && results.accessToken && results.idToken) {
         auth0.client.userInfo(results.accessToken, (err, profile) => {
-          console.log('prof', profile);
           if(err) return reject('Could not access user profile');
           resolve({
             username: profile.name,
