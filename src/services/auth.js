@@ -9,12 +9,15 @@ const auth0 = new WebAuth({
   scope: 'openid profile',
 });
 
-export const signup = (email, password, username, address, zip) => {
+export const signup = (email, password, username, street, state, firstName, lastName, zip) => {
+  console.log(email, password, username, street, state, firstName, lastName, zip);
   return new Promise((resolve, reject) =>{
     auth0.signup({
       email: email,
       password: password,
       name: username,
+      given_name: firstName,
+      family_name: lastName,
       connection: 'Username-Password-Authentication',
       user_metadata: { role: 'user' }
     }, (error, results) => {
@@ -23,12 +26,16 @@ export const signup = (email, password, username, address, zip) => {
     });
   })
     .then(results => {
+      console.log(street, state, zip)
       console.log(results);
       return request('/auth/signup', 'POST', {
-        username:results.name,
+        username,
         email,
+        firstName,
+        lastName,
         location: {
-          address,
+          street,
+          state,
           zip
         },
         authId: results.Id

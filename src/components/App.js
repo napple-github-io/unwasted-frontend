@@ -9,13 +9,12 @@ import SignInSubmit from '../containers/auth/SignInSubmit';
 import Callback from '../containers/Callback';
 
 export default function App() {
-  signup('711@test.com', 'Moonfire27', 'dude', '1234 N St', '97211');
+  signup('s4e@test.com', 'Moonfire27!', 'username', 'masd', 'MO', 'sean', 'nelson', '1234');
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={SignInSubmit} />
+        <Route exact path="/" component={SignUpSubmit} />
         <Route exact path="/callback" component={Callback} />
-        <Route exact path="/signup" component={withSession(SignUpSubmit)} />
       </Switch>
     </Router>
   );
