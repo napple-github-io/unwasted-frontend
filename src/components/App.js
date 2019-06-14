@@ -9,7 +9,6 @@ import SignInSubmit from '../containers/auth/SignInSubmit';
 import Callback from '../containers/Callback';
 
 export default function App() {
-  signup('s4e@test.com', 'Moonfire27!', 'username', 'masd', 'MO', 'sean', 'nelson', '1234');
   return (
     <Router>
       <Switch>

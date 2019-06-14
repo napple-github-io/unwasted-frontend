@@ -2,10 +2,12 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { setSession } from '../actions/getUserActions';
+import { getUserAuthId } from '../selectors/userAuthSelectors';
 
 class Callback extends PureComponent {
   static propTypes = {
-    handleAuth: PropTypes.func.isRequired
+    handleAuth: PropTypes.func.isRequired,
+    authId: PropTypes.string
   }
 
   componentDidMount() {
@@ -27,7 +29,11 @@ const mapDispatchToProps = (dispatch, props) => ({
   }
 });
 
+const mapStateToProps = state => ({
+  authId: getUserAuthId(state)
+});
+
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Callback);

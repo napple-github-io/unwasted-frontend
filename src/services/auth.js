@@ -26,8 +26,6 @@ export const signup = (email, password, username, street, state, firstName, last
     });
   })
     .then(results => {
-      console.log(street, state, zip)
-      console.log(results);
       return request('/auth/signup', 'POST', {
         username,
         email,
@@ -57,7 +55,7 @@ export const signin = (email, password) => {
   });
 };
 
-export const handleAuth = () => {
+export const handleAuth0 = () => {
   return new Promise((resolve, reject) => {
     auth0.parseHash((error, results) => {
       if(results && results.accessToken && results.idToken) {
@@ -75,4 +73,16 @@ export const handleAuth = () => {
       }
     });
   });
+};
+
+export const handleAuthSession = () => {
+  return handleAuth0()
+    .then(authUser => {
+      return request(`/auth/getMongooseId?username=${authUser.username}`, 'GET')
+        .then(mongooseUser => {
+          authUser.userInfo = mongooseUser;
+          authUser.userMongooseId = mongooseUser._id;
+          return authUser;
+        });
+    });
 };

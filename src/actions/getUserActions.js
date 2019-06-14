@@ -1,4 +1,4 @@
-import { signin, handleAuth } from '../services/auth';
+import { signin, handleAuthSession } from '../services/auth';
 import { createAction } from 'promise-middleware-redux';
 
 export const SIGNIN_USER = 'SIGNIN_USER';
@@ -14,4 +14,4 @@ export const [
   setSession,
   SET_SESSION,
   SET_SESSION_PENDING
-] = createAction('SET_SESSION', handleAuth);
+] = createAction('SET_SESSION', handleAuthSession);
