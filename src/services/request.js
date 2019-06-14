@@ -1,6 +1,6 @@
 export const request = (path, method, body) => {
   // eslint-disable-next-line
-  return fetch(`http://localhost:8889/api/v1${path}`, {
+  return fetch(`${process.env.API_URL}${path}`, {
     method: method,
     headers: {
       'Content-Type': 'application/json',
