@@ -16,6 +16,7 @@ class CreateListing extends PureComponent {
     street: '',
     state: 'OR',
     zip: '',
+    description: '',
     dietary: '',
     postedDate: '',
     expiration: ''
@@ -27,13 +28,13 @@ class CreateListing extends PureComponent {
 
   onSubmit = event => {
     event.preventDefault();
-    const { imageUrl, title, category, street, state, zip, dietary, postedDate, expiration } = this.state;
-    this.props.createListing({ imageUrl, title, category, street, state, zip, dietary, postedDate, expiration });
-    this.setState({ imageUrl: '', title: '', category: '', street: '', state: 'OR', zip: '', dietary: '', postedDate: '', expiration: '' });
+    const { imageUrl, title, category, street, state, zip, description, dietary, postedDate, expiration } = this.state;
+    this.props.createListing({ imageUrl, title, category, street, state, zip, description, dietary, postedDate, expiration });
+    this.setState({ imageUrl: '', title: '', category: '', street: '', state: 'OR', zip: '', description: '', dietary: '', postedDate: '', expiration: '' });
   }
  
   render() {
-    const { imageUrl, title, category, street, state, zip, dietary, postedDate, expiration } = this.state;
+    const { imageUrl, title, category, street, state, zip, description, dietary, postedDate, expiration } = this.state;
 
     return (
       <ListingForm 
@@ -43,6 +44,7 @@ class CreateListing extends PureComponent {
         street={street}
         state={state}
         zip={zip}
+        description={description}
         dietary={dietary}
         postedDate={postedDate}
         expiration={expiration}
@@ -54,8 +56,8 @@ class CreateListing extends PureComponent {
 }
 
 const mapDispatchToProps = dispatch => ({
-  createListing(imageUrl, title, category, street, state, zip, dietary, postedDate, expiration) {
-    dispatch(createListingApi(imageUrl, title, category, street, state, zip, dietary, postedDate, expiration));
+  createListing(imageUrl, title, category, street, state, zip, description, dietary, postedDate, expiration) {
+    dispatch(createListingApi(imageUrl, title, category, street, state, zip, description, dietary, postedDate, expiration));
   }
 });
 

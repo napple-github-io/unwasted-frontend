@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function ListingForm({ onSubmit, onChange, imageUrl, title, category, street, state, zip, dietary, postedDate, expiration }) {
+export default function ListingForm({ onSubmit, onChange, imageUrl, title, category, street, state, zip, description, dietary, postedDate, expiration }) {
   return (
     <>
     <h2>New Listing</h2>
@@ -117,7 +117,7 @@ export default function ListingForm({ onSubmit, onChange, imageUrl, title, categ
           <h3>Description</h3>
 
           {/* TEXTAREA WON'T TAKE VALUE */}
-          <textarea id="listing-description" name="description" placeholder="Description"></textarea>
+          <textarea id="listing-description" name="description" description={description} placeholder="Description" onChange={onChange}></textarea>
           <input type ="checkbox" name="legal" value="legal" />legal disclaimer goes here!!!
           <button>SUBMIT</button>
         </section>
@@ -135,7 +135,8 @@ ListingForm.propTypes = {
   street: PropTypes.string.isRequired,
   state: PropTypes.string.isRequired,
   zip: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
   dietary: PropTypes.string,
   postedDate: PropTypes.string,
   expiration: PropTypes.string.isRequired
-}
+};
