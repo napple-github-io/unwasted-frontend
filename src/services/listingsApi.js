@@ -1,3 +1,3 @@
 import { post } from './request';
 
-export const createListing = listing => post('/api/v1/listings', listing);
+export const createListingApi = listing => post('/api/v1/listings', listing);
