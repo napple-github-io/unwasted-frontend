@@ -1,4 +1,5 @@
 import { WebAuth } from 'auth0-js';
+import { request } from './request';
 
 const auth0 = new WebAuth({
   domain: process.env.AUTH0_DOMAIN,
@@ -8,11 +9,12 @@ const auth0 = new WebAuth({
   scope: 'openid profile',
 });
 
-export const signup = (email, password) => {
+export const signup = (email, password, username, address, zip) => {
   return new Promise((resolve, reject) =>{
     auth0.signup({
       email: email,
       password: password,
+      name: username,
       connection: 'Username-Password-Authentication',
       user_metadata: { role: 'user' }
     }, (error, results) => {
@@ -20,7 +22,20 @@ export const signup = (email, password) => {
       console.log(results);
       resolve(results);
     });
-  });
+  })
+    .then(results => {
+      console.log(results);
+      return request('/auth/signup', 'POST', {
+        username:results.username,
+        email,
+        location: {
+          address,
+          zip
+        },
+        authId: results._id
+      })
+        .then(res => console.log(res));
+    });
 };
 
 export const signin = (email, password) => {
