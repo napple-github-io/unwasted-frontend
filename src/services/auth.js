@@ -26,8 +26,6 @@ export const signup = (email, password, username, street, state, firstName, last
     });
   })
     .then(results => {
-      console.log(street, state, zip)
-      console.log(results);
       return request('/auth/signup', 'POST', {
         username,
         email,
