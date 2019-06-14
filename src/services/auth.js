@@ -66,7 +66,8 @@ export const handleAuth = () => {
           resolve({
             username: profile.name,
             token: results.idToken,
-            image: profile.picture
+            image: profile.picture,
+            authId: profile.sub.replace('auth0|', '')
           });
         });
       } else {
