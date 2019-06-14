@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function ListingForm({ onSubmit, onChange, title, category, street, state, zip, dietary, postedDate, expiration }) {
+export default function ListingForm({ onSubmit, onChange, title, category, street, state, zip, dietary, postedDate, expiration }) {
   return (
-    <section>
-      <h2>New Listing</h2>
+    <>
+    <h2>New Listing</h2>
       <form id="listing" onSubmit={onSubmit}>
         <input type="text" name="title" value={title} id="listing-title" placeholder="Title" onChange={onChange} />
 
@@ -27,7 +27,7 @@ function ListingForm({ onSubmit, onChange, title, category, street, state, zip, 
 
         <input type="text" name="street" value={street} id="listing-street" placeholder="Street" onChange={onChange} />
 
-        <select id="signup-state" name="state" value={state} onChange={onChange}>
+        <select id="listing-state" name="state" value={state} onChange={onChange}>
           <option value="AK">AK</option>
           <option value="AR">AR</option>	
           <option value="AZ">AZ</option>
@@ -80,10 +80,38 @@ function ListingForm({ onSubmit, onChange, title, category, street, state, zip, 
           <option value="WY">WY</option>
         </select>
 
-        <input type="string" maxLength="5" minLength="5" name="zip" value={zip} id="signup-zip" placeholder="Zip-Code" onChange={onChange} required />
+        <input type="string" maxLength="5" minLength="5" name="zip" value={zip} id="listing-zip" placeholder="Zip-Code" onChange={onChange} required />
 
-        <h3></h3>
+        <section>
+          <h3>Dietary Requirements</h3>
+          <h4>Allergens</h4>
+
+          <ul>
+            <li><input type ="checkbox" name="dairy" value="dairy" />Dairy Free</li>
+            <li><input type ="checkbox" name="gluten" value="gluten" />Gluten Free</li>
+            <li><input type ="checkbox" name="shellfish" value="shellfish" />Shellfish Free</li>
+            <li><input type ="checkbox" name="nut" value="nut" />Nut Free</li>
+          </ul>
+          <ul>
+            <li><input type ="checkbox" name="vegetarian" value="vegetarian" />Vegetarian</li>
+            <li><input type ="checkbox" name="vegan" value="vegan" />Vegan</li>
+          </ul>
+        </section>
+
+        <h3>Expiration</h3>
+
+        {/* IS THIS DEFAULT VALUE GOING TO BE CORRECT IN PRACTICE?? */}
+        <input type="date" id="listing-expiration" name="expiration" value={expiration} min={`Date.now()`} />
+
+        <h3>Description</h3>
+
+        {/* TEXTAREA WON'T TAKE VALUE */}
+        <textarea id="listing-description" name="description" placeholder="Description"></textarea>
+        <input type ="checkbox" name="legal" value="legal" />legal disclaimer goes here!!!
+        <button>SUBMIT</button>
       </form>
-    </section>
+    </>
   );
 }
+
+

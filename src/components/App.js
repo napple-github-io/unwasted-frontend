@@ -4,18 +4,19 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { withSession } from '../containers/WithSession';
 import { signup } from '../services/auth';
 // import Review from './reviews/ReviewList';
-import SignUpSubmit from '../containers/auth/SignUpSubmit';
-import SignInSubmit from '../containers/auth/SignInSubmit';
+// import SignUpSubmit from '../containers/auth/SignUpSubmit';
+// import SignInSubmit from '../containers/auth/SignInSubmit';
+import ListingForm from './listings/ListingForm';
 import Callback from '../containers/Callback';
 
 export default function App() {
-  signup('s4e@test.com', 'Moonfire27!', 'username', 'masd', 'MO', 'sean', 'nelson', '1234');
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/" component={SignInSubmit} />
-        <Route exact path="/callback" component={Callback} />
-      </Switch>
-    </Router>
+    <ListingForm />
+    // <Router>
+    //   <Switch>
+    //     <Route exact path="/" component={ListingForm} />
+    //     <Route exact path="/callback" component={Callback} />
+    //   </Switch>
+    // </Router>
   );
 }
