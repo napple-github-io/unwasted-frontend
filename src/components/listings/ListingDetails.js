@@ -30,6 +30,7 @@ function ListingDetails({ listingDetails }) {
 
           <p>Posted {listingDetails.postedTime}</p>
           <p>Posted {listingDetails.expiration}</p>
+          <a href="#" className="report-link">REPORT</a>
         </div>
       </section>
 

@@ -8,9 +8,10 @@ import CreateListing from '../containers/listings/CreateListing';
 import UserProfile from './profile/UserProfile';
 import ListingDetails from './listings/ListingDetails';
 import { listingDetails } from '../assets/seedData/seedData';
+import ContactForm from './contact/ContactForm';
 
 export default function App() {
   return (
-    <ListingDetails listingDetails={listingDetails} />
+    <ContactForm user={listingDetails} />
   );
 }
