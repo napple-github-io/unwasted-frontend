@@ -1,15 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Profile({ profile }) {
+function YourProfile({ profile }) {
   return (
     <section>
       <h2>Your Information</h2>
+      <p><a href="#">EDIT</a></p>
 
       <section>
         <img src={profile.image} />
         <p>Change profile photo</p>
         <form>
+          <input type="file" id="profile-photo-upload" name="upload" accept="image/*" />
           <button>
             Upload
           </button>
@@ -36,8 +38,8 @@ function Profile({ profile }) {
   );
 }
 
-Profile.propTypes = {
+YourProfile.propTypes = {
   profile: PropTypes.object.isRequired
 };
 
-export default Profile;
+export default YourProfile;

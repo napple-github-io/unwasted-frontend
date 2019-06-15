@@ -7,13 +7,15 @@ function Review({ review }) {
     <section>
       <img src={review.image} />
       <div>
-        <h4>{review.name}</h4>
+        <h4>{review.userName}</h4>
       </div>
     </section>
 
     <div>
       <h4>{review.reccomended}</h4>
+      <p className="review-timestamp">Posted $TIME $DATE</p>
       <p>{review.content}</p>
+      <a href="#" className="report-link">REPORT</a>
     </div>
     </>
   );
