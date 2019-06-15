@@ -1,19 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function ListingForm({ onSubmit, onChange, imageUrl, title, category, street, state, zip, description, dietary, postedDate, expiration }) {
+export default function ListingForm({ onSubmit, onChange, title, category, street, state, zip, description, expiration, checkBoxChecked }) {
   return (
     <>
     <h2>New Listing</h2>
       <form id="listing" onSubmit={onSubmit}>
-        <section>
+        {/* <section>
           <div id="listing-image-container">
             <img src={imageUrl} alt="Upload an image" />
           </div>
           <h4>Upload a photo</h4>
           {/* DISCUSS THIS WITH RYAN M */}
-          <input type="file" id="listing-upload" name="upload" accept="image/*" value={imageUrl} onSubmit={onSubmit} />
-        </section>
+        {/* <input type="file" id="listing-upload" name="upload" accept="image/*" value={imageUrl} onSubmit={onSubmit} onChange={onChange} />
+        </section> */}
 
 
         <section>
@@ -98,27 +98,27 @@ export default function ListingForm({ onSubmit, onChange, imageUrl, title, categ
             <h4>Allergens</h4>
 
             <ul>
-              <li><input type ="checkbox" name="dairy" value="dairy" />Dairy Free</li>
-              <li><input type ="checkbox" name="gluten" value="gluten" />Gluten Free</li>
-              <li><input type ="checkbox" name="shellfish" value="shellfish" />Shellfish Free</li>
-              <li><input type ="checkbox" name="nut" value="nut" />Nut Free</li>
+              <li><input type="checkbox" name="dairy" onChange={checkBoxChecked} />Dairy Free</li>
+              <li><input type="checkbox" name="gluten" onChange={checkBoxChecked} />Gluten Free</li>
+              <li><input type="checkbox" name="shellfish" onChange={checkBoxChecked} />Shellfish Free</li>
+              <li><input type="checkbox" name="nut" onChange={checkBoxChecked} />Nut Free</li>
             </ul>
             <ul>
-              <li><input type ="checkbox" name="vegetarian" value="vegetarian" />Vegetarian</li>
-              <li><input type ="checkbox" name="vegan" value="vegan" />Vegan</li>
+              <li><input type="checkbox" name="vegetarian" onChange={checkBoxChecked}/>Vegetarian</li>
+              <li><input type="checkbox" name="vegan" onChange={checkBoxChecked}/>Vegan</li>
             </ul>
           </section>
 
           <h3>Expiration</h3>
 
           {/* IS THIS DEFAULT VALUE GOING TO BE CORRECT IN PRACTICE?? */}
-          <input type="date" id="listing-expiration" name="expiration" value={expiration} min={'Date.now()'} />
+          <input type="date" id="listing-expiration" name="expiration" value={expiration} min={'Date.now()'} onChange={onChange}/>
 
           <h3>Description</h3>
 
           {/* TEXTAREA WON'T TAKE VALUE */}
           <textarea id="listing-description" name="description" description={description} placeholder="Description" onChange={onChange}></textarea>
-          <input type ="checkbox" name="legal" value="legal" />legal disclaimer goes here!!!
+          <input type="checkbox" name="legal" required/>legal disclaimer goes here!!!
           <button>SUBMIT</button>
         </section>
       </form>
@@ -129,6 +129,7 @@ export default function ListingForm({ onSubmit, onChange, imageUrl, title, categ
 ListingForm.propTypes = {
   onSubmit: PropTypes.func.isRequired, 
   onChange: PropTypes.func.isRequired, 
+  checkBoxChecked: PropTypes.func.isRequired, 
   imageUrl: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
@@ -136,7 +137,5 @@ ListingForm.propTypes = {
   state: PropTypes.string.isRequired,
   zip: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  dietary: PropTypes.string,
-  postedDate: PropTypes.string,
   expiration: PropTypes.string.isRequired
 };

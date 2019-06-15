@@ -2,11 +2,12 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ListingForm from '../../components/listings/ListingForm';
-import { createListingApi } from '../../services/listingsApi';
+import { postListingToApi } from '../../services/listingsApi';
+import { getUserMongooseId } from '../../selectors/userAuthSelectors';
 
 class CreateListing extends PureComponent {
   static propTypes = {
-    createListing: PropTypes.func.isRequired
+    user: PropTypes.string.isRequired
   }
 
   state = {
@@ -17,7 +18,14 @@ class CreateListing extends PureComponent {
     state: 'OR',
     zip: '',
     description: '',
-    dietary: '',
+    dietary: {
+      dairy: false,
+      gluten: false,
+      shellfish: false,
+      nut: false,
+      vegetarian: false,
+      vegan: false
+    },
     postedDate: '',
     expiration: ''
   }
@@ -26,15 +34,19 @@ class CreateListing extends PureComponent {
     this.setState({ [target.name]: target.value });
   }
 
+  checkBoxChecked = ({ target }) => {
+    this.setState({ dietary: { ...this.state.dietary, [target.name]: target.checked } });
+  }
+
   onSubmit = event => {
     event.preventDefault();
     const { imageUrl, title, category, street, state, zip, description, dietary, postedDate, expiration } = this.state;
-    this.props.createListing({ imageUrl, title, category, street, state, zip, description, dietary, postedDate, expiration });
-    this.setState({ imageUrl: '', title: '', category: '', street: '', state: 'OR', zip: '', description: '', dietary: '', postedDate: '', expiration: '' });
+    postListingToApi({ user: this.props.user, imageUrl, title, category, street, state, zip, description, dietary, postedDate, expiration });
+    this.setState({ imageUrl: '', title: '', category: '', street: '', state: 'OR', zip: '', description: '', dietary: { dairy: false, gluten: false, shellfish: false, nut: false, vegetarian: false, vegan: false }, postedDate: '', expiration: '' });
   }
  
   render() {
-    const { imageUrl, title, category, street, state, zip, description, dietary, postedDate, expiration } = this.state;
+    const { imageUrl, title, category, street, state, zip, description, postedDate, expiration } = this.state;
 
     return (
       <ListingForm 
@@ -45,23 +57,21 @@ class CreateListing extends PureComponent {
         state={state}
         zip={zip}
         description={description}
-        dietary={dietary}
         postedDate={postedDate}
         expiration={expiration}
         onSubmit={this.onSubmit}
         onChange={this.onChange}
+        checkBoxChecked={this.checkBoxChecked}
       />
     );
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  createListing(imageUrl, title, category, street, state, zip, description, dietary, postedDate, expiration) {
-    dispatch(createListingApi(imageUrl, title, category, street, state, zip, description, dietary, postedDate, expiration));
-  }
+const mapStateToProps = state => ({
+  user: getUserMongooseId(state)
 });
 
 export default connect(
-  null,
-  mapDispatchToProps
+  mapStateToProps,
+  null
 )(CreateListing);

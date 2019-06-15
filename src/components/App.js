@@ -4,20 +4,20 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { withSession } from '../containers/WithSession';
 import { signup } from '../services/auth';
 // import Review from './reviews/ReviewList';
-// import SignUpSubmit from '../containers/auth/SignUpSubmit';
-// import SignInSubmit from '../containers/auth/SignInSubmit';
-// import ListingForm from './listings/ListingForm';
+import SignUpSubmit from '../containers/auth/SignUpSubmit';
+import SignInSubmit from '../containers/auth/SignInSubmit';
 import Callback from '../containers/Callback';
 import CreateListing from '../containers/listings/CreateListing';
 
 export default function App() {
   return (
-    <CreateListing />
-    // <Router>
-    //   <Switch>
-    //     <Route exact path="/" component={ListingForm} />
-    //     <Route exact path="/callback" component={Callback} />
-    //   </Switch>
-    // </Router>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={SignInSubmit} />
+        <Route exact path="/signup" component={SignUpSubmit} />
+        <Route exact path="/listings/new" component={CreateListing} />
+        <Route exact path="/callback" component={Callback} />
+      </Switch>
+    </Router>
   );
 }

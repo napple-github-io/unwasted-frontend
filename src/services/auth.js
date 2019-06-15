@@ -78,8 +78,10 @@ export const handleAuth0 = () => {
 export const handleAuthSession = () => {
   return handleAuth0()
     .then(authUser => {
+      console.log(authUser);
       return request(`/auth/getMongooseId?username=${authUser.username}`, 'GET')
         .then(mongooseUser => {
+          console.log(mongooseUser);
           authUser.userInfo = mongooseUser;
           authUser.userMongooseId = mongooseUser._id;
           return authUser;

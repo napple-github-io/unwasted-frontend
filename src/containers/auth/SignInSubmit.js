@@ -6,7 +6,8 @@ import SignInForm from '../../components/auth/SignInForm';
 
 class SignInSubmit extends PureComponent {
   static propTypes = {
-    signIn: PropTypes.func.isRequired
+    signIn: PropTypes.func.isRequired,
+    history: PropTypes.object.isRequired
   }
 
   state = {

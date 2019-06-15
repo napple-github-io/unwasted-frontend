@@ -1,3 +1,16 @@
-import { post } from './request';
+import { request } from './request';
 
-export const createListingApi = listing => post('/api/v1/listings', listing);
+export const postListingToApi = (title, description, imageUrl, category, street, zip, state, dietary, expiration, user) => {
+  return request('/listings', 'POST', {
+    title,
+    description,
+    imageUrl,
+    category,
+    street,
+    zip,
+    state,
+    dietary,
+    expiration
+  })
+    .then(res => console.log(res)); 
+};
