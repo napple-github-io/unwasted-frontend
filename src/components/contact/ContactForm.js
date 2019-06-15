@@ -10,7 +10,9 @@ function ContactForm({ user }) {
       </header>
       
       <section>
-        <img src={user.userImage} alt={user.userName} />
+        <div className="user-image-container">
+          <img src={user.userImage} alt={user.userName} />
+        </div>
         <h4>{user.userName}</h4>
       </section>
 
