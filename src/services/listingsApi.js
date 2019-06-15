@@ -1,16 +1,19 @@
 import { request } from './request';
 
 export const postListingToApi = (title, description, imageUrl, category, street, zip, state, dietary, expiration, user) => {
-  return request('/listings', 'POST', {
+  return request('/listings/new', 'POST', {
     title,
     description,
     imageUrl,
     category,
-    street,
-    zip,
-    state,
+    location:{
+      street,
+      zip,
+      state,
+    },
     dietary,
-    expiration
+    expiration,
+    user
   })
     .then(res => console.log(res)); 
 };

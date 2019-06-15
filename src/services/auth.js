@@ -10,7 +10,6 @@ const auth0 = new WebAuth({
 });
 
 export const signup = (email, password, username, street, state, firstName, lastName, zip) => {
-  console.log(email, password, username, street, state, firstName, lastName, zip);
   return new Promise((resolve, reject) =>{
     auth0.signup({
       email: email,
@@ -78,10 +77,8 @@ export const handleAuth0 = () => {
 export const handleAuthSession = () => {
   return handleAuth0()
     .then(authUser => {
-      console.log(authUser);
       return request(`/auth/getMongooseId?username=${authUser.username}`, 'GET')
         .then(mongooseUser => {
-          console.log(mongooseUser);
           authUser.userInfo = mongooseUser;
           authUser.userMongooseId = mongooseUser._id;
           return authUser;
