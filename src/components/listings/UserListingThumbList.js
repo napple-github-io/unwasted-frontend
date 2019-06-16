@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import UserListingThumb from './UserListingThumb';
+import ListingThumb from './ListingThumb';
 
 function UserListingThumbList({ userListingList }) {
   const listItem = userListingList.map(userListing => (
     <li key={userListing}>
-      <UserListingThumb userListing={userListing} />
+      <ListingThumb listing={userListing} />
     </li>
   ));
 

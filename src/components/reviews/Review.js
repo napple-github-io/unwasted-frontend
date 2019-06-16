@@ -5,16 +5,16 @@ function Review({ review }) {
   return (
     <>
     <section>
-      <img src={review.image} />
+      <img src={review.reviewer.userImage} />
       <div>
-        <h4>{review.userName}</h4>
+        <h4>{review.reviewer.username}</h4>
       </div>
     </section>
 
     <div>
-      <h4>{review.reccomended}</h4>
-      <p className="review-timestamp">Posted $TIME $DATE</p>
-      <p>{review.content}</p>
+      <h4>{review.thumbsUp}</h4>
+      <p className="review-timestamp">Posted {review.postedDate}</p>
+      <p>{review.reviewText}</p>
       <a href="#" className="report-link">REPORT</a>
     </div>
     </>

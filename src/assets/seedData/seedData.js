@@ -52,6 +52,24 @@ export const userSeed = [
   },
 ];
 
+export const userSeedObj = {
+  username: 'GumpBoi',
+  userImage: 'https://img1.looper.com/img/gallery/why-forrest-gump-2-never-got-made/intro-1554741430.jpg',
+  email: 'tomhanks@hotmail.com',
+  firstName: 'Tom',
+  lastName: 'Hanks',
+  location: {
+    street: '1 Ocean Ave.',
+    state: 'HI',
+    zip: '31169'
+  },
+  powerUser: true,
+  role: 'User',
+  standing: 'Good Standing',
+  bio: 'Thomas Jeffrey Hanks (born July 9, 1956) is an American actor and filmmaker. Hanks is known for his comedic and dramatic roles in such films as Splash (1984), Big (1988), Turner & Hooch (1989), A League of Their Own (1992), Sleepless in Seattle (1993), Apollo 13 (1995), You\'ve Got Mail (1998), The Green Mile (1999), Cast Away (2000), Road to Perdition (2002), Cloud Atlas (2012), Captain Phillips (2013), Saving Mr. Banks (2013), and Sully (2016). He has also starred in the Robert Langdon film series, and voices Sheriff Woody in the Toy Story film series. He is one of the most popular and recognizable film stars worldwide, and is widely regarded as an American cultural icon.',
+  listingCount: '333'
+};
+
 export const listingSeed = [
   {
     title: 'Carrots and lots of \'em ',
@@ -151,16 +169,44 @@ export const listingSeed = [
   },
 ];
 
-export const reviewSeed = {
-  reviewer: {
-    username: 'Shakira87',
-    userImage: 'https://wallpapercave.com/wp/7NLTE5H.jpg'
+export const reviewSeed = [
+  {
+    reviewer: {
+      username: 'Shakira87',
+      userImage: 'https://wallpapercave.com/wp/7NLTE5H.jpg'
+    },
+    reviewee: {
+      username: 'TomDanks311',
+      userImage: 'http://o.aolcdn.com/hss/storage/midas/8bbdc5cc1aafb4f87aecae6f5cab8229/201504112/cast_away-tom-hanks.jpg',
+    },
+    reviewText: 'Carrots are full of vitamins, minerals and fibers that are good for your health. But eating too many carrots can bring in too much beta-carotene the molecule responsible for carrots\' bright orange hue and a precursor of vitamin A. This can lead to excess blood carotene which can discolor the skin. Because of this I cannot reccomend, Tom Hanks just has too many carrots and I\' sick of them.',
+    thumbsUp: 'Not Reccomended',
+    postedDate: '3:11am 3/11/2019'
   },
-  reviewee: {
-    username: 'TomDanks311',
-    userImage: 'http://o.aolcdn.com/hss/storage/midas/8bbdc5cc1aafb4f87aecae6f5cab8229/201504112/cast_away-tom-hanks.jpg',
+  {
+    reviewer: {
+      username: 'Shakira87',
+      userImage: 'https://wallpapercave.com/wp/7NLTE5H.jpg'
+    },
+    reviewee: {
+      username: 'TomDanks311',
+      userImage: 'http://o.aolcdn.com/hss/storage/midas/8bbdc5cc1aafb4f87aecae6f5cab8229/201504112/cast_away-tom-hanks.jpg',
+    },
+    reviewText: 'Carrots are full of vitamins, minerals and fibers that are good for your health. But eating too many carrots can bring in too much beta-carotene the molecule responsible for carrots\' bright orange hue and a precursor of vitamin A. This can lead to excess blood carotene which can discolor the skin. Because of this I cannot reccomend, Tom Hanks just has too many carrots and I\' sick of them.',
+    thumbsUp: 'Not Reccomended',
+    postedDate: '3:11am 3/11/2019'
   },
-  reviewText: 'Carrots are full of vitamins, minerals and fibers that are good for your health. But eating too many carrots can bring in too much beta-carotene the molecule responsible for carrots\' bright orange hue and a precursor of vitamin A. This can lead to excess blood carotene which can discolor the skin. Because of this I cannot reccomend, Tom Hanks just has too many carrots and I\' sick of them.',
-  thumbsUp: false,
-  postedDate: '3:11am 3/11/2019'
-};
+  {
+    reviewer: {
+      username: 'Shakira87',
+      userImage: 'https://wallpapercave.com/wp/7NLTE5H.jpg'
+    },
+    reviewee: {
+      username: 'TomDanks311',
+      userImage: 'http://o.aolcdn.com/hss/storage/midas/8bbdc5cc1aafb4f87aecae6f5cab8229/201504112/cast_away-tom-hanks.jpg',
+    },
+    reviewText: 'Carrots are full of vitamins, minerals and fibers that are good for your health. But eating too many carrots can bring in too much beta-carotene the molecule responsible for carrots\' bright orange hue and a precursor of vitamin A. This can lead to excess blood carotene which can discolor the skin. Because of this I cannot reccomend, Tom Hanks just has too many carrots and I\' sick of them.',
+    thumbsUp: 'Not Reccomended',
+    postedDate: '3:11am 3/11/2019'
+  },
+];
