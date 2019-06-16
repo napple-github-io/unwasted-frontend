@@ -6,7 +6,7 @@ import UserListingThumbList from '../listings/UserListingThumbList';
 import UserProfileDetails from '../profile/UserProfileDetails';
 import { listingSeed, userSeedObj, reviewSeed } from '../../assets/seedData/seedData';
 
-export default function YourProfile() {
+export default function UserProfileDisplay() {
   return (
     <>
       <Header />

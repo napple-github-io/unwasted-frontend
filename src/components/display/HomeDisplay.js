@@ -6,7 +6,7 @@ import MapIndex from '../mapping/MapIndex';
 import PowerUserList from '../userAggregations/PowerUserList';
 import { listingSeed, userSeed } from '../../assets/seedData/seedData';
 
-export default function Home() {
+export default function HomeDisplay() {
   return (
     <>
       <Header />

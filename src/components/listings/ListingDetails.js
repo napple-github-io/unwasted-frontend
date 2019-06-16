@@ -12,14 +12,14 @@ function ListingDetails({ listingDetails }) {
       <section>
         <div>
           <div id="listing-photo-container">
-            <img src={listingDetails.image} alt={listingDetails.title} />
+            <img src={listingDetails.imageUrl} alt={listingDetails.title} />
           </div>
           <div>MAP GOES HERE</div>
         </div>
 
         <div>
-          <span className="listing-location">{listingDetails.location}</span>
-          <span className="listing-location">{listingDetails.zip}</span>
+          <span className="listing-location">{listingDetails.location.street}</span>
+          <span className="listing-location">{listingDetails.location.zip}</span>
           <p>{listingDetails.description}</p>
 
           <h3 id="listing-dietary">Dietary</h3>
@@ -28,17 +28,17 @@ function ListingDetails({ listingDetails }) {
             <li>{listingDetails.dietary.vegetarian}</li>
           </ul>
 
-          <p>Posted {listingDetails.postedTime}</p>
-          <p>Posted {listingDetails.expiration}</p>
+          <p>Posted {listingDetails.postedDate}</p>
+          <p>Expires {listingDetails.expiration}</p>
           <a href="#" className="report-link">REPORT</a>
         </div>
       </section>
 
       <section>
         <div className="user-photo-container">
-          <img src={listingDetails.userImage} alt={listingDetails.userName} />
+          <img src={listingDetails.user.userImage} alt={listingDetails.user.username} />
         </div>
-        <h4>{listingDetails.userName}</h4>
+        <h4>{listingDetails.user.username}</h4>
         <button>CONTACT</button>
       </section>
     </section>

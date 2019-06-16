@@ -7,7 +7,7 @@ import NearbyListingThumbList from '../listings/NearbyListingThumbList';
 import UserListingThumbList from '../listings/UserListingThumbList';
 import { listingSeed, userSeedObj, reviewSeed } from '../../assets/seedData/seedData';
 
-export default function YourProfile() {
+export default function YourProfileDisplay() {
   return (
     <>
       <Header />
