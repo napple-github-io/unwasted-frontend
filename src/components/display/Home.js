@@ -4,14 +4,15 @@ import Footer from './Footer';
 import NearbyListingThumbList from '../listings/NearbyListingThumbList';
 import MapIndex from '../mapping/MapIndex';
 import PowerUserList from '../userAggregations/PowerUserList';
+import { listingSeed, userSeed } from '../../assets/seedData/seedData';
 
 export default function Home() {
   return (
     <>
       <Header />
-      <NearbyListingThumbList />
+      <NearbyListingThumbList nearbyListingList={listingSeed} />
       <MapIndex />
-      <PowerUserList />
+      <PowerUserList powerUserList={userSeed} />
       <Footer />
     </>
   );

@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import NearbyListingThumb from './NearbyListingThumb';
+import ListingThumb from './ListingThumb';
 
 function NearbyListingThumbList({ nearbyListingList }) {
-  const listItem = nearbyListingList.map(nearbyListing => (
-    <li key={nearbyListing}>
-      <NearbyListingThumb nearbyListing={nearbyListing} />
+  const listItem = nearbyListingList.map(listing => (
+    <li key={listing}>
+      <ListingThumb listing={listing} />
     </li>
   ));
 

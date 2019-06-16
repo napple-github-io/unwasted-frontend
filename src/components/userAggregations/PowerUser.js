@@ -5,12 +5,12 @@ function PowerUser({ powerUser }) {
   return (
     <section>
       <div>
-        <img src={powerUser.image} alt={powerUser.name} />
+        <img src={powerUser.userImage} alt={powerUser.username} />
       </div>
       
-      <h4>{powerUser.name}</h4> <img src="./src/assets/icons/poweruser.svg" alt="Power User Icon" />
+      <h4>{powerUser.username}</h4> <img src="./src/assets/icons/poweruser.svg" alt="Power User Icon" />
       <p>{powerUser.listingCount} Listings</p>
-      <p>{powerUser.description}</p>
+      <p>{powerUser.bio}</p>
     </section>
   );
 }
