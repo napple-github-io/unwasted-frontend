@@ -6,14 +6,14 @@ function ContactForm({ user }) {
     <section>
 
       <header>
-        <h2>Contact {user.userName}</h2>
+        <h2>Contact {user.username}</h2>
       </header>
       
       <section>
         <div className="user-image-container">
-          <img src={user.userImage} alt={user.userName} />
+          <img src={user.userImage} alt={user.username} />
         </div>
-        <h4>{user.userName}</h4>
+        <h4>{user.username}</h4>
       </section>
 
       <section>

@@ -1,7 +1,9 @@
 import React from 'react';
 import './display/main.css';
-import AllListingsList from './listings/AllListingsList';
-import { listingSeedArrLong } from '../assets/seedData/seedData';
+import ContactForm from './contact/ContactForm';
+import { userSeedObj } from '../assets/seedData/seedData';
+
+// import AllListingsList from './listings/AllListingsList';
 // import ListingDetails from './listings/ListingDetails';
 // import SignInDisplay from './display/SignInDisplay';
 // import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -11,6 +13,6 @@ import { listingSeedArrLong } from '../assets/seedData/seedData';
 
 export default function App() {
   return (
-    <AllListingsList allListingsList={listingSeedArrLong} />
+    <ContactForm user={userSeedObj} />
   );
 }
