@@ -15,10 +15,12 @@ export default class AllListings extends PureComponent {
   }
 
   componentDidMount() {
+    console.log('comp did mount?');
     this.fetch();
   }
 
   render(){
+    console.log(this.state);
     return <AllListingsList allListingsList={this.state.listings} />;
   }
 }

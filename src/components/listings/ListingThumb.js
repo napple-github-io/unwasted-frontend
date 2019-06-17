@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ListingThumb.css';
+import { Link } from 'react-router-dom'; 
 
 function ListingThumb({ listing }) {
   return (
@@ -11,7 +12,9 @@ function ListingThumb({ listing }) {
       </div>
       
       <div>
-        <h3>{listing.title}</h3>
+        <Link to={`/listings/${listing._id}`}>
+          <h3>{listing.title}</h3>
+        </Link>
         <p id={styles.location}>{listing.location.zip}</p>
         <p id={styles.description}>{listing.description}</p>
         <p id={styles.posted}>Posted {listing.postedDate}</p>

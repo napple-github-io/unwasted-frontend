@@ -3,4 +3,5 @@ import user from './userReducer';
 
 export default combineReducers({
   user,
+  //listing
 });

@@ -7,7 +7,8 @@ import { getUserMongooseId } from '../../selectors/userAuthSelectors';
 
 class CreateListing extends PureComponent {
   static propTypes = {
-    user: PropTypes.string.isRequired
+    user: PropTypes.string.isRequired,
+    history: PropTypes.object.isRequired
   }
 
   state = {
@@ -41,8 +42,11 @@ class CreateListing extends PureComponent {
     event.preventDefault();
     const user = this.props.user;
     const { imageUrl, title, category, street, state, zip, description, dietary, expiration } = this.state;
-    postListingToApi(title, description, imageUrl, category, street, zip, state, dietary, expiration, user);
-    this.setState({ imageUrl: '', title: '', category: '', street: '', state: 'OR', zip: '', description: '', dietary: { dairy: false, gluten: false, shellfish: false, nut: false, vegetarian: false, vegan: false }, postedDate: '', expiration: '' });
+    postListingToApi(title, description, imageUrl, category, street, zip, state, dietary, expiration, user)
+      .then(createdPost => {
+        console.log(createdPost);
+        this.props.history.push(`/listings/${createdPost._id}`);
+      });
   }
  
   render() {

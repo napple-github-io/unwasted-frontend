@@ -14,11 +14,14 @@ export const postListingToApi = (title, description, imageUrl, category, street,
     dietary,
     expiration,
     user
-  })
-    .then(res => console.log(res)); 
+  });
 };
 
 export const getAllListingsFromApi = () => {
   return request('/listings', 'GET');
 };
 
+export const getSingleListingFromApi = listingId => {
+  console.log('attempting fetch');
+  return request(`/listings/${listingId}`, 'GET');
+};
