@@ -12,6 +12,11 @@ import Home from './display/HomeDisplay';
 
 export default function App() {
   return (
+    // HEADER
+    // ROUTER
+      // SWITCH
+        // ROUTES
+    // FOOTER
     <Home />
   );
 }
