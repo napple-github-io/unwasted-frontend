@@ -1,0 +1,23 @@
+@import url('./variables.css');
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 1180px;
+
+  margin: 2rem 0;
+
+  img {
+    width: 17.5rem;
+  }
+
+  ul {
+    display: flex;
+  }
+
+  li {
+    margin-left: 1.875rem;
+  }
+}

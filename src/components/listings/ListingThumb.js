@@ -11,12 +11,10 @@ function ListingThumb({ listing }) {
       </div>
       
       <div>
-        <div>
-          <h3>{listing.title}</h3>
-          <p id={styles.location}>{listing.location.zip}</p>
-          <p id={styles.description}>{listing.description}</p>
-          <p id={styles.posted}>Posted {listing.postedDate}</p>
-        </div>
+        <h3>{listing.title}</h3>
+        <p id={styles.location}>{listing.location.zip}</p>
+        <p id={styles.description}>{listing.description}</p>
+        <p id={styles.posted}>Posted {listing.postedDate}</p>
       </div>
     </section>
   );

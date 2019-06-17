@@ -1,8 +1,9 @@
 import React from 'react';
+import styles from './Header.css';
 
 export default function Header() {
   return (
-    <header>
+    <header className={styles.header}>
       <a href="/"><img src="./src/assets/logos/logogrey.svg" alt="Unwasted" /></a>
       <nav>
         <ul>

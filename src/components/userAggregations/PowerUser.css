@@ -1,0 +1,43 @@
+@import url('../display/variables.css');
+
+.PowerUser{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .userPhotoMid {
+    width: 11.125rem;
+    height: 11.125rem;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: 0 0 .7rem 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $lightgreen;
+
+    img {
+      height: 100%;
+    }
+  }
+
+  span {
+    display: flex;
+
+    img {
+      height: 1.2em;
+      position: relative;
+      top: 3px;
+
+      margin-left: 6px;
+    }
+  }
+
+  #bio {
+    margin: .5rem 0 .25rem 0;
+    overflow: hidden;
+    position: relative; 
+    max-height: 4.1em; 
+  }
+}
