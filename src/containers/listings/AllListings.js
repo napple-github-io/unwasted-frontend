@@ -4,7 +4,8 @@ import { getAllListingsFromApi } from '../../services/listingsApi';
 
 export default class AllListings extends PureComponent {
   state = {
-    listings: []
+    listings: [],
+    category: null
   }
 
   fetch = () => {

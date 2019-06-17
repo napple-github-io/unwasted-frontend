@@ -4,6 +4,7 @@ import styles from './ListingThumb.css';
 import { Link } from 'react-router-dom'; 
 
 function ListingThumb({ listing }) {
+  console.log(listing);
   return (
     <section className={styles.ListingThumb}>
       <div id={styles.image}>
@@ -17,7 +18,7 @@ function ListingThumb({ listing }) {
         </Link>
         <p id={styles.location}>{listing.location.zip}</p>
         <p id={styles.description}>{listing.description}</p>
-        <p id={styles.posted}>Posted {listing.postedDate}</p>
+        <p id={styles.posted}>Posted {listing.postedDate} by <Link to={`/users/${listing.user._id}`}>{listing.user.username}</Link></p>
       </div>
     </section>
   );

@@ -25,6 +25,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@sendgrid/mail": "^6.4.0",
     "auth0-js": "^9.10.4",
     "copy-webpack-plugin": "^5.0.3",
     "promise-middleware-redux": "^1.2.0",

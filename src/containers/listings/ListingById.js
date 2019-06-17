@@ -2,22 +2,45 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import ListingDetails from '../../components/listings/ListingDetails';
 import { getSingleListingFromApi } from '../../services/listingsApi';
+import ContactForm from '../../components/contact/ContactForm';
+import { getUser } from '../../selectors/userAuthSelectors';
+import { connect } from 'react-redux';
+import { sendEmail } from '../../services/emailApi';
 
-export default class ListingById extends PureComponent {
+
+class ListingById extends PureComponent {
   static propTypes = {
-    match: PropTypes.object.isRequired
-    //user
+    match: PropTypes.object.isRequired,
+    currentUser: PropTypes.object.isRequired
   }
 
   state = {
     listing: null,
-    listingUser: {}
+    message: ''
+  }
+
+  changeHandler = ({ target }) => {
+    this.setState({ [target.name]: target.value });
+  }
+
+  submitHandler = event => {
+    event.preventDefault();
+    const { currentUser } = this.props;
+    const { message, listing } = this.state;
+    const email = {
+      to: 'paytlower@gmail.com',
+      from: currentUser.userInfo.email,
+      subject: `Unwasted: Email regarding ${listing.title} from ${listing.user.username}`,
+      html: `<strong>User:${currentUser.userInfo.username} says: ${message}</strong>`,   
+    };
+    console.log(email);
+    sendEmail(email);
   }
   
   fetch = () => {
     return getSingleListingFromApi(this.props.match.params.listingId)
       .then(listing => {
-        this.setState({ listing, listingUser: listing.user });
+        this.setState({ listing });
       });
   }
   
@@ -29,9 +52,20 @@ export default class ListingById extends PureComponent {
     const { listing } = this.state;
     if(!listing) return <h1>Loading</h1>;
     return  (
+      <>
       <ListingDetails listing={this.state.listing} />
+      <ContactForm receivingUser={this.state.listing.user} sendingUser={this.props.currentUser} onChange={this.changeHandler} onSubmit={this.submitHandler}/>
+      </>
     );
   }
 }
 
-//mapstatetoprops to get currentUser
+const mapStateToProps = state => ({
+  currentUser: getUser(state)
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(ListingById)
+;

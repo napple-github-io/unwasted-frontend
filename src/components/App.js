@@ -10,6 +10,7 @@ import Callback from '../containers/Callback';
 import CreateListing from '../containers/listings/CreateListing';
 import AllListings from '../containers/listings/AllListings';
 import ListingById from '../containers/listings/ListingById';
+import UserProfileDisplay from '../containers/users/UserProfileDisplay';
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
         <Route exact path="/listings/new" component={CreateListing} />
         <Route exact path="/callback" component={Callback} />
         <Route exact path="/listings" component={AllListings} />
+        <Route path="/users/:id" component={UserProfileDisplay} />
         <Route path="/listings/:listingId" component={ListingById} />
       </Switch>
     </Router>
