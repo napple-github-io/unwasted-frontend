@@ -13,14 +13,12 @@ export default function Search() {
       <section>
         <h4>Dietary Requirements</h4>
         <ul>
-          <li>
-            <li><input type ="checkbox" name="dairy" value="dairy" />Dairy Free</li>
-            <li><input type ="checkbox" name="gluten" value="gluten" />Gluten Free</li>
-            <li><input type ="checkbox" name="shellfish" value="shellfish" />Shellfish Free</li>
-            <li><input type ="checkbox" name="nut" value="nut" />Nut Free</li>
-            <li><input type ="checkbox" name="vegetarian" value="vegetarian" />Vegetarian</li>
-            <li><input type ="checkbox" name="vegan" value="vegan" />Vegan</li>
-          </li>
+          <li><input type ="checkbox" name="dairy" value="dairy" />Dairy Free</li>
+          <li><input type ="checkbox" name="gluten" value="gluten" />Gluten Free</li>
+          <li><input type ="checkbox" name="shellfish" value="shellfish" />Shellfish Free</li>
+          <li><input type ="checkbox" name="nut" value="nut" />Nut Free</li>
+          <li><input type ="checkbox" name="vegetarian" value="vegetarian" />Vegetarian</li>
+          <li><input type ="checkbox" name="vegan" value="vegan" />Vegan</li>
         </ul>
       </section>
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import PowerUser from './PowerUser';
+import styles from '../listings/Listings.css';
 
 function PowerUserList({ powerUserList }) {
   const listItem = powerUserList.map(powerUser => (
@@ -10,7 +11,7 @@ function PowerUserList({ powerUserList }) {
   ));
 
   return (
-    <section>
+    <section className={styles.listings}>
       <header>
         <h2>Power Users</h2>
         <p>

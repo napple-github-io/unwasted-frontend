@@ -11,6 +11,7 @@ function UserListingThumb({ userListing }) {
       <h4>{userListing.name}</h4>
       <p>{userListing.location}</p>
       <p>{userListing.description}</p>
+      <p className="listing-thumb-posted">Posted $TIME POSTED</p>
     </section>
   );
 }

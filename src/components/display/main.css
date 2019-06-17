@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900&display=swap');
 @import url('variables.css');
 
@@ -8,30 +8,42 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  color: $darkgrey;
+  font-size: .875em;
+}
+
 h1 {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
+  font-size: 7em;
+  line-height: 1.25em;
 }
 
 h2 {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
-
-  padding: 0 0 3px 0;
-  border-bottom: 2px solid black; 
+  font-size: 2.85em;
 }
 
+h3 {
+  font-size: 1.7em;
+}
 
-body {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
-  color: $darkgrey;
-  font-size: .9em;
+h4 {
+  font-size: 1.4em;
+}
+
+p {
+  line-height: 1.4em;
 }
 
 a {
   text-decoration: none;
   color: $midgreen;
+  font-weight: 600;
 }
 
 li {

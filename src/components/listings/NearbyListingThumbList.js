@@ -1,22 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import NearbyListingThumb from './NearbyListingThumb';
+import ListingThumb from './ListingThumb';
+import styles from './Listings.css';
 
 function NearbyListingThumbList({ nearbyListingList }) {
-  const listItem = nearbyListingList.map(nearbyListing => (
-    <li key={nearbyListing}>
-      <NearbyListingThumb nearbyListing={nearbyListing} />
+  const listItem = nearbyListingList.map(listing => (
+    <li key={listing}>
+      <ListingThumb listing={listing} />
     </li>
   ));
 
   return (
-    <section>
+    <section className={styles.listings}>
       <header>
         <h2>Listings Near You</h2>
         <p>
           <a href="#">View All</a>
         </p>
       </header>
+      
       <ul>
         {listItem}
       </ul>

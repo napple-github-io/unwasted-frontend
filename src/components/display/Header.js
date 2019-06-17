@@ -1,9 +1,11 @@
 import React from 'react';
+import styles from './Header.css';
 
 export default function Header() {
   return (
-    <header>
-      <a href="/"><img src="./src/assets/logos/logogrey.svg" alt="Unwasted" /></a>
+    <header className={styles.header}>
+      {/* <a href="/"><img src="./src/assets/logos/logogrey.svg" alt="Unwasted" /></a> */}
+      <a href="/"><aside className={styles.headerLogo}></aside></a>
       <nav>
         <ul>
           <a href="#"><li>Listings</li></a>
