@@ -7,10 +7,21 @@
 
   width: 1180px;
 
-  margin: 2rem 0;
+  padding: 2rem 0;
 
-  img {
+  /* img {
     width: 17.5rem;
+  } */
+
+  aside {
+    width: 17.5rem;
+    height: 2.5rem;
+
+    background-image: url('../../assets/logos/logogrey.svg');
+    background-position: top 2rem left;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 17.5rem;
   }
 
   ul {

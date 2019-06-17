@@ -12,6 +12,10 @@
   margin: 2rem 0 0;
   padding: 1.5rem 0;
 
+  img {
+    margin-right: .75rem;
+  }
+
   ul {
     display: flex;
     justify-content: flex-end;

@@ -1,0 +1,21 @@
+@import url('./variables.css');
+
+.hero {
+  background-image: url('../../assets/images/hero/hero1.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+
+  height: 100vh;
+
+  color: #FFFFFF;
+
+  aside {
+    background-image: url('../../assets/logos/logowhite.svg');
+  }
+
+  a {
+    color: #FFFFFF;
+  }
+}
