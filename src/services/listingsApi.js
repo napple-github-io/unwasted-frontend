@@ -17,3 +17,8 @@ export const postListingToApi = (title, description, imageUrl, category, street,
   })
     .then(res => console.log(res)); 
 };
+
+export const getAllListingsFromApi = () => {
+  return request('/listings', 'GET');
+};
+

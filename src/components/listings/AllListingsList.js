@@ -4,7 +4,7 @@ import ListingThumb from './ListingThumb';
 
 function AllListingsList({ allListingsList }) {
   const listItem = allListingsList.map(listing => (
-    <li key={listing}>
+    <li key={listing._id}>
       <ListingThumb listing={listing} />
     </li>
   ));
@@ -51,9 +51,6 @@ function AllListingsList({ allListingsList }) {
       <section>
         <header>
           <h2>All Listings</h2>
-          <p>
-            <a href="#">View All</a>
-          </p>
         </header>
         <ul>
           {listItem}

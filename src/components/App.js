@@ -1,22 +1,25 @@
 import React from 'react';
 import './display/main.css';
-import ContactForm from './contact/ContactForm';
-import { userSeedObj } from '../assets/seedData/seedData';
-import Home from './display/HomeDisplay';
-// import AllListingsList from './listings/AllListingsList';
-// import ListingDetails from './listings/ListingDetails';
-// import SignInDisplay from './display/SignInDisplay';
-// import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-// import YourProfile from './display/YourProfile';
-// import UserProfile from './display/UserProfile';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { withSession } from '../containers/WithSession';
+import { signup } from '../services/auth';
+// import Review from './reviews/ReviewList';
+import SignUpSubmit from '../containers/auth/SignUpSubmit';
+import SignInSubmit from '../containers/auth/SignInSubmit';
+import Callback from '../containers/Callback';
+import CreateListing from '../containers/listings/CreateListing';
+import AllListings from '../containers/listings/AllListings';
 
 export default function App() {
   return (
-    // HEADER
-    // ROUTER
-      // SWITCH
-        // ROUTES
-    // FOOTER
-    <Home />
+    <Router>
+      <Switch>
+        <Route exact path="/" component={SignInSubmit} />
+        <Route exact path="/signup" component={SignUpSubmit} />
+        <Route exact path="/listings/new" component={CreateListing} />
+        <Route exact path="/callback" component={Callback} />
+        <Route exact path="/listings" component={AllListings} />
+      </Switch>
+    </Router>
   );
 }

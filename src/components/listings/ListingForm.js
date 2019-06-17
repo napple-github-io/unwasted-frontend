@@ -12,7 +12,7 @@ export default function ListingForm({ onSubmit, onChange, title, category, stree
           </div>
           <h4>Upload a photo</h4>
           {/* DISCUSS THIS WITH RYAN M */}
-          <input type="file" id="listing-upload" name="upload" accept="image/*" value={imageUrl} onSubmit={onSubmit} onChange={onChange} />
+          {/* <input type="file" id="listing-upload" name="upload" accept="image/*" value={imageUrl} onSubmit={onSubmit} onChange={onChange} /> */}
         </section>
 
 
