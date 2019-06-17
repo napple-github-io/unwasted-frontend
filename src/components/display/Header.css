@@ -20,9 +20,7 @@
     height: 2.5rem;
 
     background-image: url('../../assets/logos/logogrey.svg');
-    background-position: top 2rem left;
     background-repeat: no-repeat;
-    background-attachment: fixed;
     background-size: 17.5rem;
   }
 
