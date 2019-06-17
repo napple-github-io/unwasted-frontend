@@ -1,7 +1,6 @@
 @import url('./variables.css');
 
 .footer {
-  background: $lightgreen;
 
   display: flex;
   justify-content: space-between;

@@ -7,6 +7,9 @@
   background-attachment: fixed;
   background-size: cover;
 
+  position: relative;
+  display: grid;
+
   height: 100vh;
 
   color: #FFFFFF;
@@ -14,8 +17,16 @@
   aside {
     background-image: url('../../assets/logos/logowhite.svg');
   }
-
+  
   a {
     color: #FFFFFF;
   }
+
+  h1 {
+    align-self: center;
+  }
+}
+
+footer {
+  background: $lightgreen;
 }

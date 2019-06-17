@@ -11,7 +11,7 @@ export default function HomeDisplay() {
   return (
     <>
     <section className={styles.hero}>
-      <Header id={styles.poo} />
+      <Header />
       <h1>End Hunger<br />In Your<br />Community</h1>
     </section>
       <NearbyListingThumbList nearbyListingList={listingSeed} />
