@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function ContactForm({ sendingUser, receivingUser, onChange, onSubmit }) {
-  // console.log('sending', sendingUser);
-  // console.log('reciepient', receivingUser);
+function ContactForm({ receivingUser, onChange, onSubmit }) {
   return (
     <section>
 
@@ -34,7 +32,9 @@ function ContactForm({ sendingUser, receivingUser, onChange, onSubmit }) {
 }
 
 ContactForm.propTypes = {
-  user: PropTypes.object.isRequired
+  receivingUser: PropTypes.object.isRequired,
+  onChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired
 };
 
 export default ContactForm;
