@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import ListingForm from '../../components/listings/ListingForm';
 import { postListingToApi } from '../../services/listingsApi';
 import { getUserMongooseId } from '../../selectors/userAuthSelectors';
+import { withRouter } from 'react-router-dom';
 
 class CreateListing extends PureComponent {
   static propTypes = {
@@ -72,10 +73,10 @@ class CreateListing extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-  user: getUserMongooseId(state)
+  user: getUserMongooseId(state),
 });
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   null
-)(CreateListing);
+)(CreateListing));
