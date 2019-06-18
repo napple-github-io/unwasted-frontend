@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import AllListingsList from '../../components/listings/AllListingsList';
 import { getAllListingsFromApi } from '../../services/listingsApi';
+import Header from '../../components/display/Header';
 
 export default class AllListings extends PureComponent {
   state = {
@@ -22,6 +23,12 @@ export default class AllListings extends PureComponent {
 
   render(){
     console.log(this.state);
-    return <AllListingsList allListingsList={this.state.listings} />;
+    return (
+      <>
+      <Header />
+      <AllListingsList allListingsList={this.state.listings} />
+      </>
+    )
+    ;
   }
 }

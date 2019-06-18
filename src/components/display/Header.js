@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Header.css';
+import { Link } from 'react-router-dom';
 
 export default function Header() {
   return (
@@ -8,8 +9,8 @@ export default function Header() {
       <a href="/"><aside className={styles.headerLogo}></aside></a>
       <nav>
         <ul>
-          <a href="#"><li>Listings</li></a>
-          <a href="#"><li>Post</li></a>
+          <a href="#/myprofile"><li>Listings</li></a>
+          <Link to={'/myprofile'}><li>Post</li></Link>
           <a href="#"><li>Users</li></a>
           <a href="#"><li>Safety</li></a>
           <a href="#"><li>About</li></a>
