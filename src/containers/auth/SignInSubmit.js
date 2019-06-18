@@ -1,8 +1,10 @@
+/* eslint-disable react/no-unescaped-entities */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { signInUser } from '../../actions/getUserActions';
 import SignInForm from '../../components/auth/SignInForm';
+import styles from './SignIn.css';
 
 class SignInSubmit extends PureComponent {
   static propTypes = {
@@ -28,7 +30,37 @@ class SignInSubmit extends PureComponent {
   render() {
     const { email, password } = this.state;
 
-    return <SignInForm email={email} password={password} onSubmit={this.onSubmit} onChange={this.onChange} />;
+    return (
+      <div className={styles.signInBody}>
+        <header className={styles.header}>
+          <a href="/"><aside className={styles.headerLogo}></aside></a>
+        </header>
+
+        <footer className={styles.footer}>
+          <section>
+            <a href="/" target="_blank"><img src="../../src/assets/icons/fbiconwhite.svg" alt="Facebook" /></a>
+            <a href="/" target="_blank"><img src="../../src/assets/icons/twittericonwhite.svg" alt="Twitter" /></a>
+            <a href="/" target="_blank"><img src="../../src/assets/icons/igiconwhite.svg" alt="Instagram" /></a>
+          </section>
+
+          <ul className={styles.bottom}>
+            <li><a href="#">Legal</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li>&copy; Unwasted 2019</li>
+          </ul>
+        </footer>
+
+        <main className={styles.main}>
+          <section>
+            <h1>Let's<br />Get<br />Started<br /></h1>
+          </section>
+
+          <SignInForm className={styles.forms} email={email} password={password} onSubmit={this.onSubmit} onChange={this.onChange} />
+        </main>
+
+        
+      </div>
+    );
   }
 
 }

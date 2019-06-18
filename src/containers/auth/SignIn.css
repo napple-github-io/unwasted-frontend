@@ -1,0 +1,120 @@
+@import url('../../components/display/variables.css');
+
+.signInBody {
+  position: relative;
+}
+
+.header {
+  background: pink;
+
+  position: absolute;
+
+  padding: 2rem 0;
+
+  .headerLogo {
+    width: 17.5rem;
+    height: 2.5rem;
+
+    background-image: url('../../assets/logos/logowhite.svg');
+    background-repeat: no-repeat;
+    background-size: 17.5rem;
+  }
+}
+
+.main {
+  height: 100vh;
+  background-image: url('../../assets/images/hero/hero2.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  h1 {
+    color: white;
+  }
+
+  section {
+    align-self: center;
+  }
+}
+
+.forms {
+  background: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  
+  h2 {
+    border-bottom: $borderbottom;
+    padding: 0 0 1px 0;
+    margin: 0 0 1.875rem 0;
+  }
+
+  div {
+    width: 20.625rem;
+  }
+
+  form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 2.5rem;
+
+    div {
+      display: flex;
+      justify-content: center;
+      background: pink;
+    }
+  }
+  
+  section {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+      div {
+        display: flex;
+        justify-content: center;
+        background: pink;
+      }
+  }
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: transparent;
+
+  width: 100vw;
+
+  padding: 1.5rem 0;
+
+  img {
+    margin-right: .75rem;
+  }
+
+  ul{
+    display: flex;
+
+    font-size: .8em;
+    font-weight: 600;
+
+    li {
+      margin-left: 1.2rem;
+    }
+
+    a {
+      color: $darkgrey;
+    }
+  }
+}
