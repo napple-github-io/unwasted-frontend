@@ -1,12 +1,45 @@
+@import url('../display/variables.css');
+
 .filters {
+  border-top: solid $lightgrey 1px;
+  border-bottom: solid $lightgrey 1px;
+  padding: 1rem 0;
+
   form{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+
+    h5 {
+      font-size: .9em;
+      display: flex;
+      justify-content: space-between;
+
+      span {
+        font-weight: 400;
+      }
+    }
+
+    p, li {
+      font-size: .9em;
+    }
+
+    select, #slider {
+      width: 12.5rem;
+    }
+
+    select {
+      height: 2rem;
+    }
 
     #dietary {
-      background: salmon;
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
+
+      h5 {
+        margin: 0 .4rem 0 0;
+      }
 
       div {
         display: flex;
@@ -15,9 +48,54 @@
           display: flex;
         }
       }
+
+      div:nth-child(1) {
+        li:nth-child(1) {
+          letter-spacing: .4px;
+        }
+      }
+
+      div:nth-child(2) {
+        position: relative;
+        left: 14px;
+      }
+
+      input {
+        margin: 0 .2rem 0 .5rem;
+
+
+
+
+
+        
+      }
+    }
+
+    #distance {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      #slider {
+        position: relative;
+        bottom: 6px;
+
+        -webkit-appearance: none;
+        height: 4px;
+        border-radius: 2px;
+        background: $lightgreen;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+      }
+
+      #slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 14px;
+        height: 14px;
+        background: $midgreen;
+        border-radius: 50%;
+      }
     }
   }
-
-
-  background: pink;
 }

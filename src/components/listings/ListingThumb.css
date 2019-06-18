@@ -2,7 +2,7 @@
 
 .ListingThumb {
   #image{
-    width: 18.75rem;
+    max-width: 18.75rem;
     height: 9.5rem;
     position: relative;
     overflow: hidden;

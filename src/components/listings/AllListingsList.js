@@ -34,7 +34,7 @@ function AllListingsList({ allListingsList }) {
 
           <div id={filters.dietary}>
             <div>
-              <h4>Allergens</h4>
+              <h5>Allergens</h5>
               <ul>
                 <li><input type ="checkbox" name="dairy" value="dairy" />Dairy Free</li>
                 <li><input type ="checkbox" name="gluten" value="gluten" />Gluten Free</li>
@@ -44,7 +44,7 @@ function AllListingsList({ allListingsList }) {
             </div>
 
             <div>
-              <h4>Dietary</h4>
+              <h5>Dietary</h5>
               <ul>
                 <li><input type ="checkbox" name="vegetarian" value="vegetarian" />Vegetarian</li>
                 <li><input type ="checkbox" name="vegan" value="vegan" />Vegan</li>
@@ -52,10 +52,9 @@ function AllListingsList({ allListingsList }) {
             </div>
           </div>
 
-          <div>
-            <h4>Max Distance</h4>
-            <input type="range" min="0" max="100" value="50"></input>
-            <p><strong>$NUM Miles</strong> from your location</p>
+          <div id={filters.distance}>
+            <h5>Max Distance <span>2.5mi</span></h5>
+            <input type="range" min="0" max="50" value="25" id={filters.slider}></input>
           </div>
         </form>
       </section>
