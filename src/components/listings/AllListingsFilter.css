@@ -1,0 +1,23 @@
+.filters {
+  form{
+    display: flex;
+    flex-direction: row;
+
+    #dietary {
+      background: salmon;
+      display: flex;
+      flex-direction: column;
+
+      div {
+        display: flex;
+
+        ul{ 
+          display: flex;
+        }
+      }
+    }
+  }
+
+
+  background: pink;
+}
