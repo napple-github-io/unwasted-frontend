@@ -22,6 +22,9 @@ export const getAllListingsFromApi = () => {
 };
 
 export const getSingleListingFromApi = listingId => {
-  console.log('attempting fetch');
   return request(`/listings/${listingId}`, 'GET');
+};
+
+export const getListingsByUser = userId => {
+  return request(`/listings/user?id=${userId}`, 'GET');
 };
