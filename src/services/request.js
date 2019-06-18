@@ -1,7 +1,6 @@
 import { getToken } from '../selectors/userAuthSelectors';
 import store from '../store.js';
 export const request = (path, method, body) => {
-  console.log(store.getState());
   // eslint-disable-next-line
   return fetch(`${process.env.API_URL}${path}`, {
     method: method,

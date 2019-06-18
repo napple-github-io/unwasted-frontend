@@ -45,7 +45,6 @@ class CreateListing extends PureComponent {
     const { imageUrl, title, category, street, state, zip, description, dietary, expiration } = this.state;
     postListingToApi(title, description, imageUrl, category, street, zip, state, dietary, expiration, user)
       .then(createdPost => {
-        console.log(createdPost);
         this.props.history.push(`/listings/${createdPost._id}`);
       });
   }

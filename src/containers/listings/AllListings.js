@@ -17,12 +17,20 @@ export default class AllListings extends PureComponent {
   }
 
   componentDidMount() {
-    console.log('comp did mount?');
+    // console.log(window.navigator.geolocation);
+    // if(window.navigator.geolocation) {
+    //   navigator.geolocation.getCurrentPosition(function(position) {
+    //     const pos = {
+    //       lat: position.coords.latitude,
+    //       lng: position.coords.longitude
+    //     };
+    //     console.log(pos)
+    //     ;})
+    //   ;}
     this.fetch();
   }
 
   render(){
-    console.log(this.state);
     return (
       <>
       <Header />

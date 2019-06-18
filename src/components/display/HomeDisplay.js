@@ -8,6 +8,7 @@ import { listingSeed, userSeed } from '../../assets/seedData/seedData';
 import styles from './Home.css';
 
 export default function HomeDisplay() {
+
   return (
     <>
     <section className={styles.hero}>
