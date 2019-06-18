@@ -4,8 +4,8 @@ import ListingThumb from './ListingThumb';
 import styles from './Listings.css';
 
 function NearbyListingThumbList({ nearbyListingList }) {
-  const listItem = nearbyListingList.map(listing => (
-    <li key={listing}>
+  const listItem = nearbyListingList.map((listing, i) => (
+    <li key={i}>
       <ListingThumb listing={listing} />
     </li>
   ));

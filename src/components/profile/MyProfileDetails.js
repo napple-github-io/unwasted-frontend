@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function YourProfileDetails({ profile }) {
+function MyProfileDetails({ profile }) {
   return (
     <section>
       <h2>Your Information</h2>
@@ -38,8 +38,8 @@ function YourProfileDetails({ profile }) {
   );
 }
 
-YourProfileDetails.propTypes = {
+MyProfileDetails.propTypes = {
   profile: PropTypes.object.isRequired
 };
 
-export default YourProfileDetails;
+export default MyProfileDetails;

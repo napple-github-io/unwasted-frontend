@@ -5,16 +5,17 @@ import { getUserFromApi } from '../../services/userApi';
 import Header from '../../components/display/Header';
 import Footer from '../../components/display/Footer';
 import ReviewList from '../../components/reviews/ReviewList';
-import YourProfileDetails from '../../components/profile/YourProfileDetails';
+import MyProfileDetails from '../../components/profile/MyProfileDetails';
 import UserListingThumbList from '../../components/listings/UserListingThumbList';
 import NearbyListingThumbList from '../../components/listings/NearbyListingThumbList';
-import { listingSeed, userSeedObj, reviewSeed } from '../../assets/seedData/seedData';
+import { listingSeed } from '../../assets/seedData/seedData';
 import { getListingsByUser } from '../../services/listingsApi';
 import { getUser } from '../../selectors/userAuthSelectors';
+import { getReviewsByUserId } from '../../services/reviewsApi';
 
 class MyProfileDisplay extends PureComponent {
   static propTypes = {
-    user: PropTypes.object.isRequired
+    currentUser: PropTypes.object.isRequired
   }
 
   state = {
@@ -23,31 +24,33 @@ class MyProfileDisplay extends PureComponent {
   }
   
   fetch(){
-    console.log(this.props);
-    return getUserFromApi(this.props.user.userMongooseId)
+    return getUserFromApi(this.props.currentUser.userMongooseId)
       .then(userInfo => {
         return Promise.all(([
           Promise.resolve(userInfo),
-          getListingsByUser(userInfo._id)
+          getListingsByUser(userInfo._id),
+          getReviewsByUserId(userInfo._id)
+
         ]));
       })
-      .then(([userInfo, listings]) => this.setState({ userInfo, listings }));
+      .then(([userInfo, listings, reviews]) => this.setState({ userInfo, listings, reviews }));
 
   }
   componentDidMount(){
+    console.log(this.props);
     this.fetch();
   }
 
   render(){
-    const { userInfo, listings } = this.state;
+    const { userInfo, listings, reviews } = this.state;
     if(!userInfo) return <h1>Loading</h1>;
     return (
     <>
-      {/* <Header /> */}
+      <Header user={userInfo}/>
       <UserListingThumbList userListingList={listings} />
       <NearbyListingThumbList nearbyListingList={listingSeed} />
-      <YourProfileDetails profile={userInfo} />
-      <ReviewList reviewList={reviewSeed} />
+      <MyProfileDetails profile={userInfo} />
+      <ReviewList reviewList={reviews} />
       <Footer />
     </>
     );
@@ -55,7 +58,7 @@ class MyProfileDisplay extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-  user: getUser(state)
+  currentUser: getUser(state)
 });
 
 export default connect(

@@ -48,7 +48,6 @@ class UserProfileDisplay extends PureComponent {
   onSubmit = event => {
     const { reviewText, thumbsUp, userInfo } = this.state;
     let thumbsUpBool = thumbsUp == 'true' ? true : false;
-    console.log(thumbsUpBool);
     event.preventDefault();
     postReviewToApi(reviewText, thumbsUpBool, this.props.currentUser, userInfo);
   }
