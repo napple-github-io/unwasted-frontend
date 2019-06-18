@@ -1,7 +1,7 @@
 import { request } from './request';
 
 export const postListingToApi = (title, description, imageUrl, category, street, zip, state, dietary, expiration, user) => {
-  return request('/listings/new', 'POST', {
+  return request('/listings/', 'POST', {
     title,
     description,
     imageUrl,
@@ -22,6 +22,9 @@ export const getAllListingsFromApi = () => {
 };
 
 export const getSingleListingFromApi = listingId => {
-  console.log('attempting fetch');
   return request(`/listings/${listingId}`, 'GET');
+};
+
+export const getListingsByUser = userId => {
+  return request(`/listings/user?id=${userId}`, 'GET');
 };

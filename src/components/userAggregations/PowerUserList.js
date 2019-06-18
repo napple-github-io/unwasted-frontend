@@ -4,8 +4,8 @@ import PowerUser from './PowerUser';
 import styles from '../listings/Listings.css';
 
 function PowerUserList({ powerUserList }) {
-  const listItem = powerUserList.map(powerUser => (
-    <li key={powerUserList}>
+  const listItem = powerUserList.map((powerUser, i) => (
+    <li key={i}>
       <PowerUser powerUser={powerUser} />
     </li>
   ));

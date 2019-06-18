@@ -4,7 +4,7 @@ import ListingThumb from './ListingThumb';
 
 function UserListingThumbList({ userListingList }) {
   const listItem = userListingList.map(userListing => (
-    <li key={userListing}>
+    <li key={userListing._id}>
       <ListingThumb listing={userListing} />
     </li>
   ));

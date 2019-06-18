@@ -24,7 +24,7 @@ const mapDispatchToProps = (dispatch, props) => ({
     const action = setSession();
     dispatch(action);
     action.payload.then(() => {
-      props.history.push('/listings/');
+      props.history.push('/');
     });
   }
 });

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import ListingForm from '../../components/listings/ListingForm';
 import { postListingToApi } from '../../services/listingsApi';
 import { getUserMongooseId } from '../../selectors/userAuthSelectors';
+import { withRouter } from 'react-router-dom';
 
 class CreateListing extends PureComponent {
   static propTypes = {
@@ -44,7 +45,6 @@ class CreateListing extends PureComponent {
     const { imageUrl, title, category, street, state, zip, description, dietary, expiration } = this.state;
     postListingToApi(title, description, imageUrl, category, street, zip, state, dietary, expiration, user)
       .then(createdPost => {
-        console.log(createdPost);
         this.props.history.push(`/listings/${createdPost._id}`);
       });
   }
@@ -72,10 +72,10 @@ class CreateListing extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-  user: getUserMongooseId(state)
+  user: getUserMongooseId(state),
 });
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   null
-)(CreateListing);
+)(CreateListing));

@@ -54,7 +54,7 @@ class ListingById extends PureComponent {
     return  (
       <>
       <ListingDetails listing={this.state.listing} />
-      <ContactForm receivingUser={this.state.listing.user} sendingUser={this.props.currentUser} onChange={this.changeHandler} onSubmit={this.submitHandler}/>
+      <ContactForm receivingUser={this.state.listing.user} onChange={this.changeHandler} onSubmit={this.submitHandler}/>
       </>
     );
   }
@@ -67,5 +67,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   null
-)(ListingById)
-;
+)(ListingById);

@@ -1,22 +1,32 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './Header.css';
+import { Link } from 'react-router-dom';
 
-export default function Header() {
+function Header({ user }) {
+    
   return (
     <header className={styles.header}>
-      {/* <a href="/"><img src="./src/assets/logos/logogrey.svg" alt="Unwasted" /></a> */}
       <a href="/"><aside className={styles.headerLogo}></aside></a>
       <nav>
         <ul>
-          <a href="#"><li>Listings</li></a>
-          <a href="#"><li>Post</li></a>
-          <a href="#"><li>Users</li></a>
+          <Link to={'/listings'}><li>Listings</li></Link>
+          <Link to={'/listings/new'}><li>Post</li></Link>
+          {user.token && <Link to={`/listings/user?id=${user.userMongooseId}`}><li>My Listings</li></Link>}
           <a href="#"><li>Safety</li></a>
           <a href="#"><li>About</li></a>
-          <a href="#"><li>Login</li></a>
+          {!user.token && <Link to={'/signin'}><li>Login</li></Link>}
+          {user.token && <Link to={'/myprofile'}><li>Profile</li></Link>}
+          {user.token && <a href="#"><li>Logout</li></a>}
           <a href="#"><li>Search</li></a>
         </ul>
       </nav>
     </header>
   );
 }
+
+Header.propTypes = {
+  user: PropTypes.object
+};
+
+export default Header;

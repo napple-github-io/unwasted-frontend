@@ -5,9 +5,9 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <section>
-        <a href="/" target="_blank"><img src="./src/assets/icons/fbicongrey.svg" alt="Facebook" /></a>
-        <a href="/" target="_blank"><img src="./src/assets/icons/twittericongrey.svg" alt="Twitter" /></a>
-        <a href="/" target="_blank"><img src="./src/assets/icons/igicongrey.svg" alt="Instagram" /></a>
+        <a href="/" target="_blank"><img src="../../src/assets/icons/fbicongrey.svg" alt="Facebook" /></a>
+        <a href="/" target="_blank"><img src="../../src/assets/icons/twittericongrey.svg" alt="Twitter" /></a>
+        <a href="/" target="_blank"><img src="../../src/assets/icons/igicongrey.svg" alt="Instagram" /></a>
       </section>
 
       <section>

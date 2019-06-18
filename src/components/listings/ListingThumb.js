@@ -4,7 +4,6 @@ import styles from './ListingThumb.css';
 import { Link } from 'react-router-dom'; 
 
 function ListingThumb({ listing }) {
-  console.log(listing);
   return (
     <section className={styles.ListingThumb}>
       <div id={styles.image}>

@@ -1,9 +1,12 @@
+import { getToken } from '../selectors/userAuthSelectors';
+import store from '../store.js';
 export const request = (path, method, body) => {
   // eslint-disable-next-line
   return fetch(`${process.env.API_URL}${path}`, {
     method: method,
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${getToken(store.getState())}`
     },
     body: body ? JSON.stringify(body) : null
   })//better error message?

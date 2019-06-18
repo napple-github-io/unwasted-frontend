@@ -4,7 +4,7 @@ import ListingThumb from './ListingThumb';
 import styles from './Listings.css';
 import filters from './AllListingsFilter.css';
 
-function AllListingsList({ allListingsList }) {
+function AllListingsList({ title, allListingsList }) {
   const listItem = allListingsList.map(listing => (
     <li key={listing._id}>
       <ListingThumb listing={listing} />
@@ -61,7 +61,7 @@ function AllListingsList({ allListingsList }) {
 
       <section className={styles.listings}>
         <header>
-          <h2>All Listings</h2>
+          <h2>{title}</h2>
         </header>
         <ul>
           {listItem}
@@ -72,7 +72,8 @@ function AllListingsList({ allListingsList }) {
 }
 
 AllListingsList.propTypes = {
-  allListingsList: PropTypes.array.isRequired
+  allListingsList: PropTypes.array.isRequired,
+  title: PropTypes.string
 };
 
 export default AllListingsList;
