@@ -9,7 +9,7 @@ export default function Header() {
       <a href="/"><aside className={styles.headerLogo}></aside></a>
       <nav>
         <ul>
-          <a href="#/myprofile"><li>Listings</li></a>
+          <Link to={'/listings/new'}><li>Listings</li></Link>
           <Link to={'/myprofile'}><li>Post</li></Link>
           <a href="#"><li>Users</li></a>
           <a href="#"><li>Safety</li></a>

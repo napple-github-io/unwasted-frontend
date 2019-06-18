@@ -55,6 +55,7 @@ export const signin = (email, password) => {
 };
 
 export const handleAuth0 = () => {
+  console.log('break here');
   return new Promise((resolve, reject) => {
     auth0.parseHash((error, results) => {
       if(results && results.accessToken && results.idToken) {
@@ -75,6 +76,7 @@ export const handleAuth0 = () => {
 };
 
 export const handleAuthSession = () => {
+  console.log('breaking');
   return handleAuth0()
     .then(authUser => {
       return request(`/auth/getMongooseId?username=${authUser.username}`, 'GET')
