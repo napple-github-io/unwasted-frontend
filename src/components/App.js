@@ -12,19 +12,22 @@ import AllListings from '../containers/listings/AllListings';
 import ListingById from '../containers/listings/ListingById';
 import UserProfileDisplay from '../containers/users/UserProfileDisplay';
 import MyProfileDisplay from '../containers/users/MyProfileDisplay';
+import HomeDisplay from '../containers/HomeDisplay';
 
 export default function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={SignInSubmit} />
+        <Route exact path="/" component={HomeDisplay} />
+        <Route exact path="/signin" component={SignInSubmit} />
         <Route exact path="/signup" component={SignUpSubmit} />
         <Route exact path="/callback" component={Callback} />
+        <Route exact path="/listings" component={AllListings} />
         <Route exact path="/listings/new" component={withSession(CreateListing)} />
-        <Route exact path="/listings" component={withSession(AllListings)} />
         <Route exact path="/myprofile" component={withSession(MyProfileDisplay)} />
         <Route path="/users/:id" component={withSession(UserProfileDisplay)} />
         <Route path="/listings/:listingId" component={withSession(ListingById)} />
+        <Route path="/listings/user/:id" component={withSession(AllListings)} />
       </Switch>
     </Router>
   );

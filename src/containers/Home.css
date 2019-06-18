@@ -1,7 +1,7 @@
-@import url('./variables.css');
+@import url('../components/display/variables.css');
 
 .hero {
-  background-image: url('../../assets/images/hero/hero1.jpg');
+  background-image: url('../assets/images/hero/hero1.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -15,7 +15,7 @@
   color: #FFFFFF;
 
   aside {
-    background-image: url('../../assets/logos/logowhite.svg');
+    background-image: url('../assets/logos/logowhite.svg');
   }
   
   a {
