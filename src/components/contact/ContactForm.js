@@ -23,7 +23,7 @@ function ContactForm({ receivingUser, onChange, onSubmit }) {
           <textarea name="message" placeholder="Don't be shy..." onChange={onChange}></textarea>
 
           <input type="checkbox" name="legal" required/>Consent blurb
-          <button>SUBMIT</button>
+          <button>Send Message</button>
         </form>
       </section>
 
