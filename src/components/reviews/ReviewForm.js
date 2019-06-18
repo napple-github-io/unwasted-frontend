@@ -13,8 +13,8 @@ function ReviewForm({ currentUser, reviewee, onChange, onSubmit }) {
       <section>
         <form onSubmit={onSubmit}>
           <textarea name="review" placeholder="Tell us how ya really feel..." onChange={onChange}></textarea>
-          <label><input type="radio" value="true"></input>Up</label>
-          <label><input type="radio" value="false"></input>Down</label>
+          <label><input type="radio" value="true" name="thumbsUp" onChange={onChange}></input>Up</label>
+          <label><input type="radio" value="false" name="thumbsUp" onChange={onChange}></input>Down</label>
           {currentUser.token && <button>Submit Review</button>}
           {!currentUser.token && <button disabled={'true'}>Submit Review</button>}
           {!currentUser.token && <Link to={'/signin'}>Sign In To Leave Review</Link>}

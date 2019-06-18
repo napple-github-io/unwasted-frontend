@@ -24,7 +24,7 @@ class UserProfileDisplay extends PureComponent {
     userInfo: null,
     listings: null,
     review: '',
-    thumbsUp: false // parse to boolean from string value
+    thumbsUp: 'false'
   }
 
   fetch(){
@@ -45,13 +45,16 @@ class UserProfileDisplay extends PureComponent {
 
   onSubmit = event => {
     const { review, thumbsUp, userInfo } = this.state;
+    let thumbsUpBool = thumbsUp == 'true' ? true : false;
+    console.log(thumbsUpBool);
     event.preventDefault();
-    postReviewToApi(review, thumbsUp, this.props.currentUser, userInfo);
+    postReviewToApi(review, thumbsUpBool, this.props.currentUser, userInfo);
   }
 
 
   componentDidMount(){
     this.fetch();
+    console.log(this.props.match);
   }
 
   render(){
