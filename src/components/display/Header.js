@@ -16,7 +16,7 @@ function Header({ user }) {
           <a href="#"><li>Users</li></a>
           <a href="#"><li>Safety</li></a>
           <a href="#"><li>About</li></a>
-          {!user.token && <a href="#"><li>Login</li></a>}
+          {!user.token && <Link to={'/signin'}><li>Login</li></Link>}
           {user.token && <a href="#"><li>Profile</li></a>}
           {user.token && <a href="#"><li>Logout</li></a>}
           <a href="#"><li>Search</li></a>

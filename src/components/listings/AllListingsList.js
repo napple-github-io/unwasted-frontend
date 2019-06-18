@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ListingThumb from './ListingThumb';
 
-function AllListingsList({ allListingsList }) {
+function AllListingsList({ title, allListingsList }) {
   const listItem = allListingsList.map(listing => (
     <li key={listing._id}>
       <ListingThumb listing={listing} />
@@ -50,7 +50,7 @@ function AllListingsList({ allListingsList }) {
 
       <section>
         <header>
-          <h2>All Listings</h2>
+          <h2>{title}</h2>
         </header>
         <ul>
           {listItem}
@@ -61,7 +61,8 @@ function AllListingsList({ allListingsList }) {
 }
 
 AllListingsList.propTypes = {
-  allListingsList: PropTypes.array.isRequired
+  allListingsList: PropTypes.array.isRequired,
+  title: PropTypes.string
 };
 
 export default AllListingsList;
