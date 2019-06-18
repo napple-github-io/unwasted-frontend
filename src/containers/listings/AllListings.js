@@ -6,6 +6,7 @@ import Header from '../../components/display/Header';
 import { getUser } from '../../selectors/userAuthSelectors';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import Footer from '../../components/display/Footer';
 
 class AllListings extends PureComponent {
   static propTypes = {
@@ -60,6 +61,7 @@ class AllListings extends PureComponent {
       <>
       <Header user={this.props.currentUser}/>
       <AllListingsList title={this.state.title} allListingsList={this.state.listings} />
+      <Footer />
       </>
     )
     ;

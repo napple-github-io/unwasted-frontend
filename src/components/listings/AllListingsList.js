@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ListingThumb from './ListingThumb';
+import styles from './Listings.css';
+import filters from './AllListingsFilter.css';
 
 function AllListingsList({ title, allListingsList }) {
   const listItem = allListingsList.map(listing => (
@@ -11,7 +13,7 @@ function AllListingsList({ title, allListingsList }) {
 
   return (
     <>
-      <section>
+      <section className={filters.filters}>
         <form>
           <select id="listing-category" name="category">
             <option value="" hidden>Category</option>
@@ -30,25 +32,34 @@ function AllListingsList({ title, allListingsList }) {
             <option value="beverages">Beverages</option>
           </select>
 
-          <div>
-            <h4>Allergens</h4>
-            <ul>
-              <li><input type ="checkbox" name="dairy" value="dairy" />Dairy Free</li>
-              <li><input type ="checkbox" name="gluten" value="gluten" />Gluten Free</li>
-              <li><input type ="checkbox" name="shellfish" value="shellfish" />Shellfish Free</li>
-              <li><input type ="checkbox" name="nut" value="nut" />Nut Free</li>
-            </ul>
+          <div id={filters.dietary}>
+            <div>
+              <h5>Allergens</h5>
+              <ul>
+                <li><input type ="checkbox" name="dairy" value="dairy" />Dairy Free</li>
+                <li><input type ="checkbox" name="gluten" value="gluten" />Gluten Free</li>
+                <li><input type ="checkbox" name="shellfish" value="shellfish" />Shellfish Free</li>
+                <li><input type ="checkbox" name="nut" value="nut" />Nut Free</li>
+              </ul>
+            </div>
 
-            <h4>Dietary</h4>
-            <ul>
-              <li><input type ="checkbox" name="vegetarian" value="vegetarian" />Vegetarian</li>
-              <li><input type ="checkbox" name="vegan" value="vegan" />Vegan</li>
-            </ul>
+            <div>
+              <h5>Dietary</h5>
+              <ul>
+                <li><input type ="checkbox" name="vegetarian" value="vegetarian" />Vegetarian</li>
+                <li><input type ="checkbox" name="vegan" value="vegan" />Vegan</li>
+              </ul>
+            </div>
+          </div>
+
+          <div id={filters.distance}>
+            <h5>Max Distance <span>2.5mi</span></h5>
+            <input type="range" min="0" max="50" value="25" id={filters.slider}></input>
           </div>
         </form>
       </section>
 
-      <section>
+      <section className={styles.listings}>
         <header>
           <h2>{title}</h2>
         </header>

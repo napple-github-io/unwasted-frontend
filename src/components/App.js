@@ -10,6 +10,7 @@ import Callback from '../containers/Callback';
 import CreateListing from '../containers/listings/CreateListing';
 import AllListings from '../containers/listings/AllListings';
 import ListingById from '../containers/listings/ListingById';
+import HomeDisplay from './display/HomeDisplay';
 import UserProfileDisplay from '../containers/users/UserProfileDisplay';
 import MyProfileDisplay from '../containers/users/MyProfileDisplay';
 import HomeDisplay from '../containers/HomeDisplay';

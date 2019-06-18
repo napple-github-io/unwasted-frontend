@@ -7,6 +7,7 @@
     display: grid;
     grid-template-columns: $threecol;
     grid-column-gap: $colgap;
+    grid-row-gap: $colgap;
   }
 
   header {
