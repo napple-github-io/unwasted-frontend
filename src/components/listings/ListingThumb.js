@@ -7,7 +7,7 @@ function ListingThumb({ listing }) {
   return (
     <section className={styles.ListingThumb}>
       <div id={styles.image}>
-        <img src={listing.imageUrl} alt={listing.title} />
+        <img src={listing.imageUrl || 'https://billystrings.com/wp-content/uploads/2019/04/2529_070818_dg_0017-Edit-688x1024.jpg'} alt={listing.title} />
         <span>2.3 mi</span>
       </div>
       
