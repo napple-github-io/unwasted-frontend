@@ -11,7 +11,7 @@ import { listingSeed, userSeedObj, reviewSeed } from '../../assets/seedData/seed
 import { getListingsByUser } from '../../services/listingsApi';
 import { connect } from 'react-redux';
 import { getUser } from '../../selectors/userAuthSelectors';
-import { postReviewToApi } from '../../services/reviewsApi';
+import { postReviewToApi, getReviewsByUserId } from '../../services/reviewsApi';
 
 class UserProfileDisplay extends PureComponent {
   static propTypes = {
@@ -23,8 +23,9 @@ class UserProfileDisplay extends PureComponent {
   state = {
     userInfo: null,
     listings: null,
-    review: '',
-    thumbsUp: 'false'
+    reviewText: '',
+    thumbsUp: 'false',
+    reviews: []
   }
 
   fetch(){
@@ -32,10 +33,11 @@ class UserProfileDisplay extends PureComponent {
       .then(userInfo => {
         return Promise.all(([
           Promise.resolve(userInfo),
-          getListingsByUser(this.props.match.params.id)
+          getListingsByUser(this.props.match.params.id),
+          getReviewsByUserId(this.props.match.params.id)
         ]));
       })
-      .then(([userInfo, listings]) => this.setState({ userInfo, listings }));
+      .then(([userInfo, listings, reviews]) => this.setState({ userInfo, listings, reviews }));
 
   }
 
@@ -44,11 +46,11 @@ class UserProfileDisplay extends PureComponent {
   }
 
   onSubmit = event => {
-    const { review, thumbsUp, userInfo } = this.state;
+    const { reviewText, thumbsUp, userInfo } = this.state;
     let thumbsUpBool = thumbsUp == 'true' ? true : false;
     console.log(thumbsUpBool);
     event.preventDefault();
-    postReviewToApi(review, thumbsUpBool, this.props.currentUser, userInfo);
+    postReviewToApi(reviewText, thumbsUpBool, this.props.currentUser, userInfo);
   }
 
 
@@ -58,14 +60,14 @@ class UserProfileDisplay extends PureComponent {
   }
 
   render(){
-    const { userInfo, listings } = this.state;
+    const { userInfo, listings, reviews } = this.state;
     const { currentUser } = this.props;
     if(!userInfo) return <h1>Loading</h1>;
     return (
     <>
       <Header user={currentUser} />
       <UserProfileDetails userProfileDetails={userInfo} />
-      <ReviewList reviewList={reviewSeed} />
+      <ReviewList reviewList={reviews} />
       <ReviewForm currentUser={currentUser} reviewee={userInfo} onChange={this.onChange} onSubmit={this.onSubmit} />
       <UserListingThumbList userListingList={listings} />
       <Footer />

@@ -4,7 +4,7 @@ import Review from './Review';
 
 function ReviewList({ reviewList }) {
   const listItem = reviewList.map(review => (
-    <li key={reviewList}>
+    <li key={review._id}>
       <Review review={review} />
     </li>
   ));
