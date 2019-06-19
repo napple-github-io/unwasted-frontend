@@ -5,7 +5,9 @@
   justify-content: space-between;
   align-items: center;
 
-  padding: 2rem 0;
+  padding: 2rem;
+
+  width: 100%;
 
   aside {
     width: 17.5rem;
