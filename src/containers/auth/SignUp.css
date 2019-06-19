@@ -1,0 +1,19 @@
+@import url('../../components/display/variables.css');
+
+.signUpBody {
+  position: relative;
+}
+
+.header {
+
+  padding: 2rem 0 2rem 2rem;
+
+  .headerLogo {
+    width: 17.5rem;
+    height: 2.5rem;
+
+    background-image: url('../../assets/logos/logogrey.svg');
+    background-repeat: no-repeat;
+    background-size: 17.5rem;
+  }
+}
