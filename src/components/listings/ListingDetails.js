@@ -1,32 +1,36 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './ListingDetails.css';
 
 function ListingDetails({ listing }) {
   console.log(listing);
   return (
-    <section>
-      <section>
-        <h2>{listing.title}</h2>
-        <h3>{listing.category}</h3>
-      </section>
+    <>
+    <header className={styles.header}>
+      <h2>{listing.title}</h2>
+      <h3>{listing.category}</h3>
+    </header>
 
-      <section>
+    <main className={styles.listingDetails}>
+      <section className={styles.left}>
         <div>
-          <div id="listing-photo-container">
+          <div id={styles.listingPhotoContainer}>
             <img src={listing.imageUrl} alt={listing.title} />
           </div>
           <div>MAP GOES HERE</div>
         </div>
+      </section>
 
+      <section className={styles.center}>
         <div>
           <span className="listing-location">{listing.location.street}</span>
           <span className="listing-location">{listing.location.zip}</span>
           <p>{listing.description}</p>
 
-          <h3 id="listing-dietary">Dietary</h3>
+          <h4 id="listing-dietary">Dietary</h4>
           <ul>
-            {/* <li>{listing.dietary.nut}</li> */}
-            {/* <li>{listing.dietary.vegetarian}</li> */}
+            <li>{listing.dietary.nut}</li>
+            <li>{listing.dietary.vegetarian}</li>
           </ul>
 
           <p>Posted {listing.postedDate}</p>
@@ -35,14 +39,14 @@ function ListingDetails({ listing }) {
         </div>
       </section>
 
-      <section>
-        {/* <div className="user-photo-container">
+      <section className={styles.right}>
+        <div className={styles.userPhotoContainer}>
           <img src={listing.user.userImage} alt={listing.user.username} />
         </div>
-        <h4>{listing.user.username}</h4> */}
-        <button>CONTACT</button>
+        <h5>{listing.user.username}</h5>
       </section>
-    </section>
+    </main>
+    </>
   );
 }
 
