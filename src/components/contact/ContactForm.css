@@ -1,0 +1,14 @@
+@import url('../display/variables.css');
+
+.contactFormContainer {
+  background: greenyellow;
+
+  display: flex;
+  flex-direction: column;
+
+  .contactForm {
+    background: purple;
+    display: flex;
+    flex-direction: column;
+  }
+}

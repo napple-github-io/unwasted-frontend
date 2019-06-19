@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import ListingDetails from '../../components/listings/ListingDetails';
 import { getSingleListingFromApi } from '../../services/listingsApi';
-import ContactForm from '../../components/contact/ContactForm';
 import { getUser } from '../../selectors/userAuthSelectors';
 import { connect } from 'react-redux';
 import { sendEmail } from '../../services/emailApi';
@@ -63,10 +62,8 @@ class ListingById extends PureComponent {
       <>
       <Header user={this.props.currentUser}/>
       {/* <ListingDetails listing={this.state.listing} /> */}
-      {/* <ListingDetails listing={listingSeedObj} /> */}
       <ListingDetails listing={listingSeedObj} receivingUser={listingSeedObj.user} onChange={this.changeHandler} onSubmit={this.submitHandler} />
       {/* <ContactForm receivingUser={this.state.listing.user} onChange={this.changeHandler} onSubmit={this.submitHandler}/> */}
-      {/* <ContactForm receivingUser={listingSeedObj.user} onChange={this.changeHandler} onSubmit={this.submitHandler}/> */}
       <Footer />
       </>
     );

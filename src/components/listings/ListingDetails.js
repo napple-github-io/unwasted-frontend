@@ -4,7 +4,6 @@ import styles from './ListingDetails.css';
 import ContactForm from '../contact/ContactForm';
 
 function ListingDetails({ listing, receivingUser, onChange, onSubmit }) {
-  console.log(listing);
   return (
     <>
     <header className={styles.header}>
@@ -28,15 +27,17 @@ function ListingDetails({ listing, receivingUser, onChange, onSubmit }) {
           <span className="listing-location">{listing.location.zip}</span>
           <p>{listing.description}</p>
 
-          <h4 id="listing-dietary">Dietary</h4>
-          <ul>
+          <h4>Dietary</h4>
+          <ul className={styles.dietary}>
             <li>{listing.dietary.nut}</li>
             <li>{listing.dietary.vegetarian}</li>
           </ul>
 
-          <p>Posted {listing.postedDate}</p>
-          <p>Expires {listing.expiration}</p>
-          <a href="#" className="report-link">REPORT</a>
+          <p className={styles.date}>Posted {listing.postedDate}</p>
+          <div className={styles.bottomRow}>
+            <p className={styles.date}>Expires {listing.expiration}</p>
+            <a href="#" className="report-link">REPORT</a>
+          </div>
         </div>
 
         <ContactForm receivingUser={receivingUser} onChange={onChange} onSubmit={onSubmit} />
@@ -54,7 +55,10 @@ function ListingDetails({ listing, receivingUser, onChange, onSubmit }) {
 }
 
 ListingDetails.propTypes = {
-  listing: PropTypes.object.isRequired
+  listing: PropTypes.object.isRequired,
+  receivingUser: PropTypes.object.isRequired,
+  onChange: PropTypes.func,
+  onSubmit: PropTypes.func
 };
 
 export default ListingDetails;

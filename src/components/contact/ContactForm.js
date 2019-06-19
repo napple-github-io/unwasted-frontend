@@ -1,31 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './ContactForm.css';
 
 function ContactForm({ receivingUser, onChange, onSubmit }) {
   return (
-    <section>
+    <section className={styles.contactFormContainer}>
 
       <header>
-        <h2>Contact {receivingUser.username}</h2>
+        <h4>Contact {receivingUser.username}</h4>
       </header>
       
-      <section>
+      {/* <section>
         <div className="user-image-container">
           <img src={receivingUser.userImage} alt={receivingUser.username} />
         </div>
         <h4>{receivingUser.username}</h4>
-      </section>
+      </section> */}
 
-      <section>
-        <form onSubmit={onSubmit}>
-          <h4>Send an email to {receivingUser.username}</h4>
+      <form onSubmit={onSubmit} className={styles.contactForm}>
+        {/* <h4>Send an email to {receivingUser.username}</h4> */}
 
-          <textarea name="message" placeholder="Don't be shy..." onChange={onChange}></textarea>
+        <textarea name="message" placeholder="Say hello!" onChange={onChange}></textarea>
 
-          <input type="checkbox" name="legal" required/>Consent blurb
-          <button>Send Message</button>
-        </form>
-      </section>
+        <label><input type="checkbox" name="legal" required/>Consent blurb</label>
+        <button>Send Message</button>
+      </form>
 
     </section>
   );

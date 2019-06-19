@@ -43,6 +43,33 @@
   .center {
     background: #cccccc;
 
+    h4 {
+      border-bottom: $borderbottom;
+      padding: 0 0 1px 0;
+      margin: 1.5rem 0 .5rem 0;
+    }
+
+    .dietary {
+      font-weight: 700;
+      margin: 0 0 .75rem 0;
+    }
+
+    .date {
+      color: $midgreen;
+      font-style: italic;
+    }
+
+    .bottomRow {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+
+      a {
+        font-weight: 400;
+        font-size: .8em;
+        font-style: italic;
+      }
+    }
   }
   
   .right {
