@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom'; 
 
 function SignInForm({ onSubmit, onChange, email, password, className }) {
   return (
@@ -17,7 +18,7 @@ function SignInForm({ onSubmit, onChange, email, password, className }) {
         <section>
           <h2>New Users</h2>
           <div>
-            <button>Sign Up</button>
+            <Link to={'/signup'}><button>Sign Up</button></Link>
           </div>
         </section>
       </div>

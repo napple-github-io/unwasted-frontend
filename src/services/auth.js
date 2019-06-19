@@ -9,7 +9,7 @@ const auth0 = new WebAuth({
   scope: 'openid profile',
 });
 
-export const signup = (email, password, username, street, state, firstName, lastName, zip) => {
+export const signup = (email, password, username, street, state, firstName, lastName, zip, bio, city) => {
   return new Promise((resolve, reject) =>{
     auth0.signup({
       email: email,
@@ -32,9 +32,11 @@ export const signup = (email, password, username, street, state, firstName, last
         lastName,
         location: {
           street,
+          city,
           state,
           zip
         },
+        bio,
         authId: results.Id
       })
         .then(res => console.log(res));
