@@ -6,12 +6,16 @@ import ContactForm from '../../components/contact/ContactForm';
 import { getUser } from '../../selectors/userAuthSelectors';
 import { connect } from 'react-redux';
 import { sendEmail } from '../../services/emailApi';
+import Header from '../../components/display/Header';
+import Footer from '../../components/display/Footer';
+import loadStyles from '../Loader.css';
+import { listingSeedObj } from '../../assets/seedData/seedData';
 
 
 class ListingById extends PureComponent {
   static propTypes = {
     match: PropTypes.object.isRequired,
-    currentUser: PropTypes.object.isRequired
+    currentUser: PropTypes.object
   }
 
   state = {
@@ -49,12 +53,21 @@ class ListingById extends PureComponent {
   }
   
   render(){
-    const { listing } = this.state;
-    if(!listing) return <h1>Loading</h1>;
+    // const { listing } = this.state;
+    // if(!listing) return (
+    //   <div className={loadStyles.loading}>
+    //     <div className={loadStyles.loader}></div>
+    //   </div>
+    // );
     return  (
       <>
-      <ListingDetails listing={this.state.listing} />
-      <ContactForm receivingUser={this.state.listing.user} onChange={this.changeHandler} onSubmit={this.submitHandler}/>
+      <Header user={this.props.currentUser}/>
+      {/* <ListingDetails listing={this.state.listing} /> */}
+      {/* <ListingDetails listing={listingSeedObj} /> */}
+      <ListingDetails listing={listingSeedObj} receivingUser={listingSeedObj.user} onChange={this.changeHandler} onSubmit={this.submitHandler} />
+      {/* <ContactForm receivingUser={this.state.listing.user} onChange={this.changeHandler} onSubmit={this.submitHandler}/> */}
+      {/* <ContactForm receivingUser={listingSeedObj.user} onChange={this.changeHandler} onSubmit={this.submitHandler}/> */}
+      <Footer />
       </>
     );
   }

@@ -59,7 +59,7 @@
 
       input {
         margin: 0 .3rem 0 .5rem;
-
+        height: 12px;
         border: 1px solid pink;
       }
     }

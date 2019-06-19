@@ -22,24 +22,7 @@ span {
   display: none;
 }
 
-label {
-  font-size: .8em;
-  font-weight: 400;
-  font-style: italic;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  margin: 0 0 1.875rem 0;
-
-
-  
-  input {
-    padding: 0;
-    margin: 0 6px 0 0;
-  }
-}
 
 .footer {
   display: flex;
@@ -126,4 +109,6 @@ textarea {
     display: flex;
     justify-content: center;
   }
+
+  
 }

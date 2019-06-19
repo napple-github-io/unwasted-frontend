@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { setSession } from '../actions/getUserActions';
 import { getUserAuthId } from '../selectors/userAuthSelectors';
-import styles from './Callback.css';
+import styles from './Loader.css';
 
 class Callback extends PureComponent {
   static propTypes = {
@@ -17,7 +17,7 @@ class Callback extends PureComponent {
 
   render() {
     return (
-      <div className={styles.Callback}>
+      <div className={styles.loading}>
         <div className={styles.loader}></div>
       </div>
     );

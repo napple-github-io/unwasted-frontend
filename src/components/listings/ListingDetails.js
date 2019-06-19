@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ListingDetails.css';
+import ContactForm from '../contact/ContactForm';
 
-function ListingDetails({ listing }) {
+function ListingDetails({ listing, receivingUser, onChange, onSubmit }) {
   console.log(listing);
   return (
     <>
@@ -37,6 +38,8 @@ function ListingDetails({ listing }) {
           <p>Expires {listing.expiration}</p>
           <a href="#" className="report-link">REPORT</a>
         </div>
+
+        <ContactForm receivingUser={receivingUser} onChange={onChange} onSubmit={onSubmit} />
       </section>
 
       <section className={styles.right}>

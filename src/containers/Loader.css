@@ -1,6 +1,6 @@
 @import url('../components/display/variables.css');
 
-.Callback {
+.loading {
   width: 100vw;
   height: 100vh;
   display: flex;

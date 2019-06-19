@@ -26,6 +26,7 @@ class AllListings extends PureComponent {
         this.setState({ listings });
       });
   }
+  
   fetchMyListings = () => {
     const userId = this.props.location.search.slice(4);
     return getListingsByUser(userId)
