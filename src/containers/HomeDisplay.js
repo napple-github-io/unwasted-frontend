@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Header from '../components/display/Header';
 import Footer from '../components/display/Footer';
 import NearbyListingThumbList from '../components/listings/NearbyListingThumbList';
-// import MapIndex from '../mapping/MapIndex';
+import Map from '../components/mapping/Map';
 import PowerUserList from '../components/userAggregations/PowerUserList';
 import { listingSeed, userSeed } from '../assets/seedData/seedData';
 import styles from './Home.css';
@@ -21,7 +21,7 @@ class HomeDisplay extends PureComponent {
     userLat: '',
     userLong: '',
     listings: [],
-    map: null
+    mapUrl: ''
   }
 
   fetchListings = () => {
@@ -33,11 +33,8 @@ class HomeDisplay extends PureComponent {
 
   getUserLocation = () => {
     if(window.navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function(position) {
-        const userPosition = {
-          lat: position.coords.latitude,
-          long: position.coords.longitude };
-        return userPosition;
+      return new Promise(function(resolve, reject) {
+        navigator.geolocation.getCurrentPosition(resolve, reject);
       });
     } else {
       throw 'User must allow Location services to search by current location';
@@ -45,20 +42,36 @@ class HomeDisplay extends PureComponent {
   }
 
   fetchMap = () => {
-    getListingMap(this.state.userLat, this.state.userLong, this.state.listings);
+    const { userLat, userLong, listings } = this.state;
+    const listingsArray = listings.map(listing => {
+      return listing.location.street + ' ' + listing.location.zip;
+    });
+
+    console.log(listingsArray);
+    const mapUrl = getListingMap(userLat, userLong, listingsArray);
+    this.setState({ mapUrl });
   }
 
   componentDidMount(){
-    return this.GetUserLocation()
-      .then(userPosition => this.setState({ userLat: userPosition.lat, userLong: userPosition.long }))
-      .then(() => this.fetchListings())
-      .then(() => this.fetchMap())
-      .then(map => {
-        if(this.state.userLat && this.state.userLong) {
-          console.log(map);
-          this.setState({ map });
-        }
-      });
+    this.getUserLocation()
+      .then(position => {
+        console.log(position.coords.latitude);
+        this.setState({ userLat: position.coords.latitude, userLong: position.coords.longitude });
+      })
+      .then(() => this.fetchMap());
+
+
+
+    // return this.GetUserLocation()
+    //   .then(userPosition => this.setState({ userLat: userPosition.lat, userLong: userPosition.long }))
+    //   .then(() => this.fetchListings())
+    //   .then(() => this.fetchMap())
+    //   .then(map => {
+    //     if(this.state.userLat && this.state.userLong) {
+    //       console.log(map);
+    //       this.setState({ map });
+    //     }
+    //   });
   }
 
   render() {
@@ -69,7 +82,7 @@ class HomeDisplay extends PureComponent {
         <h1>End Hunger<br />In Your<br />Community</h1>
       </section>
         <NearbyListingThumbList nearbyListingList={listingSeed} />
-        {/* <MapIndex /> */}
+        <Map mapUrl={this.state.mapUrl} />
         <PowerUserList powerUserList={userSeed} />
         <Footer />
       </>
@@ -85,3 +98,5 @@ export default connect(
   mapStateToProps,
   null
 )(HomeDisplay);
+
+
