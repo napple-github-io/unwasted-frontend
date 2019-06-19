@@ -1,7 +1,7 @@
 @import url('../display/variables.css');
 
 .header {
-  width: 1180px;
+  width: 980px;
 
 
   display: flex;
@@ -14,7 +14,7 @@
 }
 
 .listingDetails {
-  width: 1180px;
+  width: 980px;
 
   display: grid;
   grid-template-columns: 18.75rem 1fr 11.25rem;

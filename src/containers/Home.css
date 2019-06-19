@@ -8,7 +8,16 @@
   background-size: cover;
 
   position: relative;
-  display: grid;
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: 2rem;
+
+  div {
+    display: flex;
+    width: 980px;
+    align-items: center;
+  }
 
   height: 100vh;
 
@@ -31,6 +40,9 @@
   }
 }
 
-footer {
-  background: $lightgreen;
+.mainHome {
+  display: grid;
+  grid-row-gap: $colgap;
+  justify-content: center;
 }
+

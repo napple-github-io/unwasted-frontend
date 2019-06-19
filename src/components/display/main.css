@@ -19,7 +19,7 @@ body {
 h1 {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
-  font-size: 7em;
+  font-size: 8em;
   line-height: 1.05em;
   letter-spacing: .02em;
 }
@@ -108,4 +108,8 @@ select {
   border-radius: 0;
 
   padding: 0 6px;
+}
+
+footer {
+  background: $lightgreen;
 }

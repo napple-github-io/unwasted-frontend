@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import Header from '../components/display/Header';
 import Footer from '../components/display/Footer';
 import NearbyListingThumbList from '../components/listings/NearbyListingThumbList';
-// import MapIndex from '../mapping/MapIndex';
 import PowerUserList from '../components/userAggregations/PowerUserList';
 import { listingSeed, userSeed } from '../assets/seedData/seedData';
 import styles from './Home.css';
@@ -20,12 +19,17 @@ class HomeDisplay extends PureComponent {
       <>
       <section className={styles.hero}>
         <Header user={this.props.currentUser} />
-        <h1>End Hunger<br />In Your<br />Community</h1>
+        <div>
+          <h1>End Hunger<br />In Your<br />Community</h1>
+        </div>
       </section>
+
+      <div className={styles.mainHome}>
         <NearbyListingThumbList nearbyListingList={listingSeed} />
-        {/* <MapIndex /> */}
         <PowerUserList powerUserList={userSeed} />
-        <Footer />
+      </div>
+
+      <Footer />
       </>
     );
   }
