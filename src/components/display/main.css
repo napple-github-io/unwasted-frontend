@@ -75,3 +75,23 @@ button:hover {
   color: $midgreen;
   font-style: italic;
 }
+
+select {
+  appearance: none;
+
+  height: 2rem;
+  color: $midgreen;
+  font-size: 1em;
+  font-style: italic;
+
+  background: #ffffff;
+  background-image: url('../../assets/icons/downarrow.svg');
+  background-repeat: no-repeat;
+  background-position: 95% 53%;
+  background-size: 5.5%;
+
+  border: 1px solid $lightgrey;
+  border-radius: 0;
+
+  padding: 0 6px;
+}

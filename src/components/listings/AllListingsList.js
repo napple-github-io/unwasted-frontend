@@ -36,18 +36,18 @@ function AllListingsList({ title, allListingsList }) {
             <div>
               <h5>Allergens</h5>
               <ul>
-                <li><input type ="checkbox" name="dairy" value="dairy" />Dairy Free</li>
-                <li><input type ="checkbox" name="gluten" value="gluten" />Gluten Free</li>
-                <li><input type ="checkbox" name="shellfish" value="shellfish" />Shellfish Free</li>
-                <li><input type ="checkbox" name="nut" value="nut" />Nut Free</li>
+                <li><label><input type ="checkbox" name="dairy" value="dairy" />Dairy Free</label></li>
+                <li><label><input type ="checkbox" name="gluten" value="gluten" />Gluten Free</label></li>
+                <li><label><input type ="checkbox" name="shellfish" value="shellfish" />Shellfish Free</label></li>
+                <li><label><input type ="checkbox" name="nut" value="nut" />Nut Free</label></li>
               </ul>
             </div>
 
             <div>
               <h5>Dietary</h5>
               <ul>
-                <li><input type ="checkbox" name="vegetarian" value="vegetarian" />Vegetarian</li>
-                <li><input type ="checkbox" name="vegan" value="vegan" />Vegan</li>
+                <li><label><input type ="checkbox" name="vegetarian" value="vegetarian" />Vegetarian</label></li>
+                <li><label><input type ="checkbox" name="vegan" value="vegan" />Vegan</label></li>
               </ul>
             </div>
           </div>

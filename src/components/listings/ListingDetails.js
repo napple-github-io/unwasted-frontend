@@ -25,8 +25,8 @@ function ListingDetails({ listing }) {
 
           <h3 id="listing-dietary">Dietary</h3>
           <ul>
-            {/* <li>{listing.dietary.nut}</li> */}
-            {/* <li>{listing.dietary.vegetarian}</li> */}
+            <li>{listing.dietary.nut}</li>
+            <li>{listing.dietary.vegetarian}</li>
           </ul>
 
           <p>Posted {listing.postedDate}</p>
@@ -36,10 +36,10 @@ function ListingDetails({ listing }) {
       </section>
 
       <section>
-        {/* <div className="user-photo-container">
+        <div className="user-photo-container">
           <img src={listing.user.userImage} alt={listing.user.username} />
         </div>
-        <h4>{listing.user.username}</h4> */}
+        <h4>{listing.user.username}</h4>
         <button>CONTACT</button>
       </section>
     </section>
