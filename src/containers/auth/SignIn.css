@@ -72,6 +72,8 @@
       border-right: 0;
       border-bottom: 2px solid $darkgrey;
 
+      outline: none;
+
       font-size: 1em;
       padding: 0 .1rem .5rem .1rem;
       margin-bottom: 1.875rem;

@@ -6,7 +6,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  outline: none;
+  outline-color: $lightgreen;
 }
 
 body {
@@ -68,6 +68,7 @@ button {
   font-weight: 500;
   letter-spacing: .04em;
 
+  outline: none;
   cursor: pointer;
 }
 
