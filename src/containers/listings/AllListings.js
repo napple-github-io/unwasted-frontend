@@ -16,7 +16,7 @@ class AllListings extends PureComponent {
 
   state = {
     listings: [],
-    category: null,
+    category: '',
     title: 'All Listings',
     dietary: {
       dairy: false,
@@ -48,7 +48,8 @@ class AllListings extends PureComponent {
       });
   }
 
-  filterSubmit = () => {
+  filterSubmit = event => {
+    event.preventDefault();
     const { dietary, category, distance } = this.state;
     console.log(dietary, category, distance);
   }
@@ -59,18 +60,6 @@ class AllListings extends PureComponent {
 
 
   componentDidMount() {
-    console.log(this.props);
-
-    // console.log(window.navigator.geolocation);
-    // if(window.navigator.geolocation) {
-    // navigator.geolocation.getCurrentPosition(function(position) {
-    //   const pos = {
-    //     lat: position.coords.latitude,
-    //     lng: position.coords.longitude
-    //   };
-    //   console.log(pos)
-    // ;})
-    // ;}
 
     if(this.props.location.search) {
       this.fetchMyListings();
