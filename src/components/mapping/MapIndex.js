@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function MapIndex({ mapIndex }) {
+function MapIndex({ map }) {
   return (
     <div>
       <strong>MAP TO COME</strong>
@@ -10,7 +10,7 @@ function MapIndex({ mapIndex }) {
 }
 
 MapIndex.propTypes = {
-  mapIndex: PropTypes.object
+  map: PropTypes.object
 };
 
 export default MapIndex;

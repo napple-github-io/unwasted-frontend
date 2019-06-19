@@ -35,19 +35,6 @@ class AllListings extends PureComponent {
   }
 
   componentDidMount() {
-    console.log(this.props);
-
-    // console.log(window.navigator.geolocation);
-    // if(window.navigator.geolocation) {
-    // navigator.geolocation.getCurrentPosition(function(position) {
-    //   const pos = {
-    //     lat: position.coords.latitude,
-    //     lng: position.coords.longitude
-    //   };
-    //   console.log(pos)
-    // ;})
-    // ;}
-
     if(this.props.location.search) {
       this.fetchMyListings();
       this.setState({ title: `${this.props.currentUser.username}'s Listings` });
