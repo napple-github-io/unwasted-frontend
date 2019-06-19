@@ -28,18 +28,18 @@ class ListingById extends PureComponent {
     const { currentUser } = this.props;
     const { message, listing } = this.state;
     const email = {
-      to: 'paytlower@gmail.com',
-      from: currentUser.userInfo.email,
+      to: listing.user._id,
+      from: currentUser.userMongooseId,
       subject: `Unwasted: Email regarding ${listing.title} from ${listing.user.username}`,
       html: `<strong>User:${currentUser.userInfo.username} says: ${message}</strong>`,   
     };
-    console.log(email);
     sendEmail(email);
   }
   
   fetch = () => {
     return getSingleListingFromApi(this.props.match.params.listingId)
       .then(listing => {
+        console.log(listing);
         this.setState({ listing });
       });
   }
