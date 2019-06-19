@@ -23,7 +23,7 @@ function SignUpForm({ onSubmit, onChange, email, password, username, street, sta
       
       <h5>Street Address <span>*</span></h5>
       <input name="street" value={street} id="signup-street" placeholder="Street Address" onChange={onChange} required />
-      
+    
       <section>
         <aside>
           <h5>City <span>*</span></h5>
@@ -87,8 +87,8 @@ function SignUpForm({ onSubmit, onChange, email, password, username, street, sta
       </section>
 
       <h5>Zip Code <span>*</span></h5>
-      <input type="string" maxLength="5" minLength="5" name="zip" value={zip} id="signup-zip" placeholder="Zip-Code" onChange={onChange} required />
-      
+      <input type="number" max="99999" min="00501" name="zip" value={zip} id="signup-zip" placeholder="Zip-Code" onChange={onChange} required />      
+ 
       <h5>Biography</h5>
       <textarea name="bio" value={bio} id="signup-bio" placeholder="Biography" onChange={onChange}></textarea>
       
