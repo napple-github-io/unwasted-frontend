@@ -1,0 +1,7 @@
+@import url('../../components/display/variables.css');
+
+.allListingsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

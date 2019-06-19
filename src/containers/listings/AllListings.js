@@ -7,6 +7,7 @@ import { getUser } from '../../selectors/userAuthSelectors';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Footer from '../../components/display/Footer';
+import styles from './AllListings.css';
 
 class AllListings extends PureComponent {
   static propTypes = {
@@ -73,7 +74,11 @@ class AllListings extends PureComponent {
     return (
       <>
       <Header user={this.props.currentUser}/>
-      <AllListingsList title={this.state.title} distance={distance} allListingsList={this.state.listings} filterSubmit={this.filterSubmit} onChange={this.onChange} category={category} checkBoxChecked={this.checkBoxChecked}/>
+
+      <div className={styles.allListingsContainer}>
+        <AllListingsList title={this.state.title} distance={distance} allListingsList={this.state.listings} filterSubmit={this.filterSubmit} onChange={this.onChange} category={category} checkBoxChecked={this.checkBoxChecked}/>
+      </div>
+
       <Footer />
       </>
     )

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { setSession } from '../actions/getUserActions';
 import { getUserAuthId } from '../selectors/userAuthSelectors';
+import styles from './Loader.css';
 
 class Callback extends PureComponent {
   static propTypes = {
@@ -15,7 +16,11 @@ class Callback extends PureComponent {
   }
 
   render() {
-    return <h1>Call me maybe</h1>;
+    return (
+      <div className={styles.loading}>
+        <div className={styles.loader}></div>
+      </div>
+    );
   }
 }
 

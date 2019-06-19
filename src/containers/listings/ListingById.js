@@ -2,16 +2,20 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import ListingDetails from '../../components/listings/ListingDetails';
 import { getSingleListingFromApi } from '../../services/listingsApi';
-import ContactForm from '../../components/contact/ContactForm';
 import { getUser } from '../../selectors/userAuthSelectors';
 import { connect } from 'react-redux';
 import { sendEmail } from '../../services/emailApi';
+import Header from '../../components/display/Header';
+import Footer from '../../components/display/Footer';
+import loadStyles from '../Loader.css';
+import styles from './ListingById.css';
+import { listingSeedObj } from '../../assets/seedData/seedData';
 
 
 class ListingById extends PureComponent {
   static propTypes = {
     match: PropTypes.object.isRequired,
-    currentUser: PropTypes.object.isRequired
+    currentUser: PropTypes.object
   }
 
   state = {
@@ -50,11 +54,18 @@ class ListingById extends PureComponent {
   
   render(){
     const { listing } = this.state;
-    if(!listing) return <h1>Loading</h1>;
+    if(!listing) return (
+      <div className={loadStyles.loading}>
+        <div className={loadStyles.loader}></div>
+      </div>
+    );
     return  (
       <>
-      <ListingDetails listing={this.state.listing} />
-      <ContactForm receivingUser={this.state.listing.user} onChange={this.changeHandler} onSubmit={this.submitHandler}/>
+      <Header user={this.props.currentUser}/>
+      <div className={styles.listingDetailsContainer}>
+        <ListingDetails listing={this.state.listing} receivingUser={this.state.listing.user} onChange={this.changeHandler} onSubmit={this.submitHandler} />
+      </div>
+      <Footer />
       </>
     );
   }

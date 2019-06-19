@@ -1,0 +1,24 @@
+@import url('../components/display/variables.css');
+
+.loading {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .loader {
+    border: 8px solid $lightgrey; /* Light grey */
+    border-top: 8px solid $lightgreen; /* Blue */
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 1.5s linear infinite;
+  }
+  
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

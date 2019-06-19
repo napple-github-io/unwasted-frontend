@@ -5,8 +5,8 @@
 }
 
 .header {
-
   padding: 2rem 0 2rem 2rem;
+  width: 0;
 
   .headerLogo {
     width: 17.5rem;
@@ -15,5 +15,107 @@
     background-image: url('../../assets/logos/logogrey.svg');
     background-repeat: no-repeat;
     background-size: 17.5rem;
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100vw;
+
+  padding: 1.5rem 2rem;
+  margin-top: 2rem;
+
+  img {
+    margin-right: .75rem;
+  }
+
+  ul{
+    display: flex;
+
+    font-size: .8em;
+    font-weight: 600;
+
+    li {
+      margin-left: 1.2rem;
+    }
+
+    a {
+      color: $darkgrey;
+    }
+  }
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+.forms {
+  width: 23.75rem;
+  display: flex;
+  flex-direction: column;
+
+  h2 {
+    border-bottom: $borderbottom;
+    padding: 0 0 1px 0;
+    margin: 0 0 1rem 0;
+  }
+
+  h5 {
+    margin-bottom: 3px;
+  }
+
+  button {
+    margin-bottom: 1rem;
+  }
+
+  textarea {
+    margin: 0 0 .25rem 0;
+    height: 3.825rem;
+  }
+
+  input {
+    height: 2rem;
+    font-size: 1em;
+    padding: 0 .3rem;
+    margin: 0 0 .8rem 0;
+  }
+
+  section {
+    display: flex;
+    justify-content: space-between;
+
+    input {
+      width: 19.5rem;
+    }
+
+    select {
+      width: 4rem;
+    }
+  }
+
+  label {
+    font-style: italic;
+    display: flex;
+    justify-content: center;
+    font-size: .8em;
+
+    margin: .2rem 0 2rem 0;
+
+    input {
+      height: .8rem;
+      margin: 0 4px 0 0;
+
+      position: relative;
+      top: 1px;
+    }
+  }
+
+  div {
+    display: flex;
+    justify-content: center;
   }
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ListingDetails.css';
+import ContactForm from '../contact/ContactForm';
 
-function ListingDetails({ listing }) {
-  console.log(listing);
+function ListingDetails({ listing, receivingUser, onChange, onSubmit }) {
   return (
     <>
     <header className={styles.header}>
@@ -23,20 +23,24 @@ function ListingDetails({ listing }) {
 
       <section className={styles.center}>
         <div>
-          <span className="listing-location">{listing.location.street}</span>
-          <span className="listing-location">{listing.location.zip}</span>
-          <p>{listing.description}</p>
+          <p className={styles.date}>{listing.location.street}</p>
+          <p className={styles.date}>{listing.location.zip}</p>
+          <p className={styles.bodyCopy}>{listing.description}</p>
 
-          <h4 id="listing-dietary">Dietary</h4>
-          <ul>
+          <h4>Dietary</h4>
+          <ul className={styles.dietary}>
             <li>{listing.dietary.nut}</li>
             <li>{listing.dietary.vegetarian}</li>
           </ul>
 
-          <p>Posted {listing.postedDate}</p>
-          <p>Expires {listing.expiration}</p>
-          <a href="#" className="report-link">REPORT</a>
+          <p className={styles.date}>Posted {listing.postedDate}</p>
+          <div className={styles.bottomRow}>
+            <p className={styles.date}>Expires {listing.expiration}</p>
+            <a href="#" className="report-link">REPORT</a>
+          </div>
         </div>
+
+        <ContactForm receivingUser={receivingUser} onChange={onChange} onSubmit={onSubmit} />
       </section>
 
       <section className={styles.right}>
@@ -51,7 +55,10 @@ function ListingDetails({ listing }) {
 }
 
 ListingDetails.propTypes = {
-  listing: PropTypes.object.isRequired
+  listing: PropTypes.object.isRequired,
+  receivingUser: PropTypes.object.isRequired,
+  onChange: PropTypes.func,
+  onSubmit: PropTypes.func
 };
 
 export default ListingDetails;

@@ -12,6 +12,7 @@ import { listingSeed } from '../../assets/seedData/seedData';
 import { getListingsByUser } from '../../services/listingsApi';
 import { getUser } from '../../selectors/userAuthSelectors';
 import { getReviewsByUserId } from '../../services/reviewsApi';
+import loadStyles from '../Loader.css';
 
 class MyProfileDisplay extends PureComponent {
   static propTypes = {
@@ -43,7 +44,11 @@ class MyProfileDisplay extends PureComponent {
 
   render(){
     const { userInfo, listings, reviews } = this.state;
-    if(!userInfo) return <h1>Loading</h1>;
+    if(!userInfo) return (
+      <div className={loadStyles.loading}>
+        <div className={loadStyles.loader}></div>
+      </div>
+    );
     return (
     <>
       <Header user={userInfo}/>

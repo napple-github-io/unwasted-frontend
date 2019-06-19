@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getToken } from '../selectors/userAuthSelectors';
+import loadStyles from './Loader.css';
 
 export const withSession = Component => {
   class withSession extends PureComponent{
@@ -18,7 +19,11 @@ export const withSession = Component => {
     }
     
     render(){
-      if(!this.props.token) return <h1>Loading</h1>;
+      if(!this.props.token) return (
+        <div className={loadStyles.loading}>
+          <div className={loadStyles.loader}></div>
+        </div>
+      );
       return <Component match={this.props.match}/>;
     }
   }

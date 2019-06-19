@@ -12,6 +12,7 @@ import { getListingsByUser } from '../../services/listingsApi';
 import { connect } from 'react-redux';
 import { getUser } from '../../selectors/userAuthSelectors';
 import { postReviewToApi, getReviewsByUserId } from '../../services/reviewsApi';
+import loadStyles from '../Loader.css';
 
 class UserProfileDisplay extends PureComponent {
   static propTypes = {
@@ -61,7 +62,11 @@ class UserProfileDisplay extends PureComponent {
   render(){
     const { userInfo, listings, reviews } = this.state;
     const { currentUser } = this.props;
-    if(!userInfo) return <h1>Loading</h1>;
+    if(!userInfo) return (
+      <div className={loadStyles.loading}>
+        <div className={loadStyles.loader}></div>
+      </div>
+    );
     return (
     <>
       <Header user={currentUser} />
