@@ -47,7 +47,7 @@ class AllListings extends PureComponent {
         this.setState({ listings });
       });
   }
-
+    
   filterSubmit = event => {
     event.preventDefault();
     const { dietary, category, distance } = this.state;
@@ -60,7 +60,6 @@ class AllListings extends PureComponent {
 
 
   componentDidMount() {
-
     if(this.props.location.search) {
       this.fetchMyListings();
       this.setState({ title: `${this.props.currentUser.username}'s Listings` });
