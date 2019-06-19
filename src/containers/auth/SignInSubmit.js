@@ -52,7 +52,7 @@ class SignInSubmit extends PureComponent {
 
         <main className={styles.main}>
           <section>
-            <h1>Let's<br />Get<br />Started<br /></h1>
+            <h1>Let's<br />Get<br />Started!<br /></h1>
           </section>
 
           <SignInForm className={styles.forms} email={email} password={password} onSubmit={this.onSubmit} onChange={this.onChange} />

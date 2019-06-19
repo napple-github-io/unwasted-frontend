@@ -5,11 +5,9 @@
 }
 
 .header {
-  background: pink;
-
   position: absolute;
 
-  padding: 2rem 0;
+  padding: 2rem 0 2rem 2rem;
 
   .headerLogo {
     width: 17.5rem;
@@ -38,6 +36,9 @@
 
   section {
     align-self: center;
+
+    display: flex;
+    justify-content: center;
   }
 }
 
@@ -65,10 +66,22 @@
     flex-direction: column;
     margin-bottom: 2.5rem;
 
+    input {
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+      border-bottom: 2px solid $darkgrey;
+
+      font-size: 1em;
+      padding: 0 .1rem .5rem .1rem;
+      margin-bottom: 1.875rem;
+
+    }
+    
+    
     div {
       display: flex;
       justify-content: center;
-      background: pink;
     }
   }
   
@@ -80,7 +93,6 @@
       div {
         display: flex;
         justify-content: center;
-        background: pink;
       }
   }
 }
@@ -97,7 +109,7 @@
 
   width: 100vw;
 
-  padding: 1.5rem 0;
+  padding: 0 2rem 1.5rem 2rem;
 
   img {
     margin-right: .75rem;
