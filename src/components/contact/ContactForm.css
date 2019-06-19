@@ -1,14 +1,36 @@
 @import url('../display/variables.css');
 
 .contactFormContainer {
-  background: greenyellow;
-
   display: flex;
   flex-direction: column;
 
   .contactForm {
-    background: purple;
     display: flex;
     flex-direction: column;
+
+    textarea {
+      height: 5rem;
+      margin: 0 0 .6rem 0;
+    }
+
+    label {
+      display: flex;
+      justify-content: flex-end;
+      font-size: .8em;
+      font-style: italic;
+
+      input {
+        margin-right: 6px;
+      }
+    }
+
+    div {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    button {
+      margin: 2rem 0 1rem 0;
+    }
   }
 }

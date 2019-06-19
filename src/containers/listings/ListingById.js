@@ -8,6 +8,7 @@ import { sendEmail } from '../../services/emailApi';
 import Header from '../../components/display/Header';
 import Footer from '../../components/display/Footer';
 import loadStyles from '../Loader.css';
+import styles from './ListingById.css';
 import { listingSeedObj } from '../../assets/seedData/seedData';
 
 
@@ -61,9 +62,11 @@ class ListingById extends PureComponent {
     return  (
       <>
       <Header user={this.props.currentUser}/>
-      {/* <ListingDetails listing={this.state.listing} /> */}
-      <ListingDetails listing={listingSeedObj} receivingUser={listingSeedObj.user} onChange={this.changeHandler} onSubmit={this.submitHandler} />
-      {/* <ContactForm receivingUser={this.state.listing.user} onChange={this.changeHandler} onSubmit={this.submitHandler}/> */}
+      <div className={styles.listingDetailsContainer}>
+        {/* <ListingDetails listing={this.state.listing} /> */}
+        <ListingDetails listing={listingSeedObj} receivingUser={listingSeedObj.user} onChange={this.changeHandler} onSubmit={this.submitHandler} />
+        {/* <ContactForm receivingUser={this.state.listing.user} onChange={this.changeHandler} onSubmit={this.submitHandler}/> */}
+      </div>
       <Footer />
       </>
     );

@@ -92,7 +92,7 @@ function SignUpForm({ onSubmit, onChange, email, password, username, street, sta
       <h5>Biography</h5>
       <textarea name="bio" value={bio} id="signup-bio" placeholder="Biography" onChange={onChange}></textarea>
       
-      <label><input type="checkbox" required />I agree to the <a href="#" target="_new">Terms and Conditions</a></label>
+      <label><input type="checkbox" required />I agree to the <a href="#" target="_new"> Terms and Conditions</a></label>
 
       <div className={className.buttonContainer}>
         <button>Sign Up</button>

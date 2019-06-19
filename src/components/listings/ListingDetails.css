@@ -4,7 +4,6 @@
   width: 1180px;
 
 
-  background: pink;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -22,8 +21,6 @@
   grid-column-gap: $colgap;
   
   .left {
-    background: yellow;
-
     #listingPhotoContainer {
       width: 18.75rem;
       height: 18.75rem;
@@ -32,7 +29,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: pink;
 
       img {
         height: 100%;
@@ -41,12 +37,14 @@
   }
 
   .center {
-    background: #cccccc;
-
     h4 {
       border-bottom: $borderbottom;
       padding: 0 0 1px 0;
       margin: 1.5rem 0 .5rem 0;
+    }
+
+    .bodyCopy {
+      margin-top: .5rem;
     }
 
     .dietary {
@@ -73,7 +71,6 @@
   }
   
   .right {
-    background: lavender;
     display: flex;
     align-items: center;
     flex-direction: column;

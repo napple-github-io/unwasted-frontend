@@ -23,9 +23,9 @@ function ListingDetails({ listing, receivingUser, onChange, onSubmit }) {
 
       <section className={styles.center}>
         <div>
-          <span className="listing-location">{listing.location.street}</span>
-          <span className="listing-location">{listing.location.zip}</span>
-          <p>{listing.description}</p>
+          <p className={styles.date}>{listing.location.street}</p>
+          <p className={styles.date}>{listing.location.zip}</p>
+          <p className={styles.bodyCopy}>{listing.description}</p>
 
           <h4>Dietary</h4>
           <ul className={styles.dietary}>

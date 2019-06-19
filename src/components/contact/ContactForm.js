@@ -22,8 +22,10 @@ function ContactForm({ receivingUser, onChange, onSubmit }) {
 
         <textarea name="message" placeholder="Say hello!" onChange={onChange}></textarea>
 
-        <label><input type="checkbox" name="legal" required/>Consent blurb</label>
-        <button>Send Message</button>
+        <label><input type="checkbox" name="legal" required/>I understand that by contacting this cutomer they will see my email blah blah</label>
+        <div>
+          <button>Send Message</button>
+        </div>
       </form>
 
     </section>
