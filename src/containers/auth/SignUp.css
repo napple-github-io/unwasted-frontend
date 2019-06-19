@@ -5,8 +5,8 @@
 }
 
 .header {
-
   padding: 2rem 0 2rem 2rem;
+  width: 0;
 
   .headerLogo {
     width: 17.5rem;
@@ -15,5 +15,115 @@
     background-image: url('../../assets/logos/logogrey.svg');
     background-repeat: no-repeat;
     background-size: 17.5rem;
+  }
+}
+
+span {
+  display: none;
+}
+
+label {
+  font-size: .8em;
+  font-weight: 400;
+  font-style: italic;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 0 1.875rem 0;
+
+
+  
+  input {
+    padding: 0;
+    margin: 0 6px 0 0;
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100vw;
+
+  padding: 1.5rem 2rem;
+  margin-top: 2rem;
+
+  img {
+    margin-right: .75rem;
+  }
+
+  ul{
+    display: flex;
+
+    font-size: .8em;
+    font-weight: 600;
+
+    li {
+      margin-left: 1.2rem;
+    }
+
+    a {
+      color: $darkgrey;
+    }
+  }
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+input {
+  height: 2rem;
+  font-size: 1em;
+  padding: 0 .3rem;
+  margin: 0 0 .8rem 0;
+}
+
+button {
+  margin-bottom: 1rem;
+}
+
+textarea {
+  font-size: 1em;
+  padding: .3rem;
+  margin: 0 0 .25rem 0;
+  height: 3.825rem;
+}
+
+.forms {
+  width: 23.75rem;
+  display: flex;
+  flex-direction: column;
+
+  h2 {
+    border-bottom: $borderbottom;
+    padding: 0 0 1px 0;
+    margin: 0 0 1rem 0;
+  }
+
+  h5 {
+    margin-bottom: 3px;
+  }
+
+  section {
+    display: flex;
+    justify-content: space-between;
+
+    input {
+      width: 19.5rem;
+    }
+
+    select {
+      width: 4rem;
+    }
+  }
+
+  div {
+    display: flex;
+    justify-content: center;
   }
 }

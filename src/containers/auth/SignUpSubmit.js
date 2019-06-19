@@ -50,6 +50,7 @@ export default class SignUpSubmit extends PureComponent {
             city={city}
             onSubmit={this.onSubmit}
             onChange={this.onChange}
+            className={styles.forms}
           />
         </main>
 
