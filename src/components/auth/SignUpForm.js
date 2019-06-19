@@ -111,9 +111,10 @@ SignUpForm.propTypes = {
   lastName: PropTypes.string.isRequired,
   street: PropTypes.string.isRequired,
   state: PropTypes.string.isRequired,
-  zip: PropTypes.string.isRequired,
+  zip: PropTypes.number.isRequired,
   city: PropTypes.string.isRequired,
-  bio: PropTypes.string
+  bio: PropTypes.string,
+  className: PropTypes.string
 };
 
 export default SignUpForm;
