@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 function Map({ mapUrl }) {
   return (
     <div>
-      <strong>{mapUrl}</strong>
+      <img src={mapUrl} />
     </div>
   );
 }

@@ -64,7 +64,7 @@ function SignUpForm({ onSubmit, onChange, email, password, username, street, sta
         <option value="WV">WV</option>
         <option value="WY">WY</option>
       </select>
-      <input type="string" maxLength="5" minLength="5" name="zip" value={zip} id="signup-zip" placeholder="Zip-Code" onChange={onChange} required />
+      <input type="number" max="99999" min="00501" name="zip" value={zip} id="signup-zip" placeholder="Zip-Code" onChange={onChange} required />
       <textarea name="bio" value={bio} id="signup-bio" placeholder="Biography" onChange={onChange}></textarea>
       <button>Sign Up</button>
     </form>

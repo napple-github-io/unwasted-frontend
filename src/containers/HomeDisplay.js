@@ -44,21 +44,24 @@ class HomeDisplay extends PureComponent {
   fetchMap = () => {
     const { userLat, userLong, listings } = this.state;
     const listingsArray = listings.map(listing => {
-      return listing.location.street + ' ' + listing.location.zip;
+      return listing.location.street + listing.location.zip + '|';
     });
-
     console.log(listingsArray);
     const mapUrl = getListingMap(userLat, userLong, listingsArray);
+    console.log(mapUrl);
     this.setState({ mapUrl });
   }
 
   componentDidMount(){
-    this.getUserLocation()
-      .then(position => {
-        console.log(position.coords.latitude);
-        this.setState({ userLat: position.coords.latitude, userLong: position.coords.longitude });
-      })
+    Promise.all(([
+      this.getUserLocation()
+        .then(position => {
+          this.setState({ userLat: position.coords.latitude, userLong: position.coords.longitude });
+        }),
+      this.fetchListings()
+    ]))
       .then(() => this.fetchMap());
+
 
 
 
