@@ -16,7 +16,8 @@ module.exports = {
     allowedHosts: [
       'app.local',
       'localhost'
-    ]
+    ],
+    https: true
   },
   plugins: [
     new HtmlPlugin({ template: './src/index.html' }),

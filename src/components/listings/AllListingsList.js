@@ -4,7 +4,7 @@ import ListingThumb from './ListingThumb';
 import styles from './Listings.css';
 import filters from './AllListingsFilter.css';
 
-function AllListingsList({ title, allListingsList }) {
+function AllListingsList({ title, allListingsList, filterSubmit, onChange, category, checkBoxChecked, distance }) {
   const listItem = allListingsList.map(listing => (
     <li key={listing._id}>
       <ListingThumb listing={listing} />
@@ -14,8 +14,8 @@ function AllListingsList({ title, allListingsList }) {
   return (
     <>
       <section className={filters.filters}>
-        <form>
-          <select id="listing-category" name="category">
+        <form onSubmit={filterSubmit}>
+          <select id="listing-category" name="category" value={category} onChange={onChange}>
             <option value="" hidden>Category</option>
             <option value="canned goods">Canned Goods</option>
             <option value="produce">Produce</option>
@@ -36,26 +36,27 @@ function AllListingsList({ title, allListingsList }) {
             <div>
               <h5>Allergens</h5>
               <ul>
-                <li><input type ="checkbox" name="dairy" value="dairy" />Dairy Free</li>
-                <li><input type ="checkbox" name="gluten" value="gluten" />Gluten Free</li>
-                <li><input type ="checkbox" name="shellfish" value="shellfish" />Shellfish Free</li>
-                <li><input type ="checkbox" name="nut" value="nut" />Nut Free</li>
+                <li><label><input type ="checkbox" name="dairy" value="dairy" onChange={checkBoxChecked} />Dairy Free</label></li>
+                <li><label><input type ="checkbox" name="gluten" value="gluten" onChange={checkBoxChecked} />Gluten Free</label></li>
+                <li><label><input type ="checkbox" name="shellfish" value="shellfish" onChange={checkBoxChecked} />Shellfish Free</label></li>
+                <li><label><input type ="checkbox" name="nut" value="nut" onChange={checkBoxChecked} />Nut Free</label></li>
               </ul>
             </div>
 
             <div>
               <h5>Dietary</h5>
               <ul>
-                <li><input type ="checkbox" name="vegetarian" value="vegetarian" />Vegetarian</li>
-                <li><input type ="checkbox" name="vegan" value="vegan" />Vegan</li>
+                <li><label><input type ="checkbox" name="vegetarian" value="vegetarian" onChange={checkBoxChecked} />Vegetarian</label></li>
+                <li><label><input type ="checkbox" name="vegan" value="vegan" onChange={checkBoxChecked} />Vegan</label></li>
               </ul>
             </div>
           </div>
 
           <div id={filters.distance}>
-            <h5>Max Distance <span>2.5mi</span></h5>
-            <input type="range" min="0" max="50" value="25" id={filters.slider}></input>
+            <h5>Max Distance <span>{distance}</span></h5>
+            <input type="range" name="distance" min="0" max="50" value={distance} id={filters.slider} onChange={onChange}></input>
           </div>
+          <button>Apply Filter</button>
         </form>
       </section>
 
@@ -73,7 +74,12 @@ function AllListingsList({ title, allListingsList }) {
 
 AllListingsList.propTypes = {
   allListingsList: PropTypes.array.isRequired,
-  title: PropTypes.string
+  title: PropTypes.string,
+  filterSubmit: PropTypes.func.isRequired,
+  category: PropTypes.string.isRequired,
+  checkBoxChecked: PropTypes.func.isRequired,
+  distance: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired
 };
 
 export default AllListingsList;

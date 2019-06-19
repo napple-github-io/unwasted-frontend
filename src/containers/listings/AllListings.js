@@ -16,8 +16,21 @@ class AllListings extends PureComponent {
 
   state = {
     listings: [],
-    category: null,
-    title: 'All Listings'
+    category: '',
+    title: 'All Listings',
+    dietary: {
+      dairy: false,
+      gluten: false,
+      shellfish: false,
+      nut: false,
+      vegetarian: false,
+      vegan: false
+    },
+    distance: '25'
+  }
+
+  onChange = ({ target }) => {
+    this.setState({ [target.name]: target.value });
   }
 
   fetch = () => {
@@ -26,6 +39,7 @@ class AllListings extends PureComponent {
         this.setState({ listings });
       });
   }
+
   fetchMyListings = () => {
     const userId = this.props.location.search.slice(4);
     return getListingsByUser(userId)
@@ -33,6 +47,17 @@ class AllListings extends PureComponent {
         this.setState({ listings });
       });
   }
+    
+  filterSubmit = event => {
+    event.preventDefault();
+    const { dietary, category, distance } = this.state;
+    console.log(dietary, category, distance);
+  }
+
+  checkBoxChecked = ({ target }) => {
+    this.setState({ dietary: { ...this.state.dietary, [target.name]: target.checked } });
+  }
+
 
   componentDidMount() {
     if(this.props.location.search) {
@@ -44,10 +69,11 @@ class AllListings extends PureComponent {
   }
 
   render(){
+    const { distance, category } = this.state;
     return (
       <>
       <Header user={this.props.currentUser}/>
-      <AllListingsList title={this.state.title} allListingsList={this.state.listings} />
+      <AllListingsList title={this.state.title} distance={distance} allListingsList={this.state.listings} filterSubmit={this.filterSubmit} onChange={this.onChange} category={category} checkBoxChecked={this.checkBoxChecked}/>
       <Footer />
       </>
     )

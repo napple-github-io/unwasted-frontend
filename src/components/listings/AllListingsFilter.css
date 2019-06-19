@@ -28,9 +28,6 @@
       width: 12.5rem;
     }
 
-    select {
-      height: 2rem;
-    }
 
     #dietary {
       display: flex;
@@ -61,13 +58,9 @@
       }
 
       input {
-        margin: 0 .2rem 0 .5rem;
+        margin: 0 .3rem 0 .5rem;
 
-
-
-
-
-        
+        border: 1px solid pink;
       }
     }
 

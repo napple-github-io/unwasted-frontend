@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function SignUpForm({ onSubmit, onChange, email, password, username, street, state, zip, firstName, lastName }) {
+function SignUpForm({ onSubmit, onChange, email, password, username, street, state, zip, firstName, lastName, bio, city }) {
   return (
     <form id="signup" onSubmit={onSubmit}>
       <h2>Sign up</h2>
@@ -11,6 +11,7 @@ function SignUpForm({ onSubmit, onChange, email, password, username, street, sta
       <input name="firstName" value={firstName} id="signup-firstName" placeholder="First Name" onChange={onChange} required />
       <input name="lastName" value={lastName} id="signup-lastName" placeholder="Last Name" onChange={onChange} required />
       <input name="street" value={street} id="signup-street" placeholder="Street Address" onChange={onChange} required />
+      <input name="city" value={city} id="signup-city" placeholder="City" onChange={onChange} required />
       <select id="signup-state" name="state" value={state} onChange={onChange}>
         <option value="AK">AK</option>
         <option value="AR">AR</option>	
@@ -64,6 +65,7 @@ function SignUpForm({ onSubmit, onChange, email, password, username, street, sta
         <option value="WY">WY</option>
       </select>
       <input type="string" maxLength="5" minLength="5" name="zip" value={zip} id="signup-zip" placeholder="Zip-Code" onChange={onChange} required />
+      <textarea name="bio" value={bio} id="signup-bio" placeholder="Biography" onChange={onChange}></textarea>
       <button>Sign Up</button>
     </form>
   );
@@ -79,7 +81,9 @@ SignUpForm.propTypes = {
   lastName: PropTypes.string.isRequired,
   street: PropTypes.string.isRequired,
   state: PropTypes.string.isRequired,
-  zip: PropTypes.string.isRequired
+  zip: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
+  bio: PropTypes.string
 };
 
 export default SignUpForm;

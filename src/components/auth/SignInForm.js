@@ -1,14 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom'; 
 
-function SignInForm({ onSubmit, onChange, email, password }) {
+function SignInForm({ onSubmit, onChange, email, password, className }) {
   return (
-    <form id="signin" onSubmit={onSubmit}>
-      <h2>Sign In</h2>
-      <input type="email" name='email' value={email} id="signin-email" placeholder="Email" onChange={onChange} required />
-      <input type="password" name='password' value={password} id="signin-password" placeholder="Password" onChange={onChange} required/>
-      <button>Sign In</button>
-    </form>
+    <div className={className}>
+      <div>
+        <form id="signin" onSubmit={onSubmit}>
+          <h2>Sign In</h2>
+          <input type="email" name='email' value={email} id="signin-email" placeholder="Email" onChange={onChange} required />
+          <input type="password" name='password' value={password} id="signin-password" placeholder="Password" onChange={onChange} required/>
+          <div>
+            <button>Sign In</button>
+          </div>
+        </form>
+
+        <section>
+          <h2>New Users</h2>
+          <div>
+            <Link to={'/signup'}><button>Sign Up</button></Link>
+          </div>
+        </section>
+      </div>
+    </div>
   );
 }
 
@@ -17,6 +31,7 @@ SignInForm.propTypes = {
   onChange: PropTypes.func.isRequired,
   email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
+  className: PropTypes.string
 };
 
 export default SignInForm;

@@ -1,0 +1,70 @@
+@import url('../display/variables.css');
+
+.header {
+  width: 1180px;
+
+
+  background: pink;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+
+  border-bottom: $borderbottom;
+  padding: 0 0 1px 0;
+  margin: 0 0 1.875rem 0;
+}
+
+.listingDetails {
+  width: 1180px;
+
+  display: grid;
+  grid-template-columns: 18.75rem 1fr 11.25rem;
+  grid-column-gap: $colgap;
+  
+  .left {
+    background: yellow;
+
+    #listingPhotoContainer {
+      width: 18.75rem;
+      height: 18.75rem;
+      overflow: hidden;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: pink;
+
+      img {
+        height: 100%;
+      }
+    }
+  }
+
+  .center {
+    background: #cccccc;
+
+  }
+  
+  .right {
+    background: lavender;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    .userPhotoContainer {
+      width: 5.125rem;
+      height: 5.125rem;
+      overflow: hidden;
+      border-radius: 50%;
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      margin: 0 0 .7rem 0;
+
+      img{ 
+        height: 100%;
+      }
+    }
+  }
+}
