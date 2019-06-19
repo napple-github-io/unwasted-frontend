@@ -53,19 +53,17 @@ class ListingById extends PureComponent {
   }
   
   render(){
-    // const { listing } = this.state;
-    // if(!listing) return (
-    //   <div className={loadStyles.loading}>
-    //     <div className={loadStyles.loader}></div>
-    //   </div>
-    // );
+    const { listing } = this.state;
+    if(!listing) return (
+      <div className={loadStyles.loading}>
+        <div className={loadStyles.loader}></div>
+      </div>
+    );
     return  (
       <>
       <Header user={this.props.currentUser}/>
       <div className={styles.listingDetailsContainer}>
-        {/* <ListingDetails listing={this.state.listing} /> */}
-        <ListingDetails listing={listingSeedObj} receivingUser={listingSeedObj.user} onChange={this.changeHandler} onSubmit={this.submitHandler} />
-        {/* <ContactForm receivingUser={this.state.listing.user} onChange={this.changeHandler} onSubmit={this.submitHandler}/> */}
+        <ListingDetails listing={this.state.listing} receivingUser={this.state.listing.user} onChange={this.changeHandler} onSubmit={this.submitHandler} />
       </div>
       <Footer />
       </>
