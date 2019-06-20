@@ -1,25 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './ListingForm.css';
 
-export default function ListingForm({ onSubmit, onChange, title, category, street, state, zip, description, expiration, checkBoxChecked }) {
+export default function ListingForm({ onSubmit, onChange, title, category, street, city, state, zip, description, expiration, checkBoxChecked }) {
   return (
     <>
-    <h2>New Listing</h2>
+    <div className={styles.componenetContainer}>
+      <h2>New Listing</h2>
       <form id="listing" onSubmit={onSubmit}>
         <section>
-          <div id="listing-image-container">
-            {/* <img src={imageUrl} alt="Upload an image" /> */}
+          <div id={styles.listingImageContainer}>
+            <img src='#' alt="Upload an image" />
           </div>
           <h4>Upload a photo</h4>
-          {/* DISCUSS THIS WITH RYAN M */}
-          {/* <input type="file" id="listing-upload" name="upload" accept="image/*" value={imageUrl} onSubmit={onSubmit} onChange={onChange} /> */}
+          <input type="file" id="listing-upload" name="upload" accept="image/*" onSubmit={onSubmit} onChange={onChange} />
         </section>
 
 
-        <section>
-          <input type="text" name="title" value={title} id="listing-title" placeholder="Title" onChange={onChange} />
+        <section className={styles.right}>
+          <input type="text" name="title" value={title} id={styles.listingTitle} placeholder="Title" onChange={onChange} />
 
-          <select id="listing-category" name="category" value={category} onChange={onChange}>
+          <select id={styles.listingCategory} name="category" value={category} onChange={onChange}>
             <option value="" hidden>Category</option>
             <option value="canned goods">Canned Goods</option>
             <option value="produce">Produce</option>
@@ -36,9 +37,9 @@ export default function ListingForm({ onSubmit, onChange, title, category, stree
             <option value="beverages">Beverages</option>
           </select>
 
-          <input type="text" name="street" value={street} id="listing-street" placeholder="Street" onChange={onChange} />
+          <input type="text" name="street" value={street} id={styles.listingStreet} placeholder="Street" onChange={onChange} />
 
-          <select id="listing-state" name="state" value={state} onChange={onChange}>
+          <select id={styles.listingState} name="state" value={state} onChange={onChange}>
             <option value="AK">AK</option>
             <option value="AR">AR</option>	
             <option value="AZ">AZ</option>
@@ -91,9 +92,9 @@ export default function ListingForm({ onSubmit, onChange, title, category, stree
             <option value="WY">WY</option>
           </select>
 
-          <input type="string" maxLength="5" minLength="5" name="zip" value={zip} id="listing-zip" placeholder="Zip-Code" onChange={onChange} required />
+          <input type="string" maxLength="5" minLength="5" name="zip" value={zip} id={styles.listingZip} placeholder="Zip-Code" onChange={onChange} required />
 
-          <section>
+          <section id={styles.listingDietary}>
             <h3>Dietary Requirements</h3>
             <h4>Allergens</h4>
 
@@ -109,19 +110,22 @@ export default function ListingForm({ onSubmit, onChange, title, category, stree
             </ul>
           </section>
 
-          <h3>Expiration</h3>
+          <div id={styles.listingExpiration}>
+            <h3>Expiration</h3>
+            {/* IS THIS DEFAULT VALUE GOING TO BE CORRECT IN PRACTICE?? */}
+            <input type="date" id="listing-expiration" name="expiration" value={expiration} min={'Date.now()'} onChange={onChange}/>
+          </div>
 
-          {/* IS THIS DEFAULT VALUE GOING TO BE CORRECT IN PRACTICE?? */}
-          <input type="date" id="listing-expiration" name="expiration" value={expiration} min={'Date.now()'} onChange={onChange}/>
+          <div id={styles.listingDescription}>
+            <h3>Description</h3>
+            <textarea id="listing-description" name="description" description={description} placeholder="Description" onChange={onChange}></textarea>
+          <div>
 
-          <h3>Description</h3>
-
-          {/* TEXTAREA WON'T TAKE VALUE */}
-          <textarea id="listing-description" name="description" description={description} placeholder="Description" onChange={onChange}></textarea>
           <input type="checkbox" name="legal" required/>legal disclaimer goes here!!!
           <button>SUBMIT</button>
         </section>
       </form>
+    </div>
     </>
   );
 }

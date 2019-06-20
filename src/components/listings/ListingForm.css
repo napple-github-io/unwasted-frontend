@@ -1,0 +1,80 @@
+@import url('../display/variables.css');
+
+.componenetContainer{
+  width: 980px;
+ 
+  h2 {
+    border-bottom: $borderbottom;
+    padding: 0 0 1px 0;
+    margin: 0 0 1.875rem 0;
+  }
+
+  form {
+    display: grid;
+    grid-template-columns: 18.75rem 1fr;
+    grid-column-gap: $colgap;
+
+    #listingImageContainer {
+      background: $lightgrey;
+      width: 18.75rem;
+      height: 18.75rem;
+    }
+
+    input {
+      font-size: 1em;
+      height: 2rem;
+      padding: 0 .5rem;
+    }
+
+    input[type=checkbox] {
+      height: .8rem;
+    }
+
+    textarea {
+      height: 10.2rem;
+      margin: 0 0 .6rem 0;
+    }
+  }
+
+  .right {
+    background: pink;
+    display: grid;
+    grid-template-columns: 90px 90px 90px 90px 90px 90px;
+    grid-column-gap: 20px;
+
+    #listingTitle {
+      grid-column-start: 1;
+      grid-column-end: 5;
+    }
+
+    #listingCategory {
+      grid-column-start: 5;
+      grid-column-end: 7;
+    }
+
+    #listingStreet {
+      grid-column-start: 1;
+      grid-column-end: 5;
+    }
+
+    #listingState{
+      grid-column-start: 5;
+      grid-column-end: 6;
+    }
+
+    #listingZip {
+      grid-column-start: 6;
+      grid-column-end: 7;
+    }
+
+    #listingDietary {
+      grid-column-start: 1;
+      grid-column-end: 5;
+    }
+
+    #listingExpiration {
+      grid-column-start: 5;
+      grid-column-end: 7;
+    }
+  }
+}

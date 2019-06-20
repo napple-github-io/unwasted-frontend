@@ -3,13 +3,17 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ListingForm from '../../components/listings/ListingForm';
 import { postListingToApi } from '../../services/listingsApi';
-import { getUserMongooseId } from '../../selectors/userAuthSelectors';
+import { getUserMongooseId, getUser } from '../../selectors/userAuthSelectors';
 import { withRouter } from 'react-router-dom';
+import Footer from '../../components/display/Footer';
+import Header from '../../components/display/Header';
+import styles from './CreateListing.css';
 
 class CreateListing extends PureComponent {
   static propTypes = {
     user: PropTypes.string.isRequired,
-    history: PropTypes.object.isRequired
+    history: PropTypes.object.isRequired,
+    currentUser: PropTypes.object
   }
 
   state = {
@@ -53,26 +57,33 @@ class CreateListing extends PureComponent {
     const { imageUrl, title, category, street, state, zip, description, postedDate, expiration } = this.state;
 
     return (
-      <ListingForm 
-        imageUrl={imageUrl}
-        title={title}
-        category={category}
-        street={street}
-        state={state}
-        zip={zip}
-        description={description}
-        postedDate={postedDate}
-        expiration={expiration}
-        onSubmit={this.onSubmit}
-        onChange={this.onChange}
-        checkBoxChecked={this.checkBoxChecked}
-      />
+      <>
+        <Header user={this.props.currentUser} />
+        <div className={styles.listingFormContainer}>
+          <ListingForm 
+            imageUrl={imageUrl}
+            title={title}
+            category={category}
+            street={street}
+            state={state}
+            zip={zip}
+            description={description}
+            postedDate={postedDate}
+            expiration={expiration}
+            onSubmit={this.onSubmit}
+            onChange={this.onChange}
+            checkBoxChecked={this.checkBoxChecked}
+          />
+        </div>
+        <Footer />
+      </>
     );
   }
 }
 
 const mapStateToProps = state => ({
   user: getUserMongooseId(state),
+  currentUser: getUser(state)
 });
 
 export default withRouter(connect(
