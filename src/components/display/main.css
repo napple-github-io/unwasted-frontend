@@ -118,3 +118,7 @@ select {
 footer {
   background: $lightgreen;
 }
+
+input[type=range] {
+  outline: none;
+}
