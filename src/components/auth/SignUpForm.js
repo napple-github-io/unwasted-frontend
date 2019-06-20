@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function SignUpForm({ onSubmit, onChange, email, password, username, street, state, zip, firstName, lastName, bio, city, className }) {
+function SignUpForm({ onSubmit, onChange, email, password, username, street, state, zip, firstName, lastName, bio, city, className, error }) {
   return (
     <form className={className} onSubmit={onSubmit}>
       <h2>Sign up</h2>
@@ -96,6 +96,7 @@ function SignUpForm({ onSubmit, onChange, email, password, username, street, sta
 
       <div className={className.buttonContainer}>
         <button>Sign Up</button>
+        {error && <h4>{error}</h4>}
       </div>
     </form>
   );
@@ -112,8 +113,10 @@ SignUpForm.propTypes = {
   street: PropTypes.string.isRequired,
   state: PropTypes.string.isRequired,
   zip: PropTypes.string.isRequired,
+  error: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
-  bio: PropTypes.string
+  bio: PropTypes.string,
+  className: PropTypes.string
 };
 
 export default SignUpForm;

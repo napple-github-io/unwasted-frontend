@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import ListingDetails from '../../components/listings/ListingDetails';
-import { getSingleListingFromApi } from '../../services/listingsApi';
+import { getSingleListingFromApi, deleteListingFromApi } from '../../services/listingsApi';
 import { getUser } from '../../selectors/userAuthSelectors';
 import { connect } from 'react-redux';
 import { sendEmail } from '../../services/emailApi';
@@ -9,7 +9,6 @@ import Header from '../../components/display/Header';
 import Footer from '../../components/display/Footer';
 import loadStyles from '../Loader.css';
 import styles from './ListingById.css';
-import { listingSeedObj } from '../../assets/seedData/seedData';
 
 
 class ListingById extends PureComponent {
@@ -43,9 +42,12 @@ class ListingById extends PureComponent {
   fetch = () => {
     return getSingleListingFromApi(this.props.match.params.listingId)
       .then(listing => {
-        console.log(listing);
         this.setState({ listing });
       });
+  }
+
+  deleteClick = () => {
+    return deleteListingFromApi(this.state.listing._id);
   }
   
   componentDidMount() {
@@ -63,7 +65,7 @@ class ListingById extends PureComponent {
       <>
       <Header user={this.props.currentUser}/>
       <div className={styles.listingDetailsContainer}>
-        <ListingDetails listing={this.state.listing} receivingUser={this.state.listing.user} onChange={this.changeHandler} onSubmit={this.submitHandler} />
+        <ListingDetails listing={this.state.listing} receivingUser={this.state.listing.user} onChange={this.changeHandler} onSubmit={this.submitHandler} deleteClick={this.deleteClick} />
       </div>
       <Footer />
       </>

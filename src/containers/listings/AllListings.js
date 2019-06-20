@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import AllListingsList from '../../components/listings/AllListingsList';
-import { getAllListingsFromApi, getListingsByUser } from '../../services/listingsApi';
+import { getAllListingsFromApi, getListingsByUser, searchListings } from '../../services/listingsApi';
 import Header from '../../components/display/Header';
 import { getUser } from '../../selectors/userAuthSelectors';
 import { connect } from 'react-redux';
@@ -27,11 +27,38 @@ class AllListings extends PureComponent {
       vegetarian: false,
       vegan: false
     },
-    distance: '25'
+    distance: '25',
+    origin: 'Portland, OR',
+    userLat: '',
+    userLong: ''
   }
 
   onChange = ({ target }) => {
     this.setState({ [target.name]: target.value });
+  }
+
+  getUserLocation = () => {
+    if(window.navigator.geolocation) {
+      return new Promise(function(resolve, reject) {
+        navigator.geolocation.getCurrentPosition(resolve, reject);
+      });
+    } else {
+      throw 'User must allow Location services to search by current location';
+    }
+  }
+
+  changeOrigin = () => {
+    let origin = '';
+    if(!this.props.currentUser && !this.state.userLat) {
+      origin = 'Portland, OR';
+    }
+    if(!this.state.userLat && this.props.currentUser.location){
+      origin = this.props.currentUser.location.street;
+    } 
+    if(this.state.userLat) {
+      origin = (this.state.userLat + ',' + this.state.userLong);
+    }
+    this.setState({ origin });
   }
 
   fetch = () => {
@@ -45,14 +72,19 @@ class AllListings extends PureComponent {
     const userId = this.props.location.search.slice(4);
     return getListingsByUser(userId)
       .then(listings => {
+        
         this.setState({ listings });
       });
   }
     
   filterSubmit = event => {
     event.preventDefault();
-    const { dietary, category, distance } = this.state;
-    console.log(dietary, category, distance);
+    const { dietary, category, distance, origin } = this.state;
+
+    searchListings(dietary, category, distance, origin)
+      .then(listings => {
+        this.setState({ listings });
+      });
   }
 
   checkBoxChecked = ({ target }) => {
@@ -66,6 +98,12 @@ class AllListings extends PureComponent {
       this.setState({ title: `${this.props.currentUser.username}'s Listings` });
     } else {
       this.fetch();
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    if(this.state.userLat !== prevState.userLat){
+      this.changeOrigin();
     }
   }
 
