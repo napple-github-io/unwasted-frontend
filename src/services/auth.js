@@ -59,6 +59,7 @@ export const signin = (email, password) => {
 export const handleAuth0 = () => {
   return new Promise((resolve, reject) => {
     auth0.parseHash((error, results) => {
+      console.log(error);
       if(results && results.accessToken && results.idToken) {
         auth0.client.userInfo(results.accessToken, (err, profile) => {
           if(err) return reject('Could not access user profile');

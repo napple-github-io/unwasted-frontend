@@ -1,0 +1,5 @@
+@import url('../../components/display/variables.css');
+
+.hero {
+  background: pink;
+}

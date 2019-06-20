@@ -8,11 +8,12 @@ import ReviewList from '../../components/reviews/ReviewList';
 import MyProfileDetails from '../../components/profile/MyProfileDetails';
 import UserListingThumbList from '../../components/listings/UserListingThumbList';
 import NearbyListingThumbList from '../../components/listings/NearbyListingThumbList';
-import { listingSeed } from '../../assets/seedData/seedData';
+import { listingSeed, reviewSeed } from '../../assets/seedData/seedData';
 import { getListingsByUser } from '../../services/listingsApi';
 import { getUser } from '../../selectors/userAuthSelectors';
 import { getReviewsByUserId } from '../../services/reviewsApi';
 import loadStyles from '../Loader.css';
+import styles from './MyProfileDisplay.css';
 
 class MyProfileDisplay extends PureComponent {
   static propTypes = {
@@ -49,13 +50,22 @@ class MyProfileDisplay extends PureComponent {
         <div className={loadStyles.loader}></div>
       </div>
     );
+
+    console.log(userInfo);
+
     return (
     <>
-      <Header user={userInfo}/>
+      <section className={styles.hero}>
+        <Header user={userInfo} />
+        <div>
+          <h1>Welcome back,<br />{userInfo.firstName} {userInfo.lastName}</h1>
+        </div>
+      </section>
+      
       <UserListingThumbList userListingList={listings} />
       <NearbyListingThumbList nearbyListingList={listingSeed} />
       <MyProfileDetails profile={userInfo} />
-      <ReviewList reviewList={reviews} />
+      <ReviewList reviewList={reviewSeed} />
       <Footer />
     </>
     );

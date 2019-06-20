@@ -12,7 +12,7 @@ export default class SignUpSubmit extends PureComponent {
     lastName: '',
     street: '',
     state: 'OR',
-    zip: 0,
+    zip: '',
     bio: '',
     city: ''
   }
@@ -23,8 +23,7 @@ export default class SignUpSubmit extends PureComponent {
 
   onSubmit = event => {
     event.preventDefault();
-    const { email, password, username, lastName, firstName, street, state, bio, city } = this.state;
-    const zip = this.state.zip.toString();
+    const { email, password, username, lastName, firstName, street, state, bio, city, zip } = this.state;
     signup(email, password, username, street, state, firstName, lastName, zip, bio, city);
     this.setState({ email: '', password: '', username:'', firstName:'', lastName:'', street:'', state:'', zip:'', bio:'', city:'' });
   }
