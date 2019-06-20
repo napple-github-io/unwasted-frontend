@@ -12,16 +12,15 @@
   justify-content: center;
 
   margin-bottom: 2rem;
+  height: 100vh;
+
+  color: #FFFFFF;
 
   div {
     display: flex;
     width: 980px;
     align-items: center;
   }
-
-  height: 100vh;
-
-  color: #FFFFFF;
 
   header {
     position: absolute;

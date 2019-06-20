@@ -1,0 +1,58 @@
+@import url('../display/variables.css');
+
+.myProfileContainer {
+  background: pink;
+  width: 980px;
+
+  #yourInformation {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0 0 1px 0;
+    margin: 0 0 1.875rem 0;
+    border-bottom: 2px solid $darkgrey; 
+  }
+
+  .myProfileGrid {
+    background: purple;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 1.25rem;
+
+    section:nth-child(1) {
+      background: yellow;
+      grid-column-start: 1;
+      grid-column-end: 3;
+
+      div {
+        width: 11.25rem;
+        height: 11.25rem;
+        overflow: hidden;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        border-radius: 50%;
+
+        img {
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
+    section:nth-child(2) {
+      background: red;
+      grid-column-start: 4;
+      grid-column-end: 6;
+    }
+
+    section:nth-child(3) {
+      background: red;
+      grid-column-start: 7;
+      grid-column-end: 11;
+    }
+  }
+}

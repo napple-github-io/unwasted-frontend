@@ -1,5 +1,52 @@
 @import url('../../components/display/variables.css');
 
 .hero {
-  background: pink;
+  background-image: url('../../assets/images/hero/hero3.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: 2rem;
+  height: 100vh;
+
+  color: #FFFFFF;
+
+  div {
+    display: flex;
+    width: 980px;
+    align-items: center;
+  }
+
+  header {
+    position: absolute;
+  }
+
+  aside {
+    background-image: url('../../assets/logos/logowhite.svg');
+  }
+  
+  a {
+    color: #FFFFFF;
+  }
+
+  h1 {
+    align-self: center;
+    line-height: 1.15em;
+  }
+
+  span {
+    font-style: italic;
+    font-size: 1.3em;
+  }
+}
+
+.mainMyProfile {
+  display: grid;
+  grid-row-gap: $colgap;
+  justify-content: center;
 }

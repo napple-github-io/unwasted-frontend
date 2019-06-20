@@ -8,7 +8,7 @@ import ReviewList from '../../components/reviews/ReviewList';
 import MyProfileDetails from '../../components/profile/MyProfileDetails';
 import UserListingThumbList from '../../components/listings/UserListingThumbList';
 import NearbyListingThumbList from '../../components/listings/NearbyListingThumbList';
-import { listingSeed, reviewSeed } from '../../assets/seedData/seedData';
+import { listingSeed, userSeedObj, reviewSeed } from '../../assets/seedData/seedData';
 import { getListingsByUser } from '../../services/listingsApi';
 import { getUser } from '../../selectors/userAuthSelectors';
 import { getReviewsByUserId } from '../../services/reviewsApi';
@@ -32,7 +32,6 @@ class MyProfileDisplay extends PureComponent {
           Promise.resolve(userInfo),
           getListingsByUser(userInfo._id),
           getReviewsByUserId(userInfo._id)
-
         ]));
       })
       .then(([userInfo, listings, reviews]) => this.setState({ userInfo, listings, reviews }));
@@ -45,27 +44,31 @@ class MyProfileDisplay extends PureComponent {
 
   render(){
     const { userInfo, listings, reviews } = this.state;
-    if(!userInfo) return (
-      <div className={loadStyles.loading}>
-        <div className={loadStyles.loader}></div>
-      </div>
-    );
+    // if(!userInfo) return (
+    //   <div className={loadStyles.loading}>
+    //     <div className={loadStyles.loader}></div>
+    //   </div>
+    // );
 
     console.log(userInfo);
 
     return (
     <>
       <section className={styles.hero}>
-        <Header user={userInfo} />
+        <Header user={userSeedObj} />
         <div>
-          <h1>Welcome back,<br />{userInfo.firstName} {userInfo.lastName}</h1>
+          <h1>Welcome back,<br />
+            <span id={styles.name}>{userSeedObj.firstName} {userSeedObj.lastName}</span></h1>
         </div>
       </section>
       
-      <UserListingThumbList userListingList={listings} />
-      <NearbyListingThumbList nearbyListingList={listingSeed} />
-      <MyProfileDetails profile={userInfo} />
-      <ReviewList reviewList={reviewSeed} />
+      <section className={styles.mainMyProfile}>
+        <UserListingThumbList userListingList={listingSeed} />
+        <NearbyListingThumbList nearbyListingList={listingSeed} />
+        <MyProfileDetails profile={userSeedObj} />
+        {/* <ReviewList reviewList={reviewSeed} /> */}
+      </section>
+
       <Footer />
     </>
     );

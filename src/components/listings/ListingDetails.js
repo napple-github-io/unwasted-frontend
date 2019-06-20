@@ -29,8 +29,12 @@ function ListingDetails({ listing, receivingUser, onChange, onSubmit }) {
 
           <h4>Dietary</h4>
           <ul className={styles.dietary}>
-            <li>{listing.dietary.nut}</li>
-            <li>{listing.dietary.vegetarian}</li>
+            {listing.dietary.dairy && <li>Dairy Free</li>}
+            {listing.dietary.gluten && <li>Gluten Free</li>}
+            {listing.dietary.shellfish && <li>Shellfish Free</li>}
+            {listing.dietary.nut && <li>Nut Free</li>}
+            {listing.dietary.vegetarian && <li>Vegetarian</li>}
+            {listing.dietary.vegan && <li>Vegan</li>}
           </ul>
 
           <p className={styles.date}>Posted {listing.postedDate}</p>

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ListingThumb from './ListingThumb';
+import styles from './Listings.css';
 
 function UserListingThumbList({ userListingList }) {
   const listItem = userListingList.map(userListing => (
@@ -10,7 +11,7 @@ function UserListingThumbList({ userListingList }) {
   ));
 
   return (
-    <section>
+    <section className={styles.listings}>
       <header>
         <h2>Your Current Listings</h2>
         <p>
