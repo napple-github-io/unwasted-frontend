@@ -15,12 +15,9 @@ function MyProfileDetails({ profile }) {
           <div>
             <img src={profile.userImage} />
           </div>
-          <p>Change profile photo</p>
+          <h5>Change profile photo</h5>
           <form>
-            <input type="file" id="profile-photo-upload" name="upload" accept="image/*" />
-            <button>
-            Upload
-            </button>
+            <input type="file" className={styles.imageUpload} name="upload" accept="image/*" />
           </form>
         </section>
 
@@ -28,9 +25,9 @@ function MyProfileDetails({ profile }) {
         <section>
           <h4>Username</h4>
           <p>{profile.username}</p>
-          <h4>Name</h4>
+          <h4 className={styles.h4Margin}>Name</h4>
           <p>{profile.firstName} {profile.lastName}</p>
-          <h4>Address</h4>
+          <h4 className={styles.h4Margin}>Address</h4>
           <p>
             {profile.location.street}<br />{profile.location.state} {profile.location.zip}
           </p>

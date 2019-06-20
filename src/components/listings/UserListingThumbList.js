@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ListingThumb from './ListingThumb';
 import styles from './Listings.css';
+import userStyles from './UserListingThumbList.css';
 
 function UserListingThumbList({ userListingList }) {
   const listItem = userListingList.map(userListing => (
@@ -15,7 +16,7 @@ function UserListingThumbList({ userListingList }) {
       <header>
         <h2>Your Current Listings</h2>
         <p>
-          <a href="#">View All</a> <span>|</span> <a href="#">New Listing</a> <span>|</span> <a href="#">Expired Listings</a>
+          <a href="#">View All</a> <span className={userStyles.span}>|</span> <a href="#">New Listing</a> <span className={userStyles.span}>|</span> <a href="#">Expired Listings</a>
         </p>
       </header>
       <ul>
