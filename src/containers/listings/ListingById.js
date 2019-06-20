@@ -42,13 +42,11 @@ class ListingById extends PureComponent {
   fetch = () => {
     return getSingleListingFromApi(this.props.match.params.listingId)
       .then(listing => {
-        console.log(listing);
         this.setState({ listing });
       });
   }
 
   deleteClick = () => {
-    console.log(this.state.listing._id);
     return deleteListingFromApi(this.state.listing._id);
   }
   

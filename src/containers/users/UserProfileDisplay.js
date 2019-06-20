@@ -7,7 +7,6 @@ import ReviewList from '../../components/reviews/ReviewList';
 import ReviewForm from '../../components/reviews/ReviewForm';
 import UserListingThumbList from '../../components/listings/UserListingThumbList';
 import UserProfileDetails from '../../components/profile/UserProfileDetails';
-import { listingSeed, userSeedObj, reviewSeed } from '../../assets/seedData/seedData';
 import { getListingsByUser } from '../../services/listingsApi';
 import { connect } from 'react-redux';
 import { getUser } from '../../selectors/userAuthSelectors';
@@ -56,7 +55,7 @@ class UserProfileDisplay extends PureComponent {
 
   componentDidMount(){
     this.fetch();
-    console.log(this.props.match);
+    console.log(this.props);
   }
 
   render(){

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Review({ review }) {
+  let thumbs = review.thumbsUp ? 'Recommended' : 'Not Recommended';
   return (
     <>
     <section>
@@ -12,7 +13,7 @@ function Review({ review }) {
     </section>
 
     <div>
-      <h4>{review.thumbsUp}</h4>
+      <h4>{thumbs}</h4>
       <p className="review-timestamp">Posted {review.postedDate}</p>
       <p>{review.reviewText}</p>
       <a href="#" className="report-link">REPORT</a>

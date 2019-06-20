@@ -38,8 +38,7 @@ export const signup = (email, password, username, street, state, firstName, last
         },
         bio,
         authId: results.Id
-      })
-        .then(res => console.log(res));
+      });
     });
 };
 

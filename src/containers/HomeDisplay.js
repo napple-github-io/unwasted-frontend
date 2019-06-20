@@ -29,15 +29,12 @@ class HomeDisplay extends PureComponent {
   changeOrigin = () => {
     let origin = '';
     if(!this.props.currentUser && !this.state.userLat) {
-      console.log('door 1');
       origin = 'Portland, OR';
     }
     if(!this.state.userLat && this.props.currentUser.location){
-      console.log('door 2');
       origin = this.props.currentUser.location.street;
     } 
     if(this.state.userLat) {
-      console.log('door 3');
       origin = (this.state.userLat + ',' + this.state.userLong);
     }
     this.setState({ origin });
@@ -47,7 +44,6 @@ class HomeDisplay extends PureComponent {
     const { origin } = this.state;
     return getAllListingsFromApiWithDistance(origin)
       .then(listings => {
-        console.log(listings);
         this.setState({ listings });
       });
   }
@@ -67,9 +63,7 @@ class HomeDisplay extends PureComponent {
     const listingsArray = listings.map(listing => {
       return listing.location.street + listing.location.zip + '|';
     });
-    console.log(listingsArray);
     const mapUrl = getListingMap(userLat, userLong, listingsArray);
-    console.log(mapUrl);
     this.setState({ mapUrl });
   }
 
@@ -86,7 +80,6 @@ class HomeDisplay extends PureComponent {
 
   componentDidUpdate(prevProps, prevState){
     if(this.state.userLat !== prevState.userLat){
-      console.log('changin origin');
       this.changeOrigin();
     }
   }

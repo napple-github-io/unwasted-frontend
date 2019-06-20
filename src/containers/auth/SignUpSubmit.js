@@ -1,9 +1,14 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { signup } from '../../services/auth';
 import SignUpForm from '../../components/auth/SignUpForm';
 import styles from './SignUp.css';
 
 export default class SignUpSubmit extends PureComponent {
+  static propTypes = {
+    history: PropTypes.object.isRequired
+  }
+
   state = {
     email: '',
     password: '',
@@ -14,7 +19,8 @@ export default class SignUpSubmit extends PureComponent {
     state: 'OR',
     zip: '',
     bio: '',
-    city: ''
+    city: '',
+    error: ''
   }
 
   onChange = ({ target }) => {
@@ -24,12 +30,19 @@ export default class SignUpSubmit extends PureComponent {
   onSubmit = event => {
     event.preventDefault();
     const { email, password, username, lastName, firstName, street, state, bio, city, zip } = this.state;
-    signup(email, password, username, street, state, firstName, lastName, zip, bio, city);
-    this.setState({ email: '', password: '', username:'', firstName:'', lastName:'', street:'', state:'', zip:'', bio:'', city:'' });
+    signup(email, password, username, street, state, firstName, lastName, zip, bio, city)
+      .then(signUpResponse => {
+        if(signUpResponse.authId){
+          this.props.history.push('/signin');
+        } else {
+          //WORK ON GETTING ERROR REPORT
+          this.setState({ error: 'Unable to signup this user, please try again' });
+        }
+      });
   }
 
   render() {
-    const { email, password, username, street, state, zip, lastName, firstName, bio, city } = this.state;
+    const { email, password, username, street, state, zip, lastName, firstName, bio, city, error } = this.state;
     return (
       <div className={styles.signUpBody}>
         <header className={styles.header}>
@@ -51,6 +64,7 @@ export default class SignUpSubmit extends PureComponent {
             onSubmit={this.onSubmit}
             onChange={this.onChange}
             className={styles.forms}
+            error={error}
           />
         </main>
 

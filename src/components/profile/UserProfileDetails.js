@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 function UserProfileDetails({ userProfileDetails }) {
   return (
     <section>
-      <img src={userProfileDetails.userImage} alt={userProfileDetails.username} />
+      {!userProfileDetails.powerUser && <img src={userProfileDetails.userImage} alt={userProfileDetails.username} />}
+      {userProfileDetails.powerUser && <img src={userProfileDetails.userImage} alt={userProfileDetails.username} />}
       <h5>Name</h5>
       <h4>{userProfileDetails.firstName} {userProfileDetails.lastName}</h4>
       <h5>Location</h5>
