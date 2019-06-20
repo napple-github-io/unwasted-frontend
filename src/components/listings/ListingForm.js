@@ -8,12 +8,12 @@ export default function ListingForm({ onSubmit, onChange, title, category, stree
     <div className={styles.componenetContainer}>
       <h2>New Listing</h2>
       <form id="listing" onSubmit={onSubmit}>
-        <section>
+        <section className={styles.left}>
           <div id={styles.listingImageContainer}>
             <img src='#' alt="Upload an image" />
           </div>
           <h5>Upload a photo</h5>
-          <input type="file" id="listing-upload" name="upload" accept="image/*" onSubmit={onSubmit} onChange={onChange} />
+          <input type="file" className={styles.imageUpload} name="upload" accept="image/*" onSubmit={onSubmit} onChange={onChange} />
         </section>
 
 
@@ -118,7 +118,7 @@ export default function ListingForm({ onSubmit, onChange, title, category, stree
 
           <div id={styles.listingDescription}>
             <h4>Description</h4>
-            <textarea id="listing-description" name="description" description={description} placeholder="Description" onChange={onChange}></textarea>
+            <textarea id="listing-description" name="description" description={description} placeholder="Brief description of items..." onChange={onChange}></textarea>
           </div>
 
           <div id={styles.submit}>
