@@ -98,7 +98,7 @@ export default function ListingForm({ onSubmit, onChange, title, category, stree
             <h4>Dietary Requirements</h4>
             <h5>Allergens</h5>
 
-            <ul>
+            <ul id={styles.topUl}>
               <label><li><input type="checkbox" name="dairy" onChange={checkBoxChecked} />Dairy Free</li></label>
               <label><li><input type="checkbox" name="gluten" onChange={checkBoxChecked} />Gluten Free</li></label>
               <label><li><input type="checkbox" name="shellfish" onChange={checkBoxChecked} />Shellfish Free</li></label>
@@ -122,7 +122,7 @@ export default function ListingForm({ onSubmit, onChange, title, category, stree
           </div>
 
           <div id={styles.submit}>
-            <label><input type="checkbox" name="legal" required/>legal disclaimer goes here!!!</label>
+            <label><input type="checkbox" name="legal" required/>I promise that I am posting real food, ok?</label>
             <button id={styles.button}>SUBMIT</button>
           </div>
         </section>

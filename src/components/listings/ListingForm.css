@@ -35,6 +35,15 @@
     display: grid;
     grid-template-columns: 90px 90px 90px 90px 90px 90px;
     grid-column-gap: 20px;
+    grid-row-gap: 20px;
+
+    h4 {
+      margin-bottom: .5rem;
+    }
+
+    h5 {
+      margin-bottom: .4rem;
+    }
 
     #listingTitle {
       grid-column-start: 1;
@@ -67,7 +76,20 @@
 
       ul {
         display: flex;
-        
+
+        li {
+          font-size: .9em;
+
+          margin-right: .9rem;
+
+          input {
+            margin-right: 4px; 
+          }
+        }
+      }
+
+      #topUl {
+        margin-bottom: .4rem;
       }
     }
 
@@ -101,10 +123,19 @@
       grid-column-end: 7;
 
       width: 100%;
+      margin-top: -20px;
 
       display: flex;
       flex-direction: column;
       align-items: flex-end;
+
+      input {
+        margin-right: 4px; 
+      }
+
+      label {
+        font-size: .9em;
+      }
 
       button {
         margin: 1rem 0 1rem 0;
