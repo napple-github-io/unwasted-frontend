@@ -1,0 +1,8 @@
+@import url('../display/variables.css');
+
+.span {
+  color: $lightgrey;
+  margin: 0 10px;
+  position: relative;
+  bottom: 6px;
+}

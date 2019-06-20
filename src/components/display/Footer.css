@@ -6,7 +6,7 @@
   align-items: center;
 
   padding: 1.5rem 2rem;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
 
   img {
     margin-right: .75rem;
@@ -34,18 +34,26 @@
       color: $darkgrey;
       text-transform: uppercase;
     }
-  }
 
+    a:hover {
+      color: $darkgreen;
+    }
+  }
+  
   .bottom {
     font-size: .8em;
     font-weight: 600;
-
+    
     li {
       margin-left: 1.2rem;
     }
-
+    
     a {
       color: $darkgrey;
+    }
+    
+    a:hover {
+      color: $darkgreen;
     }
   }
 }

@@ -30,6 +30,7 @@ export default class SignUpSubmit extends PureComponent {
   onSubmit = event => {
     event.preventDefault();
     const { email, password, username, lastName, firstName, street, state, bio, city, zip } = this.state;
+
     signup(email, password, username, street, state, firstName, lastName, zip, bio, city)
       .then(signUpResponse => {
         if(signUpResponse.authId){

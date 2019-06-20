@@ -1,0 +1,96 @@
+@import url('../display/variables.css');
+
+.myProfileContainer {
+  width: 980px;
+
+  #yourInformation {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0 0 1px 0;
+    margin: 0 0 1.875rem 0;
+    border-bottom: 2px solid $darkgrey; 
+  }
+
+  .myProfileGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 1.25rem;
+
+    section:nth-child(1) {
+      grid-column-start: 1;
+      grid-column-end: 3;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      h5 {
+        margin: .4rem 0 1rem 0;
+      }
+
+      div {
+        width: 11.25rem;
+        height: 11.25rem;
+        overflow: hidden;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        border-radius: 50%;
+
+        img {
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
+    section:nth-child(2) {
+      grid-column-start: 4;
+      grid-column-end: 6;
+
+      .h4Margin {
+        margin-top: 10px;
+      }
+    }
+
+    section:nth-child(3) {
+      grid-column-start: 7;
+      grid-column-end: 11;
+    }
+  }
+}
+
+.imageUpload {
+  border: 0;
+  height: 34px;
+  width: 90px;
+  outline: none;
+  color: transparent;
+}
+
+.imageUpload::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.imageUpload::before {
+  content: 'UPLOAD';
+  display: inline-block;
+  background: $darkgreen;
+  border-radius: 500px;
+  padding: .5rem 1rem;
+  outline: none;
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 1.2em;
+  letter-spacing: .04em;
+  cursor: pointer;
+}
+
+.imageUpload:hover::before {
+  background: $midgreen;
+}
+

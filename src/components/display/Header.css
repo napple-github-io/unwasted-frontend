@@ -9,6 +9,10 @@
 
   width: 100%;
 
+  a:hover {
+    color: $lightgreen;
+  }
+
   aside {
     width: 17.5rem;
     height: 2.5rem;
