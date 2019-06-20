@@ -18,6 +18,8 @@ export const setSession = () => ({
   payload: handleAuthSession()
 });
 
+// export const setLocation = 
+
 // export const [
 //   setSession,
 //   SET_SESSION,

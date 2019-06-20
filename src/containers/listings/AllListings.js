@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import AllListingsList from '../../components/listings/AllListingsList';
-import { getAllListingsFromApi, getListingsByUser } from '../../services/listingsApi';
+import { getAllListingsFromApi, getListingsByUser, searchListings } from '../../services/listingsApi';
 import Header from '../../components/display/Header';
 import { getUser } from '../../selectors/userAuthSelectors';
 import { connect } from 'react-redux';
@@ -52,7 +52,10 @@ class AllListings extends PureComponent {
   filterSubmit = event => {
     event.preventDefault();
     const { dietary, category, distance } = this.state;
-    console.log(dietary, category, distance);
+    return searchListings(dietary, category, distance)
+      .then(listings => {
+        this.setState({ listings });
+      });
   }
 
   checkBoxChecked = ({ target }) => {

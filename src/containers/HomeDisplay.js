@@ -10,7 +10,7 @@ import PowerUserList from '../components/userAggregations/PowerUserList';
 import { listingSeed, userSeed } from '../assets/seedData/seedData';
 import styles from './Home.css';
 import { getUser } from '../selectors/userAuthSelectors';
-import { getAllListingsFromApi } from '../services/listingsApi';
+import { getAllListingsFromApi, getAllListingsFromApiWithDistance } from '../services/listingsApi';
 import { getListingMap } from '../services/mapApi';
 
 class HomeDisplay extends PureComponent {
@@ -22,12 +22,32 @@ class HomeDisplay extends PureComponent {
     userLat: '',
     userLong: '',
     listings: [],
-    mapUrl: ''
+    mapUrl: '',
+    origin: ''
   }
 
-  fetchListings = () => {
-    return getAllListingsFromApi()
+  changeOrigin = () => {
+    let origin = '';
+    if(!this.props.currentUser && !this.state.userLat) {
+      console.log('door 1');
+      origin = 'Portland, OR';
+    }
+    if(!this.state.userLat && this.props.currentUser.location){
+      console.log('door 2');
+      origin = this.props.currentUser.location.street;
+    } 
+    if(this.state.userLat) {
+      console.log('door 3');
+      origin = (this.state.userLat + ',' + this.state.userLong);
+    }
+    this.setState({ origin });
+  }
+  
+  fetchListingsWithDistance = () => {
+    const { origin } = this.state;
+    return getAllListingsFromApiWithDistance(origin)
       .then(listings => {
+        console.log(listings);
         this.setState({ listings });
       });
   }
@@ -58,27 +78,21 @@ class HomeDisplay extends PureComponent {
       this.getUserLocation()
         .then(position => {
           this.setState({ userLat: position.coords.latitude, userLong: position.coords.longitude });
-        }),
-      this.fetchListings()
+        })
     ]))
-      .then(() => this.fetchMap());
+      .then(() => this.fetchListingsWithDistance())
+      .then(() => this.fetchMap);
+  }
 
-
-
-
-    // return this.GetUserLocation()
-    //   .then(userPosition => this.setState({ userLat: userPosition.lat, userLong: userPosition.long }))
-    //   .then(() => this.fetchListings())
-    //   .then(() => this.fetchMap())
-    //   .then(map => {
-    //     if(this.state.userLat && this.state.userLong) {
-    //       console.log(map);
-    //       this.setState({ map });
-    //     }
-    //   });
+  componentDidUpdate(prevProps, prevState){
+    if(this.state.userLat !== prevState.userLat){
+      console.log('changin origin');
+      this.changeOrigin();
+    }
   }
 
   render() {
+    const { listings } = this.state;
     return (
       <>
       <section className={styles.hero}>
@@ -89,7 +103,7 @@ class HomeDisplay extends PureComponent {
       </section>
 
       <div className={styles.mainHome}>
-        <NearbyListingThumbList nearbyListingList={listingSeed} />
+        <NearbyListingThumbList nearbyListingList={listings} />
         <Map mapUrl={this.state.mapUrl} />
         <PowerUserList powerUserList={userSeed} />
       </div>
