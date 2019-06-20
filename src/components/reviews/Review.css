@@ -1,0 +1,61 @@
+@import url('../display/variables.css');
+
+.reviewGrid {
+  width: 980px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-column-gap: 1.25rem;
+}
+
+.left {
+  grid-column-start: 1;
+  grid-column-end: 3;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  div {
+    width: 5.125rem;
+    height: 5.125rem;
+    border-radius: 50%;
+    overflow: hidden;
+
+    margin-bottom: .5rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.right {
+  grid-column-start: 3;
+  grid-column-end: 10;
+
+  .reviewTimestamp {
+    font-weight: 400;
+    font-style: italic;
+    font-size: .9em;
+    margin-bottom: .5rem;
+  }
+}
+
+.reportLink {
+  grid-column-start: 10;
+  grid-column-end: 11;
+
+  justify-self: end;
+  align-self: end;
+
+  font-weight: 400;
+  font-style: italic;
+  font-size: .9em;
+}

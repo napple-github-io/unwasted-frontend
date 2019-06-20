@@ -1,24 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './Review.css';
 
 function Review({ review }) {
   let thumbs = review.thumbsUp ? 'Recommended' : 'Not Recommended';
   return (
-    <>
-    <section>
-      <img src={review.reviewer.userImage} />
-      <div>
+    <section className={styles.reviewGrid}>
+      <section className={styles.left}>
+        <div>
+          <img src={review.reviewer.userImage} />
+        </div>
         <h4>{review.reviewer.username}</h4>
-      </div>
-    </section>
+      </section>
 
-    <div>
-      <h4>{thumbs}</h4>
-      <p className="review-timestamp">Posted {review.postedDate}</p>
-      <p>{review.reviewText}</p>
-      <a href="#" className="report-link">REPORT</a>
-    </div>
-    </>
+      <div className={styles.right}>
+        <h4>{thumbs}</h4>
+        <p className={styles.reviewTimestamp}>Posted {review.postedDate}</p>
+        <p>{review.reviewText}</p>
+      </div>
+
+      <a href="#" className={styles.reportLink}>REPORT</a>
+    </section>
   );
 }
 

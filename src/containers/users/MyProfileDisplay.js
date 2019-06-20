@@ -66,7 +66,7 @@ class MyProfileDisplay extends PureComponent {
         <UserListingThumbList userListingList={listingSeed} />
         <NearbyListingThumbList nearbyListingList={listingSeed} />
         <MyProfileDetails profile={userSeedObj} />
-        {/* <ReviewList reviewList={reviewSeed} /> */}
+        <ReviewList reviewList={reviewSeed} />
       </section>
 
       <Footer />

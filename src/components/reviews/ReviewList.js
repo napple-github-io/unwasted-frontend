@@ -1,19 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Review from './Review';
+import styles from './ReviewList.css';
 
 function ReviewList({ reviewList }) {
   const listItem = reviewList.map(review => (
-    <li key={review._id}>
+    <li className={styles.li} key={review._id}>
       <Review review={review} />
     </li>
   ));
 
   return (
-    <section>
+    <section className={styles.reviewList}>
       <header>
         <h2>Reviews</h2>
-        <p><a href="#" className="write-review">Write Review</a></p>
       </header>
       <ul>
         {listItem}
