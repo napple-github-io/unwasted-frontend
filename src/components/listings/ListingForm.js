@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ListingForm.css';
 
-export default function ListingForm({ onSubmit, onChange, title, category, street, city, state, zip, description, expiration, checkBoxChecked }) {
+export default function ListingForm({ onSubmit, onChange, title, category, street, state, zip, description, expiration, checkBoxChecked }) {
   return (
     <>
     <div className={styles.componenetContainer}>
