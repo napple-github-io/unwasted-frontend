@@ -1,0 +1,81 @@
+@import url('../display/variables.css');
+
+.reviewFormContainer {
+
+  h4 {
+    border-top: 1px solid $lightgrey;
+    padding: 0 0 1px 0;
+    margin: 1.5rem 0 .5rem 0;
+    padding: 1.25rem 0 0 0;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    textarea {
+      height: 5rem;
+    }
+
+    section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: .825rem 0 2.5rem 0;
+
+      #thumbs {
+        display: flex;
+        width: 4rem;
+        justify-content: space-between
+      }
+
+      [type=radio] { 
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      #up {
+        #thumbsUp {
+          background-image: url('../../assets/icons/thumbup-unselected.svg');
+          background-position: center;
+          background-size: cover;
+          width: 26px;
+          height: 24px;
+
+          position: relative;
+          bottom: 2px;
+
+          cursor: pointer;
+        }
+
+        [type=radio]:checked + #thumbsUp {
+          background-image: url('../../assets/icons/thumbup-selected.svg')
+        }
+      }
+
+      #down {
+        #thumbsDown {
+          background-image: url('../../assets/icons/thumbdown-unselected.svg');
+          background-position: center;
+          background-size: cover;
+          width: 26px;
+          height: 24px;
+
+          position: relative;
+          top: 2px;
+
+          cursor: pointer;
+        }
+
+        [type=radio]:checked + #thumbsDown {
+          background-image: url('../../assets/icons/thumbdown-selected.svg')
+        }
+      }
+
+
+
+    }
+  }
+}

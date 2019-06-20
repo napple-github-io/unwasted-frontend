@@ -1,26 +1,39 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import styles from './ReviewForm.css';
 
 function ReviewForm({ currentUser, reviewee, onChange, onSubmit }) {
   return (
-    <section>
+    <section className={styles.reviewFormContainer}>
 
       <section>
         <h4>Review {reviewee.username}</h4>
       </section>
 
-      <section>
-        <form onSubmit={onSubmit}>
-          <textarea name="reviewText" placeholder="Tell us how ya really feel..." onChange={onChange}></textarea>
-          <label><input type="radio" value="true" name="thumbsUp" onChange={onChange}></input>Up</label>
-          <label><input type="radio" value="false" name="thumbsUp" onChange={onChange}></input>Down</label>
-          {currentUser.token && <button>Submit Review</button>}
-          {!currentUser.token && <button disabled={true}>Submit Review</button>}
-          {!currentUser.token && <Link to={'/signin'}>Sign In To Leave Review</Link>}
-        </form>
-      </section>
-       
+      <form onSubmit={onSubmit}>
+        <textarea name="reviewText" placeholder="Tell us how you feel..." onChange={onChange}></textarea>
+
+        <section>
+          <div id={styles.thumbs}>
+            <label id={styles.up}>
+              <input type="radio" value="true" name="thumbsUp" onChange={onChange}></input>
+              <div id={styles.thumbsUp}></div>
+            </label>
+
+            <label id={styles.down}>
+              <input type="radio" value="false" name="thumbsUp" onChange={onChange}></input>
+              <div id={styles.thumbsDown}></div>
+            </label>
+          </div>
+        
+          <div>
+            {currentUser.token && <button>Submit</button>}
+            {!currentUser.token && <Link to={'/signin'}><button >Sign In To Leave Review</button></Link>}
+          </div>
+        </section>
+
+      </form>
     </section>
   );
 }

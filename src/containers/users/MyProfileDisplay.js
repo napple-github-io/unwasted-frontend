@@ -62,12 +62,15 @@ class MyProfileDisplay extends PureComponent {
         </div>
       </section>
       
-      <section className={styles.mainMyProfile}>
-        <UserListingThumbList userListingList={listingSeed} />
-        <NearbyListingThumbList nearbyListingList={listingSeed} />
-        <MyProfileDetails profile={userSeedObj} />
-        <ReviewList reviewList={reviewSeed} />
-      </section>
+      <div className={styles.center}>
+        <section className={styles.mainMyProfile}>
+          <UserListingThumbList userListingList={listingSeed} />
+          <NearbyListingThumbList nearbyListingList={listingSeed} />
+          <MyProfileDetails profile={userSeedObj} />
+          <ReviewList reviewList={reviewSeed} />
+        </section>
+      </div>
+
 
       <Footer />
     </>

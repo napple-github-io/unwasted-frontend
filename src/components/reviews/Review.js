@@ -10,7 +10,7 @@ function Review({ review }) {
         <div>
           <img src={review.reviewer.userImage} />
         </div>
-        <h4>{review.reviewer.username}</h4>
+        <h5>{review.reviewer.username}</h5>
       </section>
 
       <div className={styles.right}>
@@ -19,7 +19,7 @@ function Review({ review }) {
         <p>{review.reviewText}</p>
       </div>
 
-      <a href="#" className={styles.reportLink}>REPORT</a>
+      {/* <a href="#" className={styles.reportLink}>REPORT</a> */}
     </section>
   );
 }
