@@ -12,7 +12,7 @@ export default function ListingForm({ onSubmit, onChange, title, category, stree
           <div id={styles.listingImageContainer}>
             <img src='#' alt="Upload an image" />
           </div>
-          <h4>Upload a photo</h4>
+          <h5>Upload a photo</h5>
           <input type="file" id="listing-upload" name="upload" accept="image/*" onSubmit={onSubmit} onChange={onChange} />
         </section>
 
@@ -95,34 +95,36 @@ export default function ListingForm({ onSubmit, onChange, title, category, stree
           <input type="string" maxLength="5" minLength="5" name="zip" value={zip} id={styles.listingZip} placeholder="Zip-Code" onChange={onChange} required />
 
           <section id={styles.listingDietary}>
-            <h3>Dietary Requirements</h3>
-            <h4>Allergens</h4>
+            <h4>Dietary Requirements</h4>
+            <h5>Allergens</h5>
 
             <ul>
-              <li><input type="checkbox" name="dairy" onChange={checkBoxChecked} />Dairy Free</li>
-              <li><input type="checkbox" name="gluten" onChange={checkBoxChecked} />Gluten Free</li>
-              <li><input type="checkbox" name="shellfish" onChange={checkBoxChecked} />Shellfish Free</li>
-              <li><input type="checkbox" name="nut" onChange={checkBoxChecked} />Nut Free</li>
+              <label><li><input type="checkbox" name="dairy" onChange={checkBoxChecked} />Dairy Free</li></label>
+              <label><li><input type="checkbox" name="gluten" onChange={checkBoxChecked} />Gluten Free</li></label>
+              <label><li><input type="checkbox" name="shellfish" onChange={checkBoxChecked} />Shellfish Free</li></label>
+              <label><li><input type="checkbox" name="nut" onChange={checkBoxChecked} />Nut Free</li></label>
             </ul>
             <ul>
-              <li><input type="checkbox" name="vegetarian" onChange={checkBoxChecked}/>Vegetarian</li>
-              <li><input type="checkbox" name="vegan" onChange={checkBoxChecked}/>Vegan</li>
+              <label><li><input type="checkbox" name="vegetarian" onChange={checkBoxChecked}/>Vegetarian</li></label>
+              <label><li><input type="checkbox" name="vegan" onChange={checkBoxChecked}/>Vegan</li></label>
             </ul>
           </section>
 
           <div id={styles.listingExpiration}>
-            <h3>Expiration</h3>
+            <h4>Expiration</h4>
             {/* IS THIS DEFAULT VALUE GOING TO BE CORRECT IN PRACTICE?? */}
-            <input type="date" id="listing-expiration" name="expiration" value={expiration} min={'Date.now()'} onChange={onChange}/>
+            <input type="date" id={styles.listingExpirationInput} name="expiration" value={expiration} min={'Date.now()'} onChange={onChange}/>
           </div>
 
           <div id={styles.listingDescription}>
-            <h3>Description</h3>
+            <h4>Description</h4>
             <textarea id="listing-description" name="description" description={description} placeholder="Description" onChange={onChange}></textarea>
-          <div>
+          </div>
 
-          <input type="checkbox" name="legal" required/>legal disclaimer goes here!!!
-          <button>SUBMIT</button>
+          <div id={styles.submit}>
+            <label><input type="checkbox" name="legal" required/>legal disclaimer goes here!!!</label>
+            <button id={styles.button}>SUBMIT</button>
+          </div>
         </section>
       </form>
     </div>
