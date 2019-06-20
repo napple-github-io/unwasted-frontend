@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './ListingDetails.css';
 import ContactForm from '../contact/ContactForm';
 
-function ListingDetails({ listing, receivingUser, onChange, onSubmit }) {
+function ListingDetails({ listing, receivingUser, onChange, onSubmit, deleteClick }) {
   return (
     <>
     <header className={styles.header}>
@@ -48,6 +48,7 @@ function ListingDetails({ listing, receivingUser, onChange, onSubmit }) {
           <img src={listing.user.userImage} alt={listing.user.username} />
         </div>
         <h5>{listing.user.username}</h5>
+        <button onClick={deleteClick}>Delete</button>
       </section>
     </main>
     </>
@@ -58,7 +59,8 @@ ListingDetails.propTypes = {
   listing: PropTypes.object.isRequired,
   receivingUser: PropTypes.object.isRequired,
   onChange: PropTypes.func,
-  onSubmit: PropTypes.func
+  onSubmit: PropTypes.func,
+  deleteClick: PropTypes.func
 };
 
 export default ListingDetails;

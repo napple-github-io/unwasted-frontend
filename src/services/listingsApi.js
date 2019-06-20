@@ -34,19 +34,24 @@ export const getListingsByUser = userId => {
   return request(`/listings/user?id=${userId}`, 'GET');
 };
 
-export const searchListings = (dietary, category, distance) => {
+export const deleteListingFromApi = listingId => {
+  return request(`/listings/${listingId}`, 'DELETE');
+};
+
+export const searchListings = (dietary, category, distance, origin) => {
   let dietarySearchString = '';
   let categorySearch = '';
-
   const objectKeys = Object.keys(dietary);
+
   for(let i = 0; i < objectKeys.length; i++) {
     if(dietary[objectKeys[i]] === true) {
       dietarySearchString += `${objectKeys[i]}=true&`;
     }
   }
+
   if(category) {
     categorySearch = `category=${category}&`;
   } else {categorySearch = '';}
 
-  return request(`/listings/search?${dietarySearchString}${categorySearch}distance=${distance}`, 'GET');
+  return request(`/listings/search?origin=${origin}&${dietarySearchString}${categorySearch}distance=${distance}`, 'GET');
 };

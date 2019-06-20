@@ -7,10 +7,10 @@ import NearbyListingThumbList from '../components/listings/NearbyListingThumbLis
 
 import Map from '../components/mapping/Map';
 import PowerUserList from '../components/userAggregations/PowerUserList';
-import { listingSeed, userSeed } from '../assets/seedData/seedData';
+import { userSeed } from '../assets/seedData/seedData';
 import styles from './Home.css';
 import { getUser } from '../selectors/userAuthSelectors';
-import { getAllListingsFromApi, getAllListingsFromApiWithDistance } from '../services/listingsApi';
+import { getAllListingsFromApiWithDistance } from '../services/listingsApi';
 import { getListingMap } from '../services/mapApi';
 
 class HomeDisplay extends PureComponent {
