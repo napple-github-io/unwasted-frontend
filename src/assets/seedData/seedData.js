@@ -1,8 +1,8 @@
 export const userSeed = [
   {
-    username: 'TomDanks311',
-    userImage: 'http://o.aolcdn.com/hss/storage/midas/8bbdc5cc1aafb4f87aecae6f5cab8229/201504112/cast_away-tom-hanks.jpg',
-    email: 'tomhanks@hotmail.com',
+    username: 'smnelsonn',
+    userImage: 'https://unwasted-images.s3.amazonaws.com/15895734_10154982595598514_895468919177011577_o%20%285%29.jpg',
+    email: 'smnelsonn@gmail',
     firstName: 'Tom',
     lastName: 'Hanks',
     location: {
@@ -13,12 +13,12 @@ export const userSeed = [
     powerUser: true,
     role: 'User',
     standing: 'Good Standing',
-    bio: 'Thomas Jeffrey Hanks (born July 9, 1956) is an American actor and filmmaker. Hanks is known for his comedic and dramatic roles in such films as Splash (1984), Big (1988), Turner & Hooch (1989), A League of Their Own (1992), Sleepless in Seattle (1993), Apollo 13 (1995), You\'ve Got Mail (1998), The Green Mile (1999), Cast Away (2000), Road to Perdition (2002), Cloud Atlas (2012), Captain Phillips (2013), Saving Mr. Banks (2013), and Sully (2016). He has also starred in the Robert Langdon film series, and voices Sheriff Woody in the Toy Story film series. He is one of the most popular and recognizable film stars worldwide, and is widely regarded as an American cultural icon.',
-    listingCount: '333'
+    bio: 'Visit me garden! ',
+    listingCount: '27'
   },
   {
-    username: 'TomDanks311',
-    userImage: 'http://o.aolcdn.com/hss/storage/midas/8bbdc5cc1aafb4f87aecae6f5cab8229/201504112/cast_away-tom-hanks.jpg',
+    username: 'leslieeshea',
+    userImage: 'https://unwasted-images.s3.us-west-2.amazonaws.com/IMG_0894.jpg',
     email: 'tomhanks@hotmail.com',
     firstName: 'Tom',
     lastName: 'Hanks',
@@ -30,12 +30,12 @@ export const userSeed = [
     powerUser: true,
     role: 'User',
     standing: 'Good Standing',
-    bio: 'Thomas Jeffrey Hanks (born July 9, 1956) is an American actor and filmmaker. Hanks is known for his comedic and dramatic roles in such films as Splash (1984), Big (1988), Turner & Hooch (1989), A League of Their Own (1992), Sleepless in Seattle (1993), Apollo 13 (1995), You\'ve Got Mail (1998), The Green Mile (1999), Cast Away (2000), Road to Perdition (2002), Cloud Atlas (2012), Captain Phillips (2013), Saving Mr. Banks (2013), and Sully (2016). He has also starred in the Robert Langdon film series, and voices Sheriff Woody in the Toy Story film series. He is one of the most popular and recognizable film stars worldwide, and is widely regarded as an American cultural icon.',
-    listingCount: '333'
+    bio: 'Hi, I love to bake! Thanks for checking out my pies!',
+    listingCount: '19'
   },
   {
-    username: 'TomDanks311',
-    userImage: 'http://o.aolcdn.com/hss/storage/midas/8bbdc5cc1aafb4f87aecae6f5cab8229/201504112/cast_away-tom-hanks.jpg',
+    username: 'paytown',
+    userImage: 'https://unwasted-images.s3.us-west-2.amazonaws.com/beach.jpg',
     email: 'tomhanks@hotmail.com',
     firstName: 'Tom',
     lastName: 'Hanks',
@@ -47,8 +47,8 @@ export const userSeed = [
     powerUser: true,
     role: 'User',
     standing: 'Good Standing',
-    bio: 'Thomas Jeffrey Hanks (born July 9, 1956) is an American actor and filmmaker. Hanks is known for his comedic and dramatic roles in such films as Splash (1984), Big (1988), Turner & Hooch (1989), A League of Their Own (1992), Sleepless in Seattle (1993), Apollo 13 (1995), You\'ve Got Mail (1998), The Green Mile (1999), Cast Away (2000), Road to Perdition (2002), Cloud Atlas (2012), Captain Phillips (2013), Saving Mr. Banks (2013), and Sully (2016). He has also starred in the Robert Langdon film series, and voices Sheriff Woody in the Toy Story film series. He is one of the most popular and recognizable film stars worldwide, and is widely regarded as an American cultural icon.',
-    listingCount: '333'
+    bio: 'The carrot (Daucus carota subsp. sativus) is a root vegetable, usually orange in colour, though purple, black, red, white, and yellow cultivars exist.[1] Carrots are a domesticated form of the wild carrot, Daucus carota, native to Europe and southwestern Asia.',
+    listingCount: '12'
   },
 ];
 

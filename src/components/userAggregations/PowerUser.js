@@ -11,7 +11,7 @@ function PowerUser({ powerUser }) {
       
       <div>
         <span>
-          <h4>{powerUser.username}</h4> <img src="./src/assets/icons/poweruser.svg" alt="Power User Icon" />
+          <h4>{powerUser.username}</h4>
         </span>
         <p>{powerUser.listingCount} Listings</p>
         <p id={styles.bio}>{powerUser.bio}</p>
