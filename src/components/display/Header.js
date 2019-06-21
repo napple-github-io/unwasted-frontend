@@ -18,7 +18,7 @@ function Header({ user }) {
           {!user.token && <Link to={'/signin'}><li>Login</li></Link>}
           {user.token && <Link to={'/myprofile'}><li>Profile</li></Link>}
           {user.token && <a href="#"><li>Logout</li></a>}
-          <a href="#"><li>Search</li></a>
+          {/* <a href="#"><li>Search</li></a> */}
         </ul>
       </nav>
     </header>

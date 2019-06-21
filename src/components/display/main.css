@@ -18,10 +18,11 @@ body {
 
 h1 {
   font-family: 'Playfair Display', serif;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 8em;
   line-height: 1.05em;
   letter-spacing: .02em;
+  font-size: 7.5em;
 }
 
 h2 {
@@ -50,6 +51,10 @@ a {
   text-decoration: none;
   color: $midgreen;
   font-weight: 600;
+}
+
+a:hover {
+  color: $lightgreen;
 }
 
 li {
@@ -113,4 +118,8 @@ select {
 
 footer {
   background: $lightgreen;
+}
+
+input[type=range] {
+  outline: none;
 }

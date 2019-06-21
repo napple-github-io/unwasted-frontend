@@ -1,0 +1,185 @@
+@import url('../display/variables.css');
+
+.componenetContainer{
+  width: 980px;
+ 
+  h2 {
+    border-bottom: $borderbottom;
+    padding: 0 0 1px 0;
+    margin: 0 0 1.875rem 0;
+  }
+
+  form {
+    display: grid;
+    grid-template-columns: 18.75rem 1fr;
+    grid-column-gap: $colgap;
+
+    #listingImageContainer {
+      background: $lightgrey;
+      width: 18.75rem;
+      height: 18.75rem;
+    }
+
+    input {
+      font-size: 1em;
+      height: 2rem;
+      padding: 0 .5rem;
+    }
+
+    input[type=checkbox] {
+      height: .8rem;
+    }
+  }
+
+  .left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h5 {
+      margin: .5rem 0 1rem 0;
+    }
+
+    .imageUpload {
+      border: 0;
+      height: 34px;
+      width: 108px;
+      outline: none;
+      color: transparent;
+    }
+  
+    .imageUpload::-webkit-file-upload-button {
+      visibility: hidden;
+    }
+  
+    .imageUpload::before {
+      content: 'UPLOAD';
+      display: inline-block;
+      background: $darkgreen;
+      border-radius: 500px;
+      padding: .5rem 1rem;
+      outline: none;
+      color: #FFFFFF;
+      font-weight: 500;
+      font-size: 1em;
+      letter-spacing: .04em;
+      cursor: pointer;
+    }
+  
+    .imageUpload:hover::before {
+      background: $midgreen;
+    }
+  }
+
+  .right {
+    display: grid;
+    grid-template-columns: 90px 90px 90px 90px 90px 90px;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+
+    h4 {
+      margin-bottom: .5rem;
+    }
+
+    h5 {
+      margin-bottom: .4rem;
+    }
+
+    #listingTitle {
+      grid-column-start: 1;
+      grid-column-end: 5;
+    }
+
+    #listingCategory {
+      grid-column-start: 5;
+      grid-column-end: 7;
+    }
+
+    #listingStreet {
+      grid-column-start: 1;
+      grid-column-end: 5;
+    }
+
+    #listingState{
+      grid-column-start: 5;
+      grid-column-end: 6;
+    }
+
+    #listingZip {
+      grid-column-start: 6;
+      grid-column-end: 7;
+    }
+
+    #listingDietary {
+      grid-column-start: 1;
+      grid-column-end: 5;
+
+      ul {
+        display: flex;
+
+        li {
+          font-size: .9em;
+
+          margin-right: .9rem;
+
+          input {
+            margin-right: 4px; 
+          }
+        }
+      }
+
+      #topUl {
+        margin-bottom: .4rem;
+      }
+    }
+
+    #listingExpiration {
+      grid-column-start: 5;
+      grid-column-end: 7;
+
+      #listingExpirationInput {
+        width: 100%;
+        border: 1px solid $lightgrey;
+        font-family: 'Montserrat', sans-serif;
+        font-size: .875em;
+        font-style: italic;
+        color: $midgreen;
+      }
+    }
+
+    #listingDescription {
+      grid-column-start: 1;
+      grid-column-end: 7;
+
+      textarea {
+        width: 100%;
+        height: 10.2rem;
+        margin: 0 0 4px 0;
+      }
+    }
+
+    #submit {
+      grid-column-start: 1;
+      grid-column-end: 7;
+
+      width: 100%;
+      margin-top: -20px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+
+      input {
+        margin-right: 4px; 
+      }
+
+      label {
+        font-size: .9em;
+      }
+
+      button {
+        margin: 1rem 0 1rem 0;
+      }
+    }
+  }
+}
