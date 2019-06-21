@@ -18,7 +18,9 @@ function ListingDetails({ listing, receivingUser, onChange, onSubmit, deleteClic
           <div id={styles.listingPhotoContainer}>
             <img src={listing.imageUrl} alt={listing.title} />
           </div>
-          <div><Map mapUrl={mapUrl} /></div>
+          <div id={styles.map}>
+            <Map mapUrl={mapUrl} />
+          </div>
         </div>
       </section>
 

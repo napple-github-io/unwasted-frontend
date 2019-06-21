@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './Map.css';
 
 function Map({ mapUrl }) {
   return (
-    <div>
-      <img src={mapUrl} />
-    </div>
+    <>
+      <img className={styles.map} src={mapUrl} />
+    </>
   );
 }
 

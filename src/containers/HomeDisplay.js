@@ -44,7 +44,7 @@ class HomeDisplay extends PureComponent {
     const { origin } = this.state;
     return getAllListingsFromApiWithDistance(origin)
       .then(listings => {
-        this.setState({ listings: [listings[1], listings[2], listings[3]] });
+        this.setState({ listings: [listings[0], listings[1], listings[2]] });
       });
   }
 
@@ -101,7 +101,9 @@ class HomeDisplay extends PureComponent {
 
       <div className={styles.mainHome}>
         <NearbyListingThumbList nearbyListingList={listings} />
-        <Map mapUrl={this.state.mapUrl} />
+        <div className={styles.map}>
+          <Map mapUrl={this.state.mapUrl} />
+        </div>
         <PowerUserList powerUserList={userSeed} />
       </div>
 

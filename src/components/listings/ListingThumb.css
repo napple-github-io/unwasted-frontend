@@ -17,12 +17,12 @@
 
     span {
       background: #FFFFFF;
-
+      
       position: absolute;
       top: 0;
       right: 1.25rem;
 
-      padding: 4px;
+      padding: 0 3px;
     }
   }
   
