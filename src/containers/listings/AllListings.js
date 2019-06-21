@@ -98,6 +98,7 @@ class AllListings extends PureComponent {
       this.setState({ title: `${this.props.currentUser.username}'s Listings` });
     } else {
       this.fetch();
+      this.setState({ title: 'All Listings' });
     }
   }
 
@@ -105,6 +106,14 @@ class AllListings extends PureComponent {
     if(this.state.userLat !== prevState.userLat){
       this.changeOrigin();
     }
+    if(this.props.location.search) {
+      this.fetchMyListings();
+      this.setState({ title: `${this.props.currentUser.username}'s Listings` });
+    } else {
+      this.fetch();
+      this.setState({ title: 'All Listings' });
+    }
+
   }
 
   render(){
