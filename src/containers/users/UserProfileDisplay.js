@@ -61,7 +61,7 @@ class UserProfileDisplay extends PureComponent {
 
   render(){
     const { userInfo, listings, reviews } = this.state;
-    console.log(userInfo);
+    console.log('TRYING', reviews);
     const { currentUser } = this.props;
     if(!userInfo) return (
       <div className={loadStyles.loading}>
@@ -77,7 +77,7 @@ class UserProfileDisplay extends PureComponent {
           <div className={styles.top}>
             <UserProfileDetails userProfileDetails={userInfo} />
             <div className={styles.review}>
-              <ReviewList reviewList={reviews} userInfo={userInfo} />
+              <ReviewList reviewList={reviews} />
               <ReviewForm currentUser={currentUser} reviewee={userInfo} onChange={this.onChange} onSubmit={this.onSubmit} />
             </div>
           </div>
