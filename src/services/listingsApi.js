@@ -1,5 +1,6 @@
 import { request } from './request';
-
+import { getToken } from '../selectors/userAuthSelectors';
+import store from '../store.js';
 
 export const postListingToApi = (title, description, imageUrl, category, street, zip, state, dietary, expiration, user) => {
   return request('/listings/', 'POST', {
@@ -55,3 +56,17 @@ export const searchListings = (dietary, category, distance, origin) => {
 
   return request(`/listings/search?origin=${origin}&${dietarySearchString}${categorySearch}distance=${distance}`, 'GET');
 };
+
+export const postImageToApi = file => {
+  const form = new FormData();
+  form.append('file', file);
+  return fetch(`${process.env.API_URL}/listings/upload`, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${getToken(store.getState())}`
+    },
+    body: form
+  })
+    .then(returned => returned.json());
+};
+

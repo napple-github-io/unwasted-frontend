@@ -2,7 +2,8 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ListingForm from '../../components/listings/ListingForm';
-import { postListingToApi } from '../../services/listingsApi';
+import ImageForm from '../../components/listings/ImageForm';
+import { postListingToApi, postImageToApi } from '../../services/listingsApi';
 import { getUserMongooseId } from '../../selectors/userAuthSelectors';
 import { withRouter } from 'react-router-dom';
 
@@ -28,11 +29,19 @@ class CreateListing extends PureComponent {
       vegetarian: false,
       vegan: false
     },
-    expiration: ''
+    expiration: '',
+    file: null,
+    imageTitle: ''
   }
 
   onChange = ({ target }) => {
     this.setState({ [target.name]: target.value });
+  }
+
+  imageOnChange = ({ target }) => {
+    this.setState({
+      file: target.files[0]
+    });
   }
 
   checkBoxChecked = ({ target }) => {
@@ -48,11 +57,22 @@ class CreateListing extends PureComponent {
         this.props.history.push(`/listings/${createdPost._id}`);
       });
   }
+
+  imageSubmit = event => {
+    event.preventDefault();
+    return postImageToApi(this.state.file)
+      .then(res => {
+        console.log(res);
+        this.setState({ imageUrl: res.file });
+      });
+  }
  
   render() {
     const { imageUrl, title, category, street, state, zip, description, postedDate, expiration } = this.state;
 
     return (
+      <>
+      <ImageForm imageTitle={this.state.imageTitle} imageSubmit={this.imageSubmit} onChange={this.onChange} imageOnChange={this.imageOnChange} />
       <ListingForm 
         imageUrl={imageUrl}
         title={title}
@@ -67,6 +87,7 @@ class CreateListing extends PureComponent {
         onChange={this.onChange}
         checkBoxChecked={this.checkBoxChecked}
       />
+      </>
     );
   }
 }
