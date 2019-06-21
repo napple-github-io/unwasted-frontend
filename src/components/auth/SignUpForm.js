@@ -1,8 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './SignUpForm.css';
+import uploadImage from '../../assets/icons/selectimage.svg';
 
 function SignUpForm({ onSubmit, onChange, email, password, username, street, state, zip, firstName, lastName, bio, city, className, error, imageOnChange, imageSubmit, userImage }) {
+  console.log(userImage);
+
+  const inlineStyleUpload = {
+    backgroundImage: `url(${uploadImage})`
+  };
+  
+  const inlineStyleUser = {
+    backgroundImage: `url(${userImage})`
+  };
+
   return (
     <div className={styles.signUpContainer}>
       <h2>Sign up</h2>
@@ -105,7 +116,8 @@ function SignUpForm({ onSubmit, onChange, email, password, username, street, sta
 
       <form id={styles.imageSubmit} onSubmit={imageSubmit}>
         <p>
-          <input className={styles.imageUpload} type="file" name="file" accept="image/*" onChange={imageOnChange} />
+          {userImage && <input className={styles.imageUpload} style={inlineStyleUser} type="file" name="file" accept="image/*" onChange={imageOnChange} />}
+          {!userImage && <input className={styles.imageUpload} style={inlineStyleUpload} type="file" name="file" accept="image/*" onChange={imageOnChange} />}
         </p>
 
         {userImage && <button>Success!</button>}

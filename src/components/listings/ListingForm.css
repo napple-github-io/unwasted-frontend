@@ -58,7 +58,7 @@
     height: 300px;
     outline: none;
     color: transparent;
-    background-image: url('../../assets/icons/selectimage.svg');
+    /*background-image: url('../../assets/icons/selectimage.svg');*/
     background-position: center;
     background-size: cover;
     background-color: $lightgrey; 
