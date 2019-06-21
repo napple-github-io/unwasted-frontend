@@ -1,8 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ListingForm.css';
+import uploadImage from '../../assets/icons/selectimage.svg';
 
 export default function ListingForm({ onSubmit, onChange, title, category, street, state, zip, description, expiration, checkBoxChecked, imageSubmit, imageOnChange, imageUrl }) {
+  const inlineStyleUpload = {
+    backgroundImage: `url(${uploadImage})`
+  };
+  
+  const inlineStyleImage = {
+    backgroundImage: `url(${imageUrl})`
+  };
+  
   return (
     <>
     <div className={styles.componenetContainer}>
@@ -12,7 +21,9 @@ export default function ListingForm({ onSubmit, onChange, title, category, stree
         <form className={styles.left} onSubmit={imageSubmit}>
 
           <p>
-            <input className={styles.imageUpload} type="file" name="file" accept="image/*" onChange={imageOnChange}/>
+            {imageUrl && <input className={styles.imageUpload} style={inlineStyleImage} type="file" name="file" accept="image/*" onChange={imageOnChange}/>}
+            {!imageUrl && <input className={styles.imageUpload} style={inlineStyleUpload} type="file" name="file" accept="image/*" onChange={imageOnChange}/>}
+
           </p>
 
           {imageUrl && <button>Success!</button>}
@@ -21,13 +32,6 @@ export default function ListingForm({ onSubmit, onChange, title, category, stree
 
         <div id={styles.grid}>
           <form id="listing" onSubmit={onSubmit}>
-            {/* <section className={styles.left}>
-                <div id={styles.listingImageContainer}>
-                  <img src='#' alt="Upload an image" />
-                </div>
-                <h5>Upload a photo</h5>
-                <input type="file" className={styles.imageUpload} name="upload" accept="image/*" onSubmit={onSubmit} onChange={onChange} />
-              </section> */}
 
             <section className={styles.right}>
               <input type="text" name="title" value={title} id={styles.listingTitle} placeholder="Title" onChange={onChange} />

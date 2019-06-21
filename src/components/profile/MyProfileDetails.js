@@ -13,7 +13,7 @@ function MyProfileDetails({ profile, imageSubmit, imageOnChange }) {
       <section className={styles.myProfileGrid}>
         <section>
           <div>
-            <img src={profile.userImage} />
+            <img src={profile.userImage || 'https://i.imgur.com/O5tm3Du.jpg'} />
           </div>
           {/* <h5>Change profile photo</h5> */}
 
