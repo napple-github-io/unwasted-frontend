@@ -5,7 +5,7 @@ import styles from './Map.css';
 function Map({ mapUrl }) {
   return (
     <>
-      <img className={styles.map} src={mapUrl} />
+      <img className={styles.map} src={mapUrl || `https://maps.googleapis.com/maps/api/staticmap?center=Portland,OR&key=${process.env.MAPS_API_KEY}&size=980x980`} />
     </>
   );
 }
