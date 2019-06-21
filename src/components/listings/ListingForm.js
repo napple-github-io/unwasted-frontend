@@ -2,20 +2,29 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ListingForm.css';
 
-export default function ListingForm({ onSubmit, onChange, title, category, street, state, zip, description, expiration, checkBoxChecked }) {
+export default function ListingForm({ onSubmit, onChange, title, category, street, state, zip, description, expiration, checkBoxChecked, imageSubmit, imageOnChange }) {
   return (
     <>
     <div className={styles.componenetContainer}>
       <h2>New Listing</h2>
+
+      <form onSubmit={imageSubmit}>
+
+        <p>
+          <input type="file" name="file" onChange={imageOnChange}/>
+        </p>
+
+        <button>Submit Image</button>
+      </form>
+    
       <form id="listing" onSubmit={onSubmit}>
-        <section className={styles.left}>
+        {/* <section className={styles.left}>
           <div id={styles.listingImageContainer}>
             <img src='#' alt="Upload an image" />
           </div>
           <h5>Upload a photo</h5>
           <input type="file" className={styles.imageUpload} name="upload" accept="image/*" onSubmit={onSubmit} onChange={onChange} />
-        </section>
-
+        </section> */}
 
         <section className={styles.right}>
           <input type="text" name="title" value={title} id={styles.listingTitle} placeholder="Title" onChange={onChange} />

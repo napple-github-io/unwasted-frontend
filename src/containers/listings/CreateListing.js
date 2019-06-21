@@ -34,8 +34,7 @@ class CreateListing extends PureComponent {
       vegan: false
     },
     expiration: '',
-    file: null,
-    imageTitle: ''
+    file: null
   }
 
   onChange = ({ target }) => {
@@ -75,21 +74,26 @@ class CreateListing extends PureComponent {
 
     return (
       <>
-      <ImageForm imageTitle={this.state.imageTitle} imageSubmit={this.imageSubmit} onChange={this.onChange} imageOnChange={this.imageOnChange} />
-      <ListingForm 
-        imageUrl={imageUrl}
-        title={title}
-        category={category}
-        street={street}
-        state={state}
-        zip={zip}
-        description={description}
-        postedDate={postedDate}
-        expiration={expiration}
-        onSubmit={this.onSubmit}
-        onChange={this.onChange}
-        checkBoxChecked={this.checkBoxChecked}
-      />
+      <Header user={this.props.currentUser} />
+      <div className={styles.listingFormContainer}>
+        <ListingForm 
+          imageSubmit={this.imageSubmit}
+          imageOnChange={this.imageOnChange}
+          imageUrl={imageUrl}
+          title={title}
+          category={category}
+          street={street}
+          state={state}
+          zip={zip}
+          description={description}
+          postedDate={postedDate}
+          expiration={expiration}
+          onSubmit={this.onSubmit}
+          onChange={this.onChange}
+          checkBoxChecked={this.checkBoxChecked}
+        />
+      </div>
+      <Footer />
       </>
     );
   }
