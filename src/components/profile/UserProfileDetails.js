@@ -6,8 +6,8 @@ function UserProfileDetails({ userProfileDetails }) {
   return (
     <section className={styles.userProfileDetails}>
       <div className={styles.imageContainer}>
-        {!userProfileDetails.powerUser && <img src={userProfileDetails.userImage} alt={userProfileDetails.username} />}
-        {userProfileDetails.powerUser && <img src={userProfileDetails.userImage} alt={userProfileDetails.username} />}
+        {!userProfileDetails.powerUser && <img src={userProfileDetails.userImage || 'https://i.imgur.com/O5tm3Du.jpg'} alt={userProfileDetails.username} />}
+        {userProfileDetails.powerUser && <img src={userProfileDetails.userImage || 'https://i.imgur.com/O5tm3Du.jpg'} alt={userProfileDetails.username} />}
       </div>
 
       <h5>Name</h5>

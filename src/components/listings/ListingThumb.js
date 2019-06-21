@@ -7,7 +7,10 @@ function ListingThumb({ listing }) {
   return (
     <section className={styles.ListingThumb}>
       <div id={styles.image}>
-        <img src={listing.imageUrl || 'https://i.imgur.com/x73Ial1.jpg'} alt={listing.title} />
+        <Link to={`/listings/${listing._id}`}>
+          <img src={listing.imageUrl || 'https://i.imgur.com/x73Ial1.jpg'} alt={listing.title} />
+        </Link>
+
         <span>{listing.distance}</span>
       </div>
       
