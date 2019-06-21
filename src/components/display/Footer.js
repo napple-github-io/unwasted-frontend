@@ -1,13 +1,16 @@
 import React from 'react';
 import styles from './Footer.css';
+import fbicongrey from '../../assets/icons/fbicongrey.svg'
+import twittericongrey from '../../assets/icons/twittericongrey.svg'
+import igicongrey from '../../assets/icons/igicongrey.svg'
 
 export default function Footer() {
   return (
     <footer className={styles.footer}>
       <section>
-        <a href="/" target="_blank"><img src="../../src/assets/icons/fbicongrey.svg" alt="Facebook" /></a>
-        <a href="/" target="_blank"><img src="../../src/assets/icons/twittericongrey.svg" alt="Twitter" /></a>
-        <a href="/" target="_blank"><img src="../../src/assets/icons/igicongrey.svg" alt="Instagram" /></a>
+        <a href="/" target="_blank"><img src={fbicongrey} alt="Facebook" /></a>
+        <a href="/" target="_blank"><img src={twittericongrey} alt="Twitter" /></a>
+        <a href="/" target="_blank"><img src={igicongrey} alt="Instagram" /></a>
       </section>
 
       <section>
