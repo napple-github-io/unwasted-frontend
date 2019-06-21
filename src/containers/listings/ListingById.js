@@ -9,6 +9,8 @@ import Header from '../../components/display/Header';
 import Footer from '../../components/display/Footer';
 import loadStyles from '../Loader.css';
 import styles from './ListingById.css';
+import { getListingMap, getListingMapWithoutUser } from '../../services/mapApi';
+
 
 
 class ListingById extends PureComponent {
@@ -19,7 +21,21 @@ class ListingById extends PureComponent {
 
   state = {
     listing: null,
-    message: ''
+    message: '',
+    origin: 'Portland, OR',
+    userLat: '',
+    userLong: '',
+    mapUrl: ''
+  }
+
+  getUserLocation = () => {
+    if(window.navigator.geolocation) {
+      return new Promise(function(resolve, reject) {
+        navigator.geolocation.getCurrentPosition(resolve, reject);
+      });
+    } else {
+      throw 'User must allow Location services to search by current location';
+    }
   }
 
   changeHandler = ({ target }) => {
@@ -46,12 +62,36 @@ class ListingById extends PureComponent {
       });
   }
 
+  fetchMapWithUserLoc = () => {
+    const { userLat, userLong, listing } = this.state;
+    const mapUrl = getListingMap(userLat, userLong, listing.location.street + '' + listing.location.zip);
+    this.setState({ mapUrl });
+  }
+
+  fetchMap = () => {
+    const { listing } = this.state;
+    const mapUrl = getListingMapWithoutUser(listing.location.street + '' + listing.location.zip);
+    this.setState({ mapUrl });
+  }
+
   deleteClick = () => {
     return deleteListingFromApi(this.state.listing._id);
   }
   
   componentDidMount() {
-    this.fetch();
+    this.fetch()
+      .then(() => this.fetchMap());
+  }
+
+  componentDidUpdate() {
+    Promise.all(([
+      this.getUserLocation()
+        .then(position => {
+          this.setState({ userLat: position.coords.latitude, userLong: position.coords.longitude });
+        }),
+      this.fetch()
+        .then(() => this.fetchMapWithUserLoc())
+    ]));
   }
   
   render(){
@@ -65,7 +105,7 @@ class ListingById extends PureComponent {
       <>
       <Header user={this.props.currentUser}/>
       <div className={styles.listingDetailsContainer}>
-        <ListingDetails listing={this.state.listing} receivingUser={this.state.listing.user} onChange={this.changeHandler} onSubmit={this.submitHandler} deleteClick={this.deleteClick} />
+        <ListingDetails listing={this.state.listing} receivingUser={this.state.listing.user} onChange={this.changeHandler} onSubmit={this.submitHandler} deleteClick={this.deleteClick} mapUrl={this.state.mapUrl} />
       </div>
       <Footer />
       </>

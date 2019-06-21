@@ -9,7 +9,7 @@ const auth0 = new WebAuth({
   scope: 'openid profile',
 });
 
-export const signup = (email, password, username, street, state, firstName, lastName, zip, bio, city) => {
+export const signup = (email, password, username, street, state, firstName, lastName, zip, bio, city, userImage) => {
   return new Promise((resolve, reject) =>{
     auth0.signup({
       email: email,
@@ -37,6 +37,7 @@ export const signup = (email, password, username, street, state, firstName, last
           zip
         },
         bio,
+        userImage,
         authId: results.Id
       });
     });
@@ -87,3 +88,7 @@ export const handleAuthSession = () => {
         });
     });
 };
+
+// export const updateUser = (userImage, location) =>{
+
+// }

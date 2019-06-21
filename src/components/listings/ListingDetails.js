@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ListingDetails.css';
 import ContactForm from '../contact/ContactForm';
+import Map from '../mapping/Map';
 
-function ListingDetails({ listing, receivingUser, onChange, onSubmit, deleteClick }) {
+function ListingDetails({ listing, receivingUser, onChange, onSubmit, deleteClick, mapUrl }) {
   return (
     <>
     <header className={styles.header}>
@@ -17,7 +18,7 @@ function ListingDetails({ listing, receivingUser, onChange, onSubmit, deleteClic
           <div id={styles.listingPhotoContainer}>
             <img src={listing.imageUrl} alt={listing.title} />
           </div>
-          <div>MAP GOES HERE</div>
+          <div><Map mapUrl={mapUrl} /></div>
         </div>
       </section>
 

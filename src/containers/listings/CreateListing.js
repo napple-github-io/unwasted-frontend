@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ListingForm from '../../components/listings/ListingForm';
-import ImageForm from '../../components/listings/ImageForm';
 import { postListingToApi, postImageToApi } from '../../services/listingsApi';
 import { getUserMongooseId, getUser } from '../../selectors/userAuthSelectors';
 import { withRouter } from 'react-router-dom';
