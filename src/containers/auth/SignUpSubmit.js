@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { signup } from '../../services/auth';
 import SignUpForm from '../../components/auth/SignUpForm';
 import styles from './SignUp.css';
+import { postImageToApi } from '../../services/listingsApi';
 
 export default class SignUpSubmit extends PureComponent {
   static propTypes = {
@@ -20,18 +21,34 @@ export default class SignUpSubmit extends PureComponent {
     zip: '',
     bio: '',
     city: '',
-    error: ''
+    error: '',
+    file: null,
+    userImage: ''
   }
 
   onChange = ({ target }) => {
     this.setState({ [target.name]: target.value });
   }
 
+  imageOnChange = ({ target }) => {
+    this.setState({
+      file: target.files[0]
+    });
+  }
+
+  imageSubmit = event => {
+    event.preventDefault();
+    return postImageToApi(this.state.file)
+      .then(res => {
+        this.setState({ userImage: res.file });
+      });
+  }
+
   onSubmit = event => {
     event.preventDefault();
-    const { email, password, username, lastName, firstName, street, state, bio, city, zip } = this.state;
+    const { email, password, username, lastName, firstName, street, state, bio, city, zip, userImage } = this.state;
 
-    signup(email, password, username, street, state, firstName, lastName, zip, bio, city)
+    signup(email, password, username, street, state, firstName, lastName, zip, bio, city, userImage)
       .then(signUpResponse => {
         if(signUpResponse.authId){
           this.props.history.push('/signin');
@@ -66,6 +83,8 @@ export default class SignUpSubmit extends PureComponent {
             onChange={this.onChange}
             className={styles.forms}
             error={error}
+            imageOnChange={this.imageOnChange}
+            imageSubmit={this.imageSubmit}
           />
         </main>
 
