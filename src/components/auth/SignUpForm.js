@@ -1,10 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function SignUpForm({ onSubmit, onChange, email, password, username, street, state, zip, firstName, lastName, bio, city, className, error }) {
+function SignUpForm({ onSubmit, onChange, email, password, username, street, state, zip, firstName, lastName, bio, city, className, error, imageOnChange, imageSubmit }) {
   return (
+    <>
+    <h2>Sign up</h2>
+
+    <form onSubmit={imageSubmit}>
+      <p>
+        <input type="file" name="file" onChange={imageOnChange}/>
+      </p>
+
+      <button>Submit Image</button>
+    </form>
     <form className={className} onSubmit={onSubmit}>
-      <h2>Sign up</h2>
       
       <h5>Email <span>*</span></h5>
       <input type="email" name="email" value={email} id="signup-email" placeholder="Email" onChange={onChange} required />
@@ -99,6 +108,7 @@ function SignUpForm({ onSubmit, onChange, email, password, username, street, sta
         {error && <h4>{error}</h4>}
       </div>
     </form>
+    </>
   );
 }
 
@@ -116,7 +126,9 @@ SignUpForm.propTypes = {
   error: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
   bio: PropTypes.string,
-  className: PropTypes.string
+  className: PropTypes.string,
+  imageSubmit: PropTypes.func.isRequired,
+  imageOnChange: PropTypes.func.isRequired
 };
 
 export default SignUpForm;

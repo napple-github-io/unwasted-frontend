@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './MyProfileDetails.css';
 
-function MyProfileDetails({ profile }) {
+function MyProfileDetails({ profile, imageSubmit, imageOnChange }) {
   return (
     <section className={styles.myProfileContainer}>
       <div id={styles.yourInformation}>
@@ -16,9 +16,18 @@ function MyProfileDetails({ profile }) {
             <img src={profile.userImage} />
           </div>
           <h5>Change profile photo</h5>
-          <form>
-            <input type="file" className={styles.imageUpload} name="upload" accept="image/*" />
+
+          <form onSubmit={imageSubmit}>
+
+            <p>
+              <input type="file" name="file" onChange={imageOnChange}/>
+            </p>
+
+            <button>Submit Image</button>
           </form>
+          {/* <form>
+            <input type="file" className={styles.imageUpload} name="upload" accept="image/*" />
+          </form> */}
         </section>
 
 
@@ -44,7 +53,9 @@ function MyProfileDetails({ profile }) {
 }
 
 MyProfileDetails.propTypes = {
-  profile: PropTypes.object.isRequired
+  profile: PropTypes.object.isRequired,
+  imageOnChange: PropTypes.func.isRequired,
+  imageSubmit: PropTypes.func.isRequired
 };
 
 export default MyProfileDetails;
