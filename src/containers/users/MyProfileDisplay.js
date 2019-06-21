@@ -44,30 +44,33 @@ class MyProfileDisplay extends PureComponent {
 
   render(){
     const { userInfo, listings, reviews } = this.state;
-    // if(!userInfo) return (
-    //   <div className={loadStyles.loading}>
-    //     <div className={loadStyles.loader}></div>
-    //   </div>
-    // );
+    const { currentUser } = this.props;
+    if(!userInfo) return (
+      <div className={loadStyles.loading}>
+        <div className={loadStyles.loader}></div>
+      </div>
+    );
 
     console.log(userInfo);
 
     return (
     <>
       <section className={styles.hero}>
-        <Header user={userSeedObj} />
+        <Header user={currentUser} />
         <div>
           <h1>Welcome back,<br />
-            <span id={styles.name}>{userSeedObj.firstName} {userSeedObj.lastName}</span></h1>
+            <span id={styles.name}>{userInfo.firstName} {userInfo.lastName}</span></h1>
         </div>
       </section>
       
-      <section className={styles.mainMyProfile}>
-        <UserListingThumbList userListingList={listingSeed} />
-        <NearbyListingThumbList nearbyListingList={listingSeed} />
-        <MyProfileDetails profile={userSeedObj} />
-        {/* <ReviewList reviewList={reviewSeed} /> */}
-      </section>
+      <div className={styles.center}>
+        <section className={styles.mainMyProfile}>
+          <UserListingThumbList userListingList={listings} />
+          <NearbyListingThumbList nearbyListingList={listingSeed} />
+          <MyProfileDetails profile={userInfo} />
+          <ReviewList reviewList={reviews} />
+        </section>
+      </div>
 
       <Footer />
     </>

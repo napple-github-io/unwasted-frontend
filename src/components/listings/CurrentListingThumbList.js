@@ -2,10 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ListingThumb from './ListingThumb';
 import styles from './Listings.css';
-import userStyles from './UserListingThumbList.css';
-import { Link } from 'react-router-dom';
 
-function UserListingThumbList({ userListingList }) {
+function CurrentListingThumbList({ userListingList }) {
   const listItem = userListingList.map(userListing => (
     <li key={userListing._id}>
       <ListingThumb listing={userListing} />
@@ -15,9 +13,9 @@ function UserListingThumbList({ userListingList }) {
   return (
     <section className={styles.listings}>
       <header>
-        <h2>Your Current Listings</h2>
+        <h2>Current Listings</h2>
         <p>
-          <a href="#">View All</a> <span className={userStyles.span}>|</span> <a href="#">New Listing</a> <span className={userStyles.span}>|</span> <a href="#">Expired Listings</a>
+          <a href="#">View All</a>
         </p>
       </header>
       <ul>
@@ -27,8 +25,8 @@ function UserListingThumbList({ userListingList }) {
   );
 }
 
-UserListingThumbList.propTypes = {
+CurrentListingThumbList.propTypes = {
   userListingList: PropTypes.array.isRequired
 };
 
-export default UserListingThumbList;
+export default CurrentListingThumbList;

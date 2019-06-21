@@ -5,13 +5,15 @@ import Header from '../../components/display/Header';
 import Footer from '../../components/display/Footer';
 import ReviewList from '../../components/reviews/ReviewList';
 import ReviewForm from '../../components/reviews/ReviewForm';
-import UserListingThumbList from '../../components/listings/UserListingThumbList';
+import CurrentListingThumbList from '../../components/listings/CurrentListingThumbList';
 import UserProfileDetails from '../../components/profile/UserProfileDetails';
 import { getListingsByUser } from '../../services/listingsApi';
 import { connect } from 'react-redux';
 import { getUser } from '../../selectors/userAuthSelectors';
 import { postReviewToApi, getReviewsByUserId } from '../../services/reviewsApi';
 import loadStyles from '../Loader.css';
+// import { listingSeed, userSeedObj, reviewSeed } from '../../assets/seedData/seedData';
+import styles from './UserProfileDisplay.css';
 
 class UserProfileDisplay extends PureComponent {
   static propTypes = {
@@ -38,7 +40,6 @@ class UserProfileDisplay extends PureComponent {
         ]));
       })
       .then(([userInfo, listings, reviews]) => this.setState({ userInfo, listings, reviews }));
-
   }
 
   onChange = ({ target }) => {
@@ -69,10 +70,19 @@ class UserProfileDisplay extends PureComponent {
     return (
     <>
       <Header user={currentUser} />
-      <UserProfileDetails userProfileDetails={userInfo} />
-      <ReviewList reviewList={reviews} />
-      <ReviewForm currentUser={currentUser} reviewee={userInfo} onChange={this.onChange} onSubmit={this.onSubmit} />
-      <UserListingThumbList userListingList={listings} />
+      <section className={styles.mainContainer}>
+        <div className={styles.center}>
+          <h2 id={styles.username}>{userInfo.username}</h2>
+          <div className={styles.top}>
+            <UserProfileDetails userProfileDetails={userInfo} />
+            <div className={styles.review}>
+              <ReviewList reviewList={reviews} />
+              <ReviewForm currentUser={currentUser} reviewee={userInfo} onChange={this.onChange} onSubmit={this.onSubmit} />
+            </div>
+          </div>
+          <CurrentListingThumbList userListingList={listings} />
+        </div>
+      </section>
       <Footer />
     </>
     );

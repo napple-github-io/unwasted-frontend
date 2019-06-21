@@ -1,0 +1,28 @@
+@import url('../../components/display/variables.css');
+
+.mainContainer {
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.center {
+  width: 980px;
+
+  #username {
+    padding: 0 0 1px 0;
+    margin: 0 0 1.875rem 0;
+    border-bottom: 2px solid $darkgrey; 
+  }
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 11.25rem 1fr;
+  grid-column-gap: $colgap;
+
+  .review {
+    margin: -12px 0 0;
+  }
+}

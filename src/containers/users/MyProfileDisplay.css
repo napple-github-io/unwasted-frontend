@@ -45,8 +45,15 @@
   }
 }
 
+.center {
+  width: 100%;
+  display: flex;
+  justify-content: center
+}
+
 .mainMyProfile {
   display: grid;
   grid-row-gap: $colgap;
   justify-content: center;
+  width: 980px;
 }
