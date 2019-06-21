@@ -44,7 +44,7 @@ class HomeDisplay extends PureComponent {
     const { origin } = this.state;
     return getAllListingsFromApiWithDistance(origin)
       .then(listings => {
-        this.setState({ listings });
+        this.setState({ listings: [listings[1], listings[2], listings[3]] });
       });
   }
 
@@ -74,8 +74,12 @@ class HomeDisplay extends PureComponent {
           this.setState({ userLat: position.coords.latitude, userLong: position.coords.longitude });
         })
     ]))
-      .then(() => this.fetchListingsWithDistance())
-      .then(() => this.fetchMap);
+      .then(() => {
+        this.fetchListingsWithDistance();
+      })
+      .then(() => {
+        this.fetchMap();
+      });
   }
 
   componentDidUpdate(prevProps, prevState){
