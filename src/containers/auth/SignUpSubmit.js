@@ -60,7 +60,7 @@ export default class SignUpSubmit extends PureComponent {
   }
 
   render() {
-    const { email, password, username, street, state, zip, lastName, firstName, bio, city, error } = this.state;
+    const { email, password, username, street, state, zip, lastName, firstName, bio, city, error, userImage } = this.state;
     return (
       <div className={styles.signUpBody}>
         <header className={styles.header}>
@@ -85,6 +85,7 @@ export default class SignUpSubmit extends PureComponent {
             error={error}
             imageOnChange={this.imageOnChange}
             imageSubmit={this.imageSubmit}
+            userImage={userImage}
           />
         </main>
 

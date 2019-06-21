@@ -15,16 +15,16 @@ function MyProfileDetails({ profile, imageSubmit, imageOnChange }) {
           <div>
             <img src={profile.userImage} />
           </div>
-          <h5>Change profile photo</h5>
+          {/* <h5>Change profile photo</h5> */}
 
-          <form onSubmit={imageSubmit}>
+          {/* <form onSubmit={imageSubmit}>
 
             <p>
               <input type="file" name="file" className={styles.imageUpload} accept="image/*" onChange={imageOnChange}/>
             </p>
 
             <button>UPLOAD</button>
-          </form>
+          </form> */}
           {/* <form>
             <input type="file" className={styles.imageUpload} name="upload" accept="image/*" />
           </form> */}
