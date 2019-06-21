@@ -54,7 +54,7 @@ class ListingById extends PureComponent {
     };
     sendEmail(email);
   }
-  
+
   fetch = () => {
     return getSingleListingFromApi(this.props.match.params.listingId)
       .then(listing => {
@@ -101,6 +101,7 @@ class ListingById extends PureComponent {
         <div className={loadStyles.loader}></div>
       </div>
     );
+
     return  (
       <>
       <Header user={this.props.currentUser}/>

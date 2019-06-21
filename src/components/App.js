@@ -22,8 +22,8 @@ export default function App() {
         <Route exact path="/signup" component={SignUpSubmit} />
         <Route exact path="/callback" component={Callback} />
         <Route exact path="/listings" component={AllListings} />
-        <Route exact path="/listings/new" component={CreateListing} />
-        <Route exact path="/myprofile" component={MyProfileDisplay} />
+        <Route exact path="/listings/new" component={withSession(CreateListing)} />
+        <Route exact path="/myprofile" component={withSession(MyProfileDisplay)} />
         <Route path="/users/:id" component={UserProfileDisplay} />
         <Route path="/listings/user" component={AllListings} />
         <Route path="/listings/:listingId" component={ListingById} />

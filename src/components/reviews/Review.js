@@ -8,7 +8,7 @@ function Review({ review }) {
     <section className={styles.reviewGrid}>
       <section className={styles.left}>
         <div>
-          <img src={review.reviewer.userImage} />
+          <img src={review.reviewer.userImage || 'https://i.imgur.com/O5tm3Du.jpg'} />
         </div>
         <h5>{review.reviewer.username}</h5>
       </section>

@@ -14,7 +14,7 @@ export const withSession = Component => {
 
     componentDidMount(){
       if(!this.props.token){
-        this.props.history.push('/');
+        this.props.history.push('/signin');
       }
     }
     
