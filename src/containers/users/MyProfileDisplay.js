@@ -66,7 +66,6 @@ class MyProfileDisplay extends PureComponent {
       <div className={styles.center}>
         <section className={styles.mainMyProfile}>
           <UserListingThumbList userListingList={listings} />
-          <NearbyListingThumbList nearbyListingList={listingSeed} />
           <MyProfileDetails profile={userInfo} />
           <ReviewList reviewList={reviews} />
         </section>

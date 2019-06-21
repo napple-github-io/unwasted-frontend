@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import styles from './ListingDetails.css';
 import ContactForm from '../contact/ContactForm';
 import Map from '../mapping/Map';
+import { Link } from 'react-router-dom';
 
-function ListingDetails({ listing, receivingUser, onChange, onSubmit, deleteClick, mapUrl }) {
+function ListingDetails({ listing, receivingUser, onChange, onSubmit, deleteClick, mapUrl, currentUser }) {
+  const sameUser = currentUser.userMongooseId === listing.user._id ? true : false;
   return (
     <>
     <header className={styles.header}>
@@ -52,10 +54,14 @@ function ListingDetails({ listing, receivingUser, onChange, onSubmit, deleteClic
 
       <section className={styles.right}>
         <div className={styles.userPhotoContainer}>
-          <img src={listing.user.userImage} alt={listing.user.username} />
+          <Link to={`/users/${listing.user._id}`} >
+            <img src={listing.user.userImage || 'https://i.imgur.com/O5tm3Du.jpg'} alt={listing.user.username} />
+          </Link>
         </div>
-        <h5>{listing.user.username}</h5>
-        <button onClick={deleteClick}>Delete</button>
+        <Link to={`/users/${listing.user._id}`} >
+          <h5>{listing.user.username}</h5>
+        </Link>
+        {sameUser && <button onClick={deleteClick}>Delete</button>}
       </section>
     </main>
     </>
@@ -65,6 +71,8 @@ function ListingDetails({ listing, receivingUser, onChange, onSubmit, deleteClic
 ListingDetails.propTypes = {
   listing: PropTypes.object.isRequired,
   receivingUser: PropTypes.object.isRequired,
+  currentUser: PropTypes.object,
+  mapUrl: PropTypes.string,
   onChange: PropTypes.func,
   onSubmit: PropTypes.func,
   deleteClick: PropTypes.func

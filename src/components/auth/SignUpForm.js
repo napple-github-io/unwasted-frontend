@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './SignUpForm.css';
 
-function SignUpForm({ onSubmit, onChange, email, password, username, street, state, zip, firstName, lastName, bio, city, className, error, imageOnChange, imageSubmit }) {
+function SignUpForm({ onSubmit, onChange, email, password, username, street, state, zip, firstName, lastName, bio, city, className, error, imageOnChange, imageSubmit, userImage }) {
   return (
     <div className={styles.signUpContainer}>
       <h2>Sign up</h2>
@@ -108,7 +108,8 @@ function SignUpForm({ onSubmit, onChange, email, password, username, street, sta
           <input className={styles.imageUpload} type="file" name="file" accept="image/*" onChange={imageOnChange} />
         </p>
 
-        <button>UPLOAD</button>
+        {userImage && <button>Success!</button>}
+        {!userImage && <button>Upload</button>}
       </form>
     </div>
   );
@@ -124,6 +125,7 @@ SignUpForm.propTypes = {
   lastName: PropTypes.string.isRequired,
   street: PropTypes.string.isRequired,
   state: PropTypes.string.isRequired,
+  userImage: PropTypes.string,
   zip: PropTypes.string.isRequired,
   error: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,

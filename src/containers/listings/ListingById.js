@@ -105,7 +105,7 @@ class ListingById extends PureComponent {
       <>
       <Header user={this.props.currentUser}/>
       <div className={styles.listingDetailsContainer}>
-        <ListingDetails listing={this.state.listing} receivingUser={this.state.listing.user} onChange={this.changeHandler} onSubmit={this.submitHandler} deleteClick={this.deleteClick} mapUrl={this.state.mapUrl} />
+        <ListingDetails listing={this.state.listing} receivingUser={this.state.listing.user} onChange={this.changeHandler} onSubmit={this.submitHandler} deleteClick={this.deleteClick} mapUrl={this.state.mapUrl} currentUser={this.props.currentUser}/>
       </div>
       <Footer />
       </>

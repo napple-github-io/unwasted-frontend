@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ListingForm.css';
 
-export default function ListingForm({ onSubmit, onChange, title, category, street, state, zip, description, expiration, checkBoxChecked, imageSubmit, imageOnChange }) {
+export default function ListingForm({ onSubmit, onChange, title, category, street, state, zip, description, expiration, checkBoxChecked, imageSubmit, imageOnChange, imageUrl }) {
   return (
     <>
     <div className={styles.componenetContainer}>
@@ -15,7 +15,8 @@ export default function ListingForm({ onSubmit, onChange, title, category, stree
             <input className={styles.imageUpload} type="file" name="file" accept="image/*" onChange={imageOnChange}/>
           </p>
 
-          <button>Upload</button>
+          {imageUrl && <button>Success!</button>}
+          {!imageUrl && <button>Upload</button>}
         </form>
 
         <div id={styles.grid}>
@@ -147,6 +148,8 @@ export default function ListingForm({ onSubmit, onChange, title, category, stree
 
 ListingForm.propTypes = {
   onSubmit: PropTypes.func.isRequired, 
+  imageSubmit: PropTypes.func.isRequired, 
+  imageOnChange: PropTypes.func.isRequired, 
   onChange: PropTypes.func.isRequired, 
   checkBoxChecked: PropTypes.func.isRequired, 
   imageUrl: PropTypes.string.isRequired,
