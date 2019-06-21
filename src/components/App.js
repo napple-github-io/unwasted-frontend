@@ -24,8 +24,7 @@ export default function App() {
         <Route exact path="/listings" component={AllListings} />
         <Route exact path="/listings/new" component={CreateListing} />
         <Route exact path="/myprofile" component={MyProfileDisplay} />
-        {/* <Route path="/users/:id" component={UserProfileDisplay} /> */}
-        <Route path="/users/profy" component={UserProfileDisplay} />
+        <Route path="/users/:id" component={UserProfileDisplay} />
         <Route path="/listings/user" component={AllListings} />
         <Route path="/listings/:listingId" component={ListingById} />
       </Switch>

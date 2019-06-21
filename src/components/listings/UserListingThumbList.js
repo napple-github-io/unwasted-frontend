@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import ListingThumb from './ListingThumb';
 import styles from './Listings.css';
 import userStyles from './UserListingThumbList.css';
+import { Link } from 'react-router-dom';
 
 function UserListingThumbList({ userListingList }) {
   const listItem = userListingList.map(userListing => (
