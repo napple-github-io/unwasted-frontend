@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 
 function ListingDetails({ listing, receivingUser, onChange, onSubmit, deleteClick, mapUrl, currentUser }) {
   const sameUser = currentUser.userMongooseId === listing.user._id ? true : false;
+
+  console.log(listing.user);
   return (
     <>
     <header className={styles.header}>
@@ -18,7 +20,7 @@ function ListingDetails({ listing, receivingUser, onChange, onSubmit, deleteClic
       <section className={styles.left}>
         <div>
           <div id={styles.listingPhotoContainer}>
-            <img src={listing.imageUrl} alt={listing.title} />
+            <img src={listing.imageUrl || 'https://i.imgur.com/x73Ial1.jpg'} alt={listing.title} />
           </div>
           <div id={styles.map}>
             <Map mapUrl={mapUrl} />
@@ -56,6 +58,7 @@ function ListingDetails({ listing, receivingUser, onChange, onSubmit, deleteClic
         <div className={styles.userPhotoContainer}>
           <Link to={`/users/${listing.user._id}`} >
             <img src={listing.user.userImage || 'https://i.imgur.com/O5tm3Du.jpg'} alt={listing.user.username} />
+            {/* <img src={listing.user.userImage} alt={listing.user.username} /> */}
           </Link>
         </div>
         <Link to={`/users/${listing.user._id}`} >

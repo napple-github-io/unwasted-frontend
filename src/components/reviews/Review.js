@@ -4,6 +4,7 @@ import styles from './Review.css';
 
 function Review({ review }) {
   let thumbs = review.thumbsUp ? 'Recommended' : 'Not Recommended';
+  console.log(review);
   return (
     <section className={styles.reviewGrid}>
       <section className={styles.left}>

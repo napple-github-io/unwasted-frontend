@@ -20,7 +20,9 @@ module.exports = {
     https: true
   },
   plugins: [
-    new HtmlPlugin({ template: './src/index.html' }),
+    new HtmlPlugin({ 
+      template: './src/index.html',
+      favicon: './src/assets/logos/favicon.png' }),
     new CleanWebpackPlugin(),
     new DotEnv({ systemvars: true }),
     new CopyPlugin([

@@ -16,8 +16,8 @@ function UserProfileDetails({ userProfileDetails }) {
       <h5>Location</h5>
       <h4>{userProfileDetails.location.street}, {userProfileDetails.location.state}</h4>
 
-      <h5>Standing</h5>
-      <h4>{userProfileDetails.standing}</h4>
+      {/* <h5>Standing</h5>
+      <h4>{userProfileDetails.standing}</h4> */}
 
       {/* <button>CONTACT</button> */}
     </section>
