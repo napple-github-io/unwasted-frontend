@@ -20,10 +20,10 @@ function MyProfileDetails({ profile, imageSubmit, imageOnChange }) {
           <form onSubmit={imageSubmit}>
 
             <p>
-              <input type="file" name="file" onChange={imageOnChange}/>
+              <input type="file" name="file" className={styles.imageUpload} accept="image/*" onChange={imageOnChange}/>
             </p>
 
-            <button>Submit Image</button>
+            <button>UPLOAD</button>
           </form>
           {/* <form>
             <input type="file" className={styles.imageUpload} name="upload" accept="image/*" />
