@@ -100,7 +100,7 @@ class HomeDisplay extends PureComponent {
       </section>
 
       <div className={styles.mainHome}>
-        <NearbyListingThumbList nearbyListingList={listings} />
+        {/* <NearbyListingThumbList nearbyListingList={listings} /> */}
         <div className={styles.map}>
           <Map mapUrl={this.state.mapUrl} />
         </div>
