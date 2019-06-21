@@ -2,14 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Review.css';
 
-function Review({ review }) {
+function Review({ review, userInfo }) {
+
   let thumbs = review.thumbsUp ? 'Recommended' : 'Not Recommended';
-  console.log(review);
+  console.log(userInfo);
   return (
     <section className={styles.reviewGrid}>
       <section className={styles.left}>
         <div>
-          <img src={review.reviewer.userImage || 'https://i.imgur.com/O5tm3Du.jpg'} />
+          <img src={userInfo.userImage || 'https://i.imgur.com/O5tm3Du.jpg'} />
         </div>
         <h5>{review.reviewer.username}</h5>
       </section>
@@ -26,7 +27,8 @@ function Review({ review }) {
 }
 
 Review.propTypes = {
-  review: PropTypes.object.isRequired
+  review: PropTypes.object.isRequired,
+  userInfo: PropTypes.object.isRequired
 };
 
 export default Review;

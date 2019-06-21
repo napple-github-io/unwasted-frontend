@@ -11,7 +11,7 @@ function ListingThumb({ listing }) {
           <img src={listing.imageUrl || 'https://i.imgur.com/x73Ial1.jpg'} alt={listing.title} />
         </Link>
 
-        <span>{listing.distance}</span>
+        { listing.distance && <span>{listing.distance}</span>}
       </div>
       
       <div>
