@@ -5,6 +5,9 @@ import { connect } from 'react-redux';
 import { signInUser } from '../../actions/getUserActions';
 import SignInForm from '../../components/auth/SignInForm';
 import styles from './SignIn.css';
+import fbiconwhite from '../../assets/icons/fbiconwhite.svg';
+import twittericonwhite from '../../assets/icons/twittericonwhite.svg';
+import igiconwhite from '../../assets/icons/igiconwhite.svg';
 
 class SignInSubmit extends PureComponent {
   static propTypes = {
@@ -38,9 +41,9 @@ class SignInSubmit extends PureComponent {
 
         <footer className={styles.footer}>
           <section>
-            <a href="/" target="_blank"><img src="../../src/assets/icons/fbiconwhite.svg" alt="Facebook" /></a>
-            <a href="/" target="_blank"><img src="../../src/assets/icons/twittericonwhite.svg" alt="Twitter" /></a>
-            <a href="/" target="_blank"><img src="../../src/assets/icons/igiconwhite.svg" alt="Instagram" /></a>
+            <a href="/" target="_blank"><img src={fbiconwhite} alt="Facebook" /></a>
+            <a href="/" target="_blank"><img src={twittericonwhite} alt="Twitter" /></a>
+            <a href="/" target="_blank"><img src={igiconwhite} alt="Instagram" /></a>
           </section>
 
           <ul className={styles.bottom}>

@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './Footer.css';
-import fbicongrey from '../../assets/icons/fbicongrey.svg'
-import twittericongrey from '../../assets/icons/twittericongrey.svg'
-import igicongrey from '../../assets/icons/igicongrey.svg'
+import fbicongrey from '../../assets/icons/fbicongrey.svg';
+import twittericongrey from '../../assets/icons/twittericongrey.svg';
+import igicongrey from '../../assets/icons/igicongrey.svg';
 
 export default function Footer() {
   return (

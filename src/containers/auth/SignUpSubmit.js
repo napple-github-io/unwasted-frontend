@@ -4,6 +4,9 @@ import { signup } from '../../services/auth';
 import SignUpForm from '../../components/auth/SignUpForm';
 import styles from './SignUp.css';
 import { postImageToApi } from '../../services/listingsApi';
+import fbicongrey from '../../assets/icons/fbicongrey.svg';
+import twittericongrey from '../../assets/icons/twittericongrey.svg';
+import igicongrey from '../../assets/icons/igicongrey.svg';
 
 export default class SignUpSubmit extends PureComponent {
   static propTypes = {
@@ -91,9 +94,9 @@ export default class SignUpSubmit extends PureComponent {
 
         <footer className={styles.footer}>
           <section>
-            <a href="/" target="_blank"><img src="../../src/assets/icons/fbicongrey.svg" alt="Facebook" /></a>
-            <a href="/" target="_blank"><img src="../../src/assets/icons/twittericongrey.svg" alt="Twitter" /></a>
-            <a href="/" target="_blank"><img src="../../src/assets/icons/igicongrey.svg" alt="Instagram" /></a>
+            <a href="/" target="_blank"><img src={fbicongrey} alt="Facebook" /></a>
+            <a href="/" target="_blank"><img src={twittericongrey} alt="Twitter" /></a>
+            <a href="/" target="_blank"><img src={igicongrey} alt="Instagram" /></a>
           </section>
 
           <ul className={styles.bottom}>
