@@ -56,12 +56,10 @@ class UserProfileDisplay extends PureComponent {
 
   componentDidMount(){
     this.fetch();
-    console.log(this.props);
   }
 
   render(){
     const { userInfo, listings, reviews } = this.state;
-    console.log('TRYING', reviews);
     const { currentUser } = this.props;
     if(!userInfo) return (
       <div className={loadStyles.loading}>

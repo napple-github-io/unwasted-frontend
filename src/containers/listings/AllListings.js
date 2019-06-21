@@ -38,6 +38,7 @@ class AllListings extends PureComponent {
   }
 
   getUserLocation = () => {
+    console.log('trying to get location');
     if(window.navigator.geolocation) {
       return new Promise(function(resolve, reject) {
         navigator.geolocation.getCurrentPosition(resolve, reject);
@@ -80,9 +81,10 @@ class AllListings extends PureComponent {
   filterSubmit = event => {
     event.preventDefault();
     const { dietary, category, distance, origin } = this.state;
-
+    this.changeOrigin();
     searchListings(dietary, category, distance, origin)
       .then(listings => {
+        console.log(listings);
         this.setState({ listings });
       });
   }
@@ -93,6 +95,10 @@ class AllListings extends PureComponent {
 
 
   componentDidMount() {
+    this.getUserLocation()
+      .then(position => {
+        this.setState({ userLat: position.coords.latitude, userLong: position.coords.longitude });
+      });
     if(this.props.location.search) {
       this.fetchMyListings();
       this.setState({ title: `${this.props.currentUser.username}'s Listings` });
@@ -106,14 +112,14 @@ class AllListings extends PureComponent {
     if(this.state.userLat !== prevState.userLat){
       this.changeOrigin();
     }
-    if(this.props.location.search) {
+    if(this.props.location.search && prevProps.location.search !== this.props.location.search) {
       this.fetchMyListings();
       this.setState({ title: `${this.props.currentUser.username}'s Listings` });
-    } else {
+    }
+    if(!this.props.location.search && prevProps !== this.props){
       this.fetch();
       this.setState({ title: 'All Listings' });
     }
-
   }
 
   render(){
@@ -132,7 +138,6 @@ class AllListings extends PureComponent {
     ;
   }
 }
-
 const mapStateToProps = state => ({
   currentUser: getUser(state)
 });
