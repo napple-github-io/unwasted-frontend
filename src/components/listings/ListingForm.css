@@ -58,7 +58,6 @@
     height: 300px;
     outline: none;
     color: transparent;
-    /*background-image: url('../../assets/icons/selectimage.svg');*/
     background-position: center;
     background-size: cover;
     background-color: $lightgrey; 
@@ -69,20 +68,6 @@
 
   .imageUpload::-webkit-file-upload-button {
     visibility: hidden;
-  }
-
-  .imageUpload::before {
-    /*content: 'CHOOSE FILE';
-    display: inline-block;
-    background: $darkgrey;
-    border-radius: 5px;
-    padding: .5rem 1rem;
-    outline: none;
-    color: #FFFFFF;
-    font-weight: 500;
-    font-size: 1em;
-    letter-spacing: .04em;
-    cursor: pointer;*/
   }
 
   .imageUpload:hover {

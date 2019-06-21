@@ -1,14 +1,19 @@
 @import url('../display/variables.css');
 
 .signUpContainer {
+  .grid {
+    display: grid;
+    grid-template-columns: 11.25rem 1fr;
+    grid-column-gap: $colgap;
+  }
 
   .imageUpload {
     border: 0;
-    width: 10rem;
-    height: 10rem;
+    width: 11.25rem;
+    height: 11.25rem;
     outline: none;
     color: transparent;
-    background-image: url('../../assets/icons/selectimage.svg');
+    border-radius: 50%;
     background-position: center;
     background-size: cover;
     background-color: $lightgrey; 
@@ -19,20 +24,6 @@
 
   .imageUpload::-webkit-file-upload-button {
     visibility: hidden;
-  }
-
-  .imageUpload::before {
-    /*content: 'CHOOSE FILE';
-    display: inline-block;
-    background: $darkgrey;
-    border-radius: 5px;
-    padding: .5rem 1rem;
-    outline: none;
-    color: #FFFFFF;
-    font-weight: 500;
-    font-size: 1em;
-    letter-spacing: .04em;
-    cursor: pointer;*/
   }
 
   .imageUpload:hover {

@@ -32,13 +32,6 @@ export default function ListingForm({ onSubmit, onChange, title, category, stree
 
         <div id={styles.grid}>
           <form id="listing" onSubmit={onSubmit}>
-            {/* <section className={styles.left}>
-                <div id={styles.listingImageContainer}>
-                  <img src='#' alt="Upload an image" />
-                </div>
-                <h5>Upload a photo</h5>
-                <input type="file" className={styles.imageUpload} name="upload" accept="image/*" onSubmit={onSubmit} onChange={onChange} />
-              </section> */}
 
             <section className={styles.right}>
               <input type="text" name="title" value={title} id={styles.listingTitle} placeholder="Title" onChange={onChange} />
