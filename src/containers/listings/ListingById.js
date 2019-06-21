@@ -16,7 +16,8 @@ import { getListingMap, getListingMapWithoutUser } from '../../services/mapApi';
 class ListingById extends PureComponent {
   static propTypes = {
     match: PropTypes.object.isRequired,
-    currentUser: PropTypes.object
+    currentUser: PropTypes.object,
+    history: PropTypes.object
   }
 
   state = {
@@ -75,7 +76,9 @@ class ListingById extends PureComponent {
   }
 
   deleteClick = () => {
-    return deleteListingFromApi(this.state.listing._id);
+    deleteListingFromApi(this.state.listing._id)
+      .then(() => this.props.history.push('/'));
+      
   }
   
   componentDidMount() {
