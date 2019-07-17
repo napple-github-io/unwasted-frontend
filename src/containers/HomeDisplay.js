@@ -99,7 +99,7 @@ class HomeDisplay extends PureComponent {
     return (
       <>
       <section className={styles.hero}>
-        <Header user={this.props.currentUser} />
+        <Header />
         <div>
           <h1>End Hunger<br />In Your<br />Community</h1>
         </div>

@@ -68,7 +68,7 @@ class UserProfileDisplay extends PureComponent {
     );
     return (
     <>
-      <Header user={currentUser} />
+      <Header />
       <section className={styles.mainContainer}>
         <div className={styles.center}>
           <h2 id={styles.username}>{userInfo.username}</h2>

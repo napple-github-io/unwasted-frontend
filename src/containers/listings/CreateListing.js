@@ -78,7 +78,7 @@ class CreateListing extends PureComponent {
 
     return (
       <>
-      <Header user={this.props.currentUser} />
+      <Header />
       <div className={styles.listingFormContainer}>
         <ListingForm 
           imageSubmit={this.imageSubmit}

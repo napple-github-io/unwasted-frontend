@@ -127,7 +127,7 @@ class AllListings extends PureComponent {
     const { distance, category } = this.state;
     return (
       <>
-      <Header user={this.props.currentUser} logout={this.props.logout}/>
+      <Header />
 
       <div className={styles.allListingsContainer}>
         <AllListingsList title={this.state.title} distance={distance} allListingsList={this.state.listings} filterSubmit={this.filterSubmit} onChange={this.onChange} category={category} checkBoxChecked={this.checkBoxChecked}/>

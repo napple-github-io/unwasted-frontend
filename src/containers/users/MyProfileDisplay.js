@@ -51,12 +51,10 @@ class MyProfileDisplay extends PureComponent {
       </div>
     );
 
-    console.log(userInfo);
-
     return (
     <>
       <section className={styles.hero}>
-        <Header user={currentUser} />
+        <Header />
         <div>
           <h1>Welcome back,<br />
             <span id={styles.name}>{userInfo.firstName} {userInfo.lastName}</span></h1>
