@@ -6,11 +6,12 @@ import { getUserAuthId } from '../selectors/userAuthSelectors';
 import styles from './Loader.css';
 
 class Callback extends PureComponent {
+  
   static propTypes = {
     handleAuth: PropTypes.func.isRequired,
     authId: PropTypes.string
   }
-
+  
   componentDidMount() {
     this.props.handleAuth();
   }

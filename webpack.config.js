@@ -14,7 +14,6 @@ module.exports = {
     port: 7890,
     historyApiFallback: true,
     allowedHosts: [
-      'app.local',
       'localhost'
     ],
     https: true

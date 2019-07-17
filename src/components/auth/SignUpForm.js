@@ -4,9 +4,6 @@ import styles from './SignUpForm.css';
 import uploadImage from '../../assets/icons/selectimagecircle.svg';
 
 function SignUpForm({ onSubmit, onChange, email, password, username, street, state, zip, firstName, lastName, bio, city, className, error, imageOnChange, imageSubmit, userImage, file }) {
-  if(file) {
-    console.log('file bro');
-  }
   const inlineStyleUpload = {
     backgroundImage: `url(${uploadImage})`
   };
@@ -148,7 +145,8 @@ SignUpForm.propTypes = {
   bio: PropTypes.string,
   className: PropTypes.string,
   imageSubmit: PropTypes.func.isRequired,
-  imageOnChange: PropTypes.func.isRequired
+  imageOnChange: PropTypes.func.isRequired,
+  file: PropTypes.object
 };
 
 export default SignUpForm;

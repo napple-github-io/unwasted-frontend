@@ -64,7 +64,6 @@ class HomeDisplay extends PureComponent {
     const listingsArray = listings.map(listing => {
       return listing.location.street + listing.location.zip + '|';
     });
-    console.log(listingsArray);
     const mapUrl = getListingMap(userLat, userLong, listingsArray);
     this.setState({ mapUrl });
   }
@@ -80,7 +79,6 @@ class HomeDisplay extends PureComponent {
         this.fetchListingsWithDistance();
       })
       .then(() => {
-        console.log(this.state.listings);
         this.fetchMap();
       });
   }
@@ -97,6 +95,7 @@ class HomeDisplay extends PureComponent {
 
   render() {
     const { nearestListings } = this.state;
+
     return (
       <>
       <section className={styles.hero}>
@@ -107,7 +106,7 @@ class HomeDisplay extends PureComponent {
       </section>
 
       <div className={styles.mainHome}>
-        <NearbyListingThumbList nearbyListingList={nearestListings} />
+        {nearestListings > 2 && <NearbyListingThumbList nearbyListingList={nearestListings} />}
         <div className={styles.map}>
           <Map mapUrl={this.state.mapUrl} />
         </div>
