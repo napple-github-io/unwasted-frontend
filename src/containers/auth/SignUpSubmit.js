@@ -39,8 +39,7 @@ export default class SignUpSubmit extends PureComponent {
     });
   }
 
-  imageSubmit = event => {
-    event.preventDefault();
+  imageSubmit = () => {
     return postImageToApi(this.state.file)
       .then(res => {
         this.setState({ userImage: res.file });
@@ -62,8 +61,14 @@ export default class SignUpSubmit extends PureComponent {
       });
   }
 
+  componentDidUpdate(){
+    if(this.state.file && !this.state.userImage){
+      this.imageSubmit();
+    }
+  }
+
   render() {
-    const { email, password, username, street, state, zip, lastName, firstName, bio, city, error, userImage } = this.state;
+    const { email, password, username, street, state, zip, lastName, firstName, bio, city, error, userImage, file } = this.state;
     return (
       <div className={styles.signUpBody}>
         <header className={styles.header}>
@@ -89,6 +94,7 @@ export default class SignUpSubmit extends PureComponent {
             imageOnChange={this.imageOnChange}
             imageSubmit={this.imageSubmit}
             userImage={userImage}
+            file={file}
           />
         </main>
 

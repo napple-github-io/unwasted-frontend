@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import styles from './SignUpForm.css';
 import uploadImage from '../../assets/icons/selectimagecircle.svg';
 
-function SignUpForm({ onSubmit, onChange, email, password, username, street, state, zip, firstName, lastName, bio, city, className, error, imageOnChange, imageSubmit, userImage }) {
-  console.log(userImage);
-
+function SignUpForm({ onSubmit, onChange, email, password, username, street, state, zip, firstName, lastName, bio, city, className, error, imageOnChange, imageSubmit, userImage, file }) {
+  if(file) {
+    console.log('file bro');
+  }
   const inlineStyleUpload = {
     backgroundImage: `url(${uploadImage})`
   };
@@ -26,7 +27,7 @@ function SignUpForm({ onSubmit, onChange, email, password, username, street, sta
           </p>
 
           {userImage && <button>Success!</button>}
-          {!userImage && <button>Upload</button>}
+          {file && !userImage && <button>Uploading...</button>}
         </form>
 
         <form className={className} onSubmit={onSubmit}>
