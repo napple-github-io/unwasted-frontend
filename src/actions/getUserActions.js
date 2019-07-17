@@ -18,10 +18,11 @@ export const setSession = () => ({
   payload: handleAuthSession()
 });
 
-// export const setLocation = 
+export const END_SESSION = 'END_SESSION';
+export const END_SESSION_PENDING = 'END_SESSION_PENDING';
 
-// export const [
-//   setSession,
-//   SET_SESSION,
-//   SET_SESSION_PENDING
-// ] = createAction('SET_SESSION', handleAuthSession);
+export const endSession = () => ({
+  type: END_SESSION,
+  pendingType: END_SESSION_PENDING,
+  payload: {}
+});

@@ -1,4 +1,4 @@
-import { SIGNIN_USER, SIGNIN_USER_LOADING, SET_SESSION } from '../actions/getUserActions';
+import { SIGNIN_USER, SIGNIN_USER_LOADING, SET_SESSION, END_SESSION } from '../actions/getUserActions';
 
 const initialState = {
   username: '',
@@ -15,6 +15,8 @@ export default function reducer(state = initialState, action) {
       return { ...state, loading: true };
     case SET_SESSION:
       return action.payload;
+    case END_SESSION:
+      return initialState;
     default:
       return state;
   }
