@@ -94,7 +94,7 @@ export default class SignUpSubmit extends PureComponent {
             imageOnChange={this.imageOnChange}
             imageSubmit={this.imageSubmit}
             userImage={userImage}
-            file={file}
+            imageFile={file}
           />
         </main>
 

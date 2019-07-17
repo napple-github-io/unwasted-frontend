@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './ListingForm.css';
 import uploadImage from '../../assets/icons/selectimage.svg';
 
-export default function ListingForm({ onSubmit, onChange, title, category, street, state, zip, description, expiration, checkBoxChecked, imageSubmit, imageOnChange, imageUrl }) {
+export default function ListingForm({ onSubmit, onChange, title, category, street, state, zip, description, expiration, checkBoxChecked, imageSubmit, imageOnChange, imageUrl, imageFile }) {
   const inlineStyleUpload = {
     backgroundImage: `url(${uploadImage})`
   };
@@ -21,13 +21,13 @@ export default function ListingForm({ onSubmit, onChange, title, category, stree
         <form className={styles.left} onSubmit={imageSubmit}>
 
           <p>
+            {/* PAYTON, CAN WE FIND AN IMAGE (OR LOADING GIF) HERE THAT FILLS THE IMAGE WITH UPLOADING, SIMILAR TO BELOW?? */}
             {imageUrl && <input className={styles.imageUpload} style={inlineStyleImage} type="file" name="file" accept="image/*" onChange={imageOnChange}/>}
             {!imageUrl && <input className={styles.imageUpload} style={inlineStyleUpload} type="file" name="file" accept="image/*" onChange={imageOnChange}/>}
-
           </p>
 
           {imageUrl && <button>Success!</button>}
-          {!imageUrl && <button>Upload</button>}
+          {!imageUrl && imageFile && <button>Uploading...</button>}
         </form>
 
         <div id={styles.grid}>

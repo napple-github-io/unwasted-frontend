@@ -60,16 +60,21 @@ class CreateListing extends PureComponent {
       });
   }
 
-  imageSubmit = event => {
-    event.preventDefault();
+  imageSubmit = () => {
     return postImageToApi(this.state.file)
       .then(res => {
         this.setState({ imageUrl: res.file });
       });
   }
+
+  componentDidUpdate(){
+    if(this.state.file && !this.state.imageUrl) {
+      this.imageSubmit();
+    }
+  }
  
   render() {
-    const { imageUrl, title, category, street, state, zip, description, postedDate, expiration } = this.state;
+    const { imageUrl, title, category, street, state, zip, description, postedDate, expiration, file } = this.state;
 
     return (
       <>
@@ -90,6 +95,7 @@ class CreateListing extends PureComponent {
           onSubmit={this.onSubmit}
           onChange={this.onChange}
           checkBoxChecked={this.checkBoxChecked}
+          imageFile={file}
         />
       </div>
       <Footer />
