@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import ListingThumb from './ListingThumb';
 import styles from './Listings.css';
 import filters from './AllListingsFilter.css';
-import  {Link}  from 'react-router-dom';
-function AllListingsList({ title, allListingsList, filterSubmit, onChange, category, checkBoxChecked, distance }) {
+import  { Link }  from 'react-router-dom';
+
+function AllListingsList({ title, allListingsList, filterSubmit, onChange, category, checkBoxChecked, distance, currentUserId }) {
   const listItem = allListingsList.map(listing => (
     <li key={listing._id}>
       <ListingThumb listing={listing} />
@@ -65,7 +66,7 @@ function AllListingsList({ title, allListingsList, filterSubmit, onChange, categ
           <h2>{title}</h2>
         </header>
         <ul>
-          {listItem >= 1 && listItem}
+          {listItem && listItem}
         </ul>
         {listItem <= 0 && title == 'All Listings' && <h3>No listings have been posted yet!</h3>}
         {listItem <= 0 && title !== 'All Listings' && <h3>You have not posted a listing yet! <Link to="/listings/new">Click here to create one!</Link></h3>}

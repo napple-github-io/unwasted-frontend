@@ -6,8 +6,8 @@ import Footer from '../components/display/Footer';
 import NearbyListingThumbList from '../components/listings/NearbyListingThumbList';
 import Map from '../components/mapping/Map';
 import PowerUserList from '../components/userAggregations/PowerUserList';
-import { userSeed } from '../assets/seedData/seedData';
 import styles from './Home.css';
+import { getPowerUsersFromApi } from '../services/userApi';
 import { getUser } from '../selectors/userAuthSelectors';
 import { getAllListingsFromApiWithDistance } from '../services/listingsApi';
 import { getListingMap } from '../services/mapApi';
@@ -23,7 +23,8 @@ class HomeDisplay extends PureComponent {
     listings: [],
     nearestListings: [],
     mapUrl: '',
-    origin: ''
+    origin: '',
+    powerUserList: []
   }
 
   changeOrigin = () => {
@@ -68,6 +69,13 @@ class HomeDisplay extends PureComponent {
     this.setState({ mapUrl });
   }
 
+  fetchPowerUsers = () => {
+    return getPowerUsersFromApi()
+      .then(powerUserList => {
+        this.setState({ powerUserList });
+      });
+  }
+
   componentDidMount(){
     Promise.all(([
       this.getUserLocation()
@@ -80,6 +88,9 @@ class HomeDisplay extends PureComponent {
       })
       .then(() => {
         this.fetchMap();
+      })
+      .then(() => {
+        this.fetchPowerUsers();
       });
   }
 
@@ -94,7 +105,8 @@ class HomeDisplay extends PureComponent {
   }
 
   render() {
-    const { nearestListings } = this.state;
+    const { nearestListings, powerUserList } = this.state;
+    console.log(nearestListings);
 
     return (
       <>
@@ -106,11 +118,11 @@ class HomeDisplay extends PureComponent {
       </section>
 
       <div className={styles.mainHome}>
-        {nearestListings > 2 && <NearbyListingThumbList nearbyListingList={nearestListings} />}
+        {nearestListings.length > 2 && <NearbyListingThumbList nearbyListingList={nearestListings} />}
         <div className={styles.map}>
           <Map mapUrl={this.state.mapUrl} />
         </div>
-        <PowerUserList powerUserList={userSeed} />
+        {powerUserList.length >= 3 && <PowerUserList powerUserList={powerUserList} />}
       </div>
 
       <Footer />
