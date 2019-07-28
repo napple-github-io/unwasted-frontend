@@ -21,7 +21,8 @@ function UserListingThumbList({ userListingList }) {
         </p>
       </header>
       <ul>
-        {listItem}
+        {listItem.length < 1 && <h4>No listings found.</h4>}
+        {listItem.length > 0 && listItem}
       </ul>
     </section>
   );
