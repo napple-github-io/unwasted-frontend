@@ -5,14 +5,13 @@ import styles from './Listings.css';
 import filters from './AllListingsFilter.css';
 import  { Link }  from 'react-router-dom';
 
-function AllListingsList({ title, allListingsList, filterSubmit, onChange, category, checkBoxChecked, distance, currentUserId }) {
+function AllListingsList({ title, allListingsList, filterSubmit, onChange, category, checkBoxChecked, distance }) {
   const listItem = allListingsList.map(listing => (
     <li key={listing._id}>
       <ListingThumb listing={listing} />
     </li>
   ));
 
-  console.log(allListingsList);
   return (
     <>
       <section className={filters.filters}>

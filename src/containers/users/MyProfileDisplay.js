@@ -8,7 +8,6 @@ import ReviewList from '../../components/reviews/ReviewList';
 import MyProfileDetails from '../../components/profile/MyProfileDetails';
 import UserListingThumbList from '../../components/listings/UserListingThumbList';
 import NearbyListingThumbList from '../../components/listings/NearbyListingThumbList';
-import { listingSeed, userSeedObj, reviewSeed } from '../../assets/seedData/seedData';
 import { getListingsByUser } from '../../services/listingsApi';
 import { getUser } from '../../selectors/userAuthSelectors';
 import { getReviewsByUserId } from '../../services/reviewsApi';
@@ -38,13 +37,11 @@ class MyProfileDisplay extends PureComponent {
 
   }
   componentDidMount(){
-    console.log(this.props);
     this.fetch();
   }
 
   render(){
     const { userInfo, listings, reviews } = this.state;
-    const { currentUser } = this.props;
     if(!userInfo) return (
       <div className={loadStyles.loading}>
         <div className={loadStyles.loader}></div>

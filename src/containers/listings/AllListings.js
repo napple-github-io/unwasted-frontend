@@ -39,7 +39,6 @@ class AllListings extends PureComponent {
   }
 
   getUserLocation = () => {
-    console.log('trying to get location');
     if(window.navigator.geolocation) {
       return new Promise(function(resolve, reject) {
         navigator.geolocation.getCurrentPosition(resolve, reject);
@@ -85,7 +84,6 @@ class AllListings extends PureComponent {
     this.changeOrigin();
     searchListings(dietary, category, distance, origin)
       .then(listings => {
-        console.log(listings);
         this.setState({ listings });
       });
   }
