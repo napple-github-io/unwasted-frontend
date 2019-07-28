@@ -12,6 +12,7 @@ function AllListingsList({ title, allListingsList, filterSubmit, onChange, categ
     </li>
   ));
 
+  console.log(allListingsList);
   return (
     <>
       <section className={filters.filters}>
