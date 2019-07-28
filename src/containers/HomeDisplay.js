@@ -106,7 +106,6 @@ class HomeDisplay extends PureComponent {
 
   render() {
     const { nearestListings, powerUserList } = this.state;
-    console.log(nearestListings);
 
     return (
       <>
@@ -118,7 +117,7 @@ class HomeDisplay extends PureComponent {
       </section>
 
       <div className={styles.mainHome}>
-        {nearestListings.length > 2 && <NearbyListingThumbList nearbyListingList={nearestListings} />}
+        {nearestListings.length >= 3 && <NearbyListingThumbList nearbyListingList={nearestListings} />}
         <div className={styles.map}>
           <Map mapUrl={this.state.mapUrl} />
         </div>

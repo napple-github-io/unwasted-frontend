@@ -16,7 +16,8 @@ function ReviewList({ reviewList }) {
         <h2>Reviews</h2>
       </header>
       <ul>
-        {listItem}
+        {listItem.length >= 1 && listItem}
+        {listItem.length < 1 && <h4>There are no reviews yet!</h4>}
       </ul>
     </section>
   );
