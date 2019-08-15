@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ListingForm.css';
 import uploadImage from '../../assets/icons/selectimage.svg';
+import * as moment from 'moment';
 
 export default function ListingForm({ onSubmit, onChange, title, category, street, state, zip, description, expiration, checkBoxChecked, imageSubmit, imageOnChange, imageUrl, imageFile }) {
   const inlineStyleUpload = {
@@ -128,8 +129,7 @@ export default function ListingForm({ onSubmit, onChange, title, category, stree
 
               <div id={styles.listingExpiration}>
                 <h4>Expiration</h4>
-                {/* IS THIS DEFAULT VALUE GOING TO BE CORRECT IN PRACTICE?? */}
-                <input type="date" id={styles.listingExpirationInput} name="expiration" value={expiration} min={'Date.now()'} onChange={onChange}/>
+                <input type="date" id={styles.listingExpirationInput} name="expiration" value={expiration} min={moment().format('YYYY-MM-DD')} onChange={onChange}/>
               </div>
 
               <div id={styles.listingDescription}>
