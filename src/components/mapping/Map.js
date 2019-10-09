@@ -16,3 +16,6 @@ Map.propTypes = {
 };
 
 export default Map;
+// export default GoogleApiWrapper({
+//  apiKey: process.env.MAPS_API_KEY
+// })(MapContainer);
