@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Map.css';
+import { Map as GoogleMap, GoogleApiWrapper } from 'google-maps-react';
 
 function Map({ mapUrl }) {
   return (
