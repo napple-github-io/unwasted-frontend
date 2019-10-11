@@ -93,7 +93,7 @@ class HomeDisplay extends PureComponent {
         this.fetchPowerUsers();
       });
   }
-
+  
   componentDidUpdate(prevProps, prevState){
     if(this.state.userLat !== prevState.userLat){
       this.changeOrigin();
@@ -119,7 +119,7 @@ class HomeDisplay extends PureComponent {
       <div className={styles.mainHome}>
         {nearestListings.length >= 3 && <NearbyListingThumbList nearbyListingList={nearestListings} />}
         <div className={styles.map}>
-          <Map mapUrl={this.state.mapUrl} />
+          <Map listings={this.state.listings} />
         </div>
         {powerUserList.length >= 3 && <PowerUserList powerUserList={powerUserList} />}
       </div>
