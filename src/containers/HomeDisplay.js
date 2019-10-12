@@ -10,7 +10,7 @@ import styles from './Home.css';
 import { getPowerUsersFromApi } from '../services/userApi';
 import { getUser } from '../selectors/userAuthSelectors';
 import { getAllListingsFromApiWithDistance } from '../services/listingsApi';
-import { getListingMap } from '../services/mapApi';
+import { getListingMap, getListingCoords } from '../services/mapApi';
 
 class HomeDisplay extends PureComponent {
   static propTypes = {

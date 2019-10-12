@@ -9,6 +9,9 @@ function ListingDetails({ listing, receivingUser, onChange, onSubmit, deleteClic
   const sameUser = currentUser.userMongooseId === listing.user._id ? true : false;
 
   console.log(listing.user);
+  console.log(listing);
+
+  
   return (
     <>
     <header className={styles.header}>
@@ -23,7 +26,7 @@ function ListingDetails({ listing, receivingUser, onChange, onSubmit, deleteClic
             <img src={listing.imageUrl || 'https://i.imgur.com/x73Ial1.jpg'} alt={listing.title} />
           </div>
           <div id={styles.map}>
-            <Map mapUrl={mapUrl} />
+            {/* <Map mapUrl={mapUrl} /> */}
           </div>
         </div>
       </section>

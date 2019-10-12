@@ -26,14 +26,14 @@ export class MapContainer extends Component{
             style={styles}
             initialCenter={ { lat: 45.5051, lng: -122.55 } }
           >
-            {listings.map(item => (
+            {/* {listings.map(item => (
               <Marker ref={this.onMarkerMounted}
                 key={item.id}
                 title={item.name}
                 name={item.name}
                 position={{ lat: item.lat, lng: item.lng }}
               />
-            ))}
+            ))} */}
           </GoogleMap>
   
         </>
