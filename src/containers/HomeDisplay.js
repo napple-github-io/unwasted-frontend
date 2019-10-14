@@ -11,6 +11,7 @@ import { getPowerUsersFromApi } from '../services/userApi';
 import { getUser } from '../selectors/userAuthSelectors';
 import { getAllListingsFromApiWithDistance } from '../services/listingsApi';
 import { getListingMap, getListingCoords } from '../services/mapApi';
+import loadStyles from './Loader.css';
 
 class HomeDisplay extends PureComponent {
   static propTypes = {
@@ -105,7 +106,13 @@ class HomeDisplay extends PureComponent {
   }
 
   render() {
-    const { nearestListings, powerUserList } = this.state;
+    const { nearestListings, powerUserList, listings } = this.state;
+
+    // if(!listings) return (
+    //   <div className={loadStyles.loading}>
+    //     <div className={loadStyles.loader}></div>
+    //   </div>
+    // );
 
     return (
       <>
@@ -119,7 +126,7 @@ class HomeDisplay extends PureComponent {
       <div className={styles.mainHome}>
         {nearestListings.length >= 3 && <NearbyListingThumbList nearbyListingList={nearestListings} />}
         <div className={styles.map}>
-          <Map listings={this.state.listings} />
+          <Map listings={listings} />
         </div>
         {powerUserList.length >= 3 && <PowerUserList powerUserList={powerUserList} />}
       </div>
