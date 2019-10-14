@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { Map as GoogleMap, Marker, GoogleApiWrapper } from 'google-maps-react';
 import styles from './Map.css';
 
-export class MapContainer extends Component{
+export class MapDetailContainer extends Component{
 
   static propTypes = {
-    listings: PropTypes.array
+    listing: PropTypes.object
   }
 
   componentDidMount() {
@@ -14,25 +14,23 @@ export class MapContainer extends Component{
     console.log('!!!', this.props);
   }
   render() {
-    const listings = this.props.listings; 
-    if(listings){
+    const { listing } = this.props; 
+    if(listing){
       return (
         <>
           {/* <img className={styles.map} src={mapUrl || `https://maps.googleapis.com/maps/api/staticmap?center=Portland,OR&key=${process.env.MAPS_API_KEY}&size=980x980`} /> */}
           <GoogleMap
             google={this.props.google}
-            zoom={12}
+            zoom={15}
             style={styles}
-            initialCenter={ { lat: 45.5051, lng: -122.55 } }
+            initialCenter={ { lat: listing.coords.lat, lng: listing.coords.lng } }
           >
-            {listings.map(listing => (
-              <Marker
-                key={listing._id}
-                title={listing.title}
-                name={listing.user.username}
-                position={{ lat: listing.coords.lat, lng: listing.coords.lng }}
-              />
-            ))}
+            <Marker
+              key={listing._id}
+              title={listing.title}
+              name={listing.user.username}
+              position={{ lat: listing.coords.lat, lng: listing.coords.lng }}
+            />
           </GoogleMap>
   
         </>
@@ -42,11 +40,11 @@ export class MapContainer extends Component{
 }
 
 
-MapContainer.propTypes = {
+MapDetailContainer.propTypes = {
   google: PropTypes.object.isRequired
 };
 
 // export default Map;
 export default GoogleApiWrapper({
   apiKey: process.env.MAPS_API_KEY
-})(MapContainer);
+})(MapDetailContainer);

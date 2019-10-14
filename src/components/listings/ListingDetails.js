@@ -7,10 +7,6 @@ import { Link } from 'react-router-dom';
 
 function ListingDetails({ listing, receivingUser, onChange, onSubmit, deleteClick, mapUrl, currentUser }) {
   const sameUser = currentUser.userMongooseId === listing.user._id ? true : false;
-
-  console.log(listing.user);
-  console.log(listing);
-
   
   return (
     <>

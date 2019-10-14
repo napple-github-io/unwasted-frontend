@@ -10,7 +10,6 @@ export const postListingToApi = (title, description, imageUrl, category, street,
       return coords;
     })
     .then(coords => {
-      console.log(coords);
       return request('/listings/', 'POST', {
         title,
         description,

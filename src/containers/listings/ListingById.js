@@ -10,7 +10,7 @@ import Footer from '../../components/display/Footer';
 import loadStyles from '../Loader.css';
 import styles from './ListingById.css';
 import { getListingMap, getListingMapWithoutUser } from '../../services/mapApi';
-
+import Map from '../../components/mapping/MapDetail';
 
 
 class ListingById extends PureComponent {
@@ -91,14 +91,13 @@ class ListingById extends PureComponent {
       this.getUserLocation()
         .then(position => {
           this.setState({ userLat: position.coords.latitude, userLong: position.coords.longitude });
-        }),
-      this.fetch()
-        .then(() => this.fetchMapWithUserLoc())
+        })
     ]));
   }
   
   render(){
     const { listing } = this.state;
+
     if(!listing) return (
       <div className={loadStyles.loading}>
         <div className={loadStyles.loader}></div>
@@ -109,7 +108,8 @@ class ListingById extends PureComponent {
       <>
       <Header />
       <div className={styles.listingDetailsContainer}>
-        <ListingDetails listing={this.state.listing} receivingUser={this.state.listing.user} onChange={this.changeHandler} onSubmit={this.submitHandler} deleteClick={this.deleteClick} mapUrl={this.state.mapUrl} currentUser={this.props.currentUser}/>
+        <ListingDetails listing={this.state.listing} receivingUser={this.state.listing.user} onChange={this.changeHandler} onSubmit={this.submitHandler} deleteClick={this.deleteClick} currentUser={this.props.currentUser}/>
+        <Map listing={listing} />
       </div>
       <Footer />
       </>
