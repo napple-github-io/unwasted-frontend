@@ -108,11 +108,11 @@ class HomeDisplay extends PureComponent {
   render() {
     const { nearestListings, powerUserList, listings } = this.state;
 
-    // if(!listings) return (
-    //   <div className={loadStyles.loading}>
-    //     <div className={loadStyles.loader}></div>
-    //   </div>
-    // );
+    if(!listings) return (
+      <div className={loadStyles.loading}>
+        <div className={loadStyles.loader}></div>
+      </div>
+    );
 
     return (
       <>
