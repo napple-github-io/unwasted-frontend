@@ -73,10 +73,8 @@ class HomeDisplay extends PureComponent {
         .then(position => {
           this.setState({ userLat: position.coords.latitude, userLng: position.coords.longitude });
         })
+        .then(() => this.fetchListingsWithDistance())
     ]))
-      .then(() => {
-        this.fetchListingsWithDistance();
-      })
       .then(() => {
         this.fetchPowerUsers();
       });
