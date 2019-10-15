@@ -47,8 +47,7 @@
 
 .map {
   height: 22.5rem;
+  position: relative;
   display: flex;
-  justify-content: center;
-  align-items: center;
   overflow: hidden;
 }
