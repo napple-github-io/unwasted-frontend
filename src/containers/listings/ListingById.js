@@ -10,7 +10,6 @@ import Footer from '../../components/display/Footer';
 import loadStyles from '../Loader.css';
 import styles from './ListingById.css';
 
-
 class ListingById extends PureComponent {
   static propTypes = {
     match: PropTypes.object.isRequired,
@@ -63,12 +62,12 @@ class ListingById extends PureComponent {
 
   deleteClick = () => {
     deleteListingFromApi(this.state.listing._id)
-      .then(() => this.props.history.push('/'));
-      
+      .then(() => this.props.history.push(`/listings/user?id=${this.props.currentUser.userMongooseId}`));
   }
   
   componentDidMount() {
     this.fetch();
+    console.log(this.props.history.location.pathname);
   }
 
   componentDidUpdate() {
