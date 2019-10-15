@@ -67,16 +67,6 @@ class ListingById extends PureComponent {
   
   componentDidMount() {
     this.fetch();
-    console.log(this.props.history.location.pathname);
-  }
-
-  componentDidUpdate() {
-    Promise.all(([
-      this.getUserLocation()
-        .then(position => {
-          this.setState({ userLat: position.coords.latitude, userLong: position.coords.longitude });
-        })
-    ]));
   }
   
   render(){
