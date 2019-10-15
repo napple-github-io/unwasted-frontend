@@ -111,6 +111,7 @@ class HomeDisplay extends PureComponent {
     if(listings.length < 2) return (
       <div className={loadStyles.loading}>
         <div className={loadStyles.loader}></div>
+        <h3>Loading Nearby Posts...</h3>
       </div>
     );
 
