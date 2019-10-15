@@ -9,8 +9,6 @@ import Header from '../../components/display/Header';
 import Footer from '../../components/display/Footer';
 import loadStyles from '../Loader.css';
 import styles from './ListingById.css';
-import { getListingMap, getListingMapWithoutUser } from '../../services/mapApi';
-import Map from '../../components/mapping/MapDetail';
 
 
 class ListingById extends PureComponent {
@@ -63,18 +61,6 @@ class ListingById extends PureComponent {
       });
   }
 
-  fetchMapWithUserLoc = () => {
-    const { userLat, userLong, listing } = this.state;
-    const mapUrl = getListingMap(userLat, userLong, listing.location.street + '' + listing.location.zip);
-    this.setState({ mapUrl });
-  }
-
-  fetchMap = () => {
-    const { listing } = this.state;
-    const mapUrl = getListingMapWithoutUser(listing.location.street + '' + listing.location.zip);
-    this.setState({ mapUrl });
-  }
-
   deleteClick = () => {
     deleteListingFromApi(this.state.listing._id)
       .then(() => this.props.history.push('/'));
@@ -82,8 +68,7 @@ class ListingById extends PureComponent {
   }
   
   componentDidMount() {
-    this.fetch()
-      .then(() => this.fetchMap());
+    this.fetch();
   }
 
   componentDidUpdate() {

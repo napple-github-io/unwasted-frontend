@@ -61,15 +61,6 @@ class HomeDisplay extends PureComponent {
     }
   }
 
-  fetchMap = () => {
-    const { userLat, userLong, listings } = this.state;
-    const listingsArray = listings.map(listing => {
-      return listing.location.street + listing.location.zip + '|';
-    });
-    const mapUrl = getListingMap(userLat, userLong, listingsArray);
-    this.setState({ mapUrl });
-  }
-
   fetchPowerUsers = () => {
     return getPowerUsersFromApi()
       .then(powerUserList => {
@@ -88,9 +79,6 @@ class HomeDisplay extends PureComponent {
         this.fetchListingsWithDistance();
       })
       .then(() => {
-        this.fetchMap();
-      })
-      .then(() => {
         this.fetchPowerUsers();
       });
   }
@@ -100,9 +88,9 @@ class HomeDisplay extends PureComponent {
       this.changeOrigin();
     }
 
-    if(this.state.listings !== prevState.listings){
-      this.fetchMap();
-    }
+    // if(this.state.listings !== prevState.listings){
+    //   this.fetchMap();
+    // }
   }
 
   render() {
