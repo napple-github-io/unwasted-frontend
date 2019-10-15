@@ -26,16 +26,6 @@ class ListingById extends PureComponent {
     mapUrl: ''
   }
 
-  getUserLocation = () => {
-    if(window.navigator.geolocation) {
-      return new Promise(function(resolve, reject) {
-        navigator.geolocation.getCurrentPosition(resolve, reject);
-      });
-    } else {
-      throw 'User must allow Location services to search by current location';
-    }
-  }
-
   changeHandler = ({ target }) => {
     this.setState({ [target.name]: target.value });
   }
