@@ -18,6 +18,7 @@ function AllListingsList({ title, allListingsList, filterSubmit, onChange, categ
         <form onSubmit={filterSubmit}>
           <select id="listing-category" name="category" value={category} onChange={onChange}>
             <option value="" hidden>Category</option>
+            <option value="">All Categories</option>
             <option value="canned goods">Canned Goods</option>
             <option value="produce">Produce</option>
             <option value="dairy">Dairy</option>
