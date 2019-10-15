@@ -10,7 +10,6 @@ import styles from './Home.css';
 import { getPowerUsersFromApi } from '../services/userApi';
 import { getUser } from '../selectors/userAuthSelectors';
 import { getAllListingsFromApiWithDistance } from '../services/listingsApi';
-import { getListingMap } from '../services/mapApi';
 import loadStyles from './Loader.css';
 
 class HomeDisplay extends PureComponent {
@@ -20,7 +19,7 @@ class HomeDisplay extends PureComponent {
 
   state = {
     userLat: '',
-    userLong: '',
+    userLng: '',
     listings: [],
     nearestListings: [],
     mapUrl: '',
@@ -37,7 +36,7 @@ class HomeDisplay extends PureComponent {
       origin = this.props.currentUser.location.street;
     } 
     if(this.state.userLat) {
-      origin = (this.state.userLat + ',' + this.state.userLong);
+      origin = (this.state.userLat + ',' + this.state.userLng);
     }
     this.setState({ origin });
   }
@@ -72,7 +71,7 @@ class HomeDisplay extends PureComponent {
     Promise.all(([
       this.getUserLocation()
         .then(position => {
-          this.setState({ userLat: position.coords.latitude, userLong: position.coords.longitude });
+          this.setState({ userLat: position.coords.latitude, userLng: position.coords.longitude });
         })
     ]))
       .then(() => {
@@ -87,14 +86,10 @@ class HomeDisplay extends PureComponent {
     if(this.state.userLat !== prevState.userLat){
       this.changeOrigin();
     }
-
-    // if(this.state.listings !== prevState.listings){
-    //   this.fetchMap();
-    // }
   }
 
   render() {
-    const { nearestListings, powerUserList, listings } = this.state;
+    const { nearestListings, powerUserList, listings, userLat, userLng } = this.state;
 
     if(listings.length < 2) return (
       <div className={loadStyles.loading}>
@@ -115,7 +110,7 @@ class HomeDisplay extends PureComponent {
       <div className={styles.mainHome}>
         {nearestListings.length >= 3 && <NearbyListingThumbList nearbyListingList={nearestListings} />}
         {listings && <div className={styles.map}>
-          <Map listings={listings} />
+          <Map listings={listings} userLat={userLat} userLng={userLng} />
         </div>}
         {powerUserList.length >= 3 && <PowerUserList powerUserList={powerUserList} />}
       </div>

@@ -6,20 +6,21 @@ import styles from './Map.css';
 export class MapContainer extends Component{
 
   static propTypes = {
-    listings: PropTypes.array
+    listings: PropTypes.array,
+    userLat: PropTypes.string,
+    userLng: PropTypes.string
   }
 
   render() {
-    const listings = this.props.listings; 
+    const { listings, userLat, userLng } = this.props; 
     if(listings){
       return (
         <>
-          {/* <img className={styles.map} src={mapUrl || `https://maps.googleapis.com/maps/api/staticmap?center=Portland,OR&key=${process.env.MAPS_API_KEY}&size=980x980`} /> */}
           <GoogleMap
             google={this.props.google}
             zoom={10}
             style={styles}
-            initialCenter={ { lat: 45.5051, lng: -122.66 } }
+            initialCenter={ { lat: userLat || 45.5051, lng: userLng || -122.66 } }
           >
             {listings.map(listing => (
               <Marker

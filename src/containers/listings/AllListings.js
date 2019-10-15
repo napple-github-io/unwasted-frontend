@@ -31,7 +31,7 @@ class AllListings extends PureComponent {
     distance: '25',
     origin: 'Portland, OR',
     userLat: '',
-    userLong: ''
+    userLng: ''
   }
 
   onChange = ({ target }) => {
@@ -57,7 +57,7 @@ class AllListings extends PureComponent {
       origin = this.props.currentUser.location.street;
     } 
     if(this.state.userLat) {
-      origin = (this.state.userLat + ',' + this.state.userLong);
+      origin = (this.state.userLat + ',' + this.state.userLng);
     }
     this.setState({ origin });
   }
@@ -104,7 +104,7 @@ class AllListings extends PureComponent {
   componentDidMount() {
     this.getUserLocation()
       .then(position => {
-        this.setState({ userLat: position.coords.latitude, userLong: position.coords.longitude });
+        this.setState({ userLat: position.coords.latitude, userLng: position.coords.longitude });
       });
     if(this.props.location.search) {
       this.fetchMyListings();
