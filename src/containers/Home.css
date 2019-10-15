@@ -50,4 +50,5 @@
   position: relative;
   display: flex;
   overflow: hidden;
+  box-shadow: 1px 1px 11px 1.5px;
 }

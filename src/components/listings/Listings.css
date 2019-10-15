@@ -8,6 +8,7 @@
     grid-template-columns: $threecol;
     grid-column-gap: $colgap;
     grid-row-gap: $colgap;
+    min-height: 325px;
   }
 
   header {

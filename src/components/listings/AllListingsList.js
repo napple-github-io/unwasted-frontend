@@ -69,7 +69,7 @@ function AllListingsList({ title, allListingsList, filterSubmit, onChange, categ
         <ul>
           {listItem && listItem}
         </ul>
-        {listItem <= 0 && title == 'All Listings' && <h3>No listings have been posted yet!</h3>}
+        {listItem <= 0 && title == 'All Listings' && <h3>Listings Loading...</h3>}
         {listItem <= 0 && title !== 'All Listings' && <h3>You have not posted a listing yet! <Link to="/listings/new">Click here to create one!</Link></h3>}
       </section>
     </>
