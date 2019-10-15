@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import AllListingsList from '../../components/listings/AllListingsList';
-import { getAllListingsFromApi, getListingsByUser, searchListings } from '../../services/listingsApi';
+import { getAllListingsFromApi, getListingsByUser, searchListings, getAllListingsFromApiWithDistance } from '../../services/listingsApi';
 import Header from '../../components/display/Header';
 import { getUser } from '../../selectors/userAuthSelectors';
 import { connect } from 'react-redux';
@@ -73,8 +73,16 @@ class AllListings extends PureComponent {
     const userId = this.props.location.search.slice(4);
     return getListingsByUser(userId)
       .then(listings => {
-        
         this.setState({ listings });
+      });
+  }
+
+  fetchListingsWithDistance = () => {
+    const { origin } = this.state;
+    return getAllListingsFromApiWithDistance(origin)
+      .then(listings => {
+        this.setState({ listings });
+        this.setState({ nearestListings: [listings[0], listings[1], listings[2]] });
       });
   }
     
@@ -102,7 +110,7 @@ class AllListings extends PureComponent {
       this.fetchMyListings();
       this.setState({ title: `${this.props.currentUser.username}'s Listings` });
     } else {
-      this.fetch();
+      this.fetchListingsWithDistance();
       this.setState({ title: 'All Listings' });
     }
   }
@@ -116,7 +124,7 @@ class AllListings extends PureComponent {
       this.setState({ title: `${this.props.currentUser.username}'s Listings` });
     }
     if(!this.props.location.search && prevProps !== this.props){
-      this.fetch();
+      this.fetchListingsWithDistance();
       this.setState({ title: 'All Listings' });
     }
   }
