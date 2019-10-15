@@ -17,9 +17,9 @@ export class MapContainer extends Component{
           {/* <img className={styles.map} src={mapUrl || `https://maps.googleapis.com/maps/api/staticmap?center=Portland,OR&key=${process.env.MAPS_API_KEY}&size=980x980`} /> */}
           <GoogleMap
             google={this.props.google}
-            zoom={12}
+            zoom={10}
             style={styles}
-            initialCenter={ { lat: 45.5051, lng: -122.55 } }
+            initialCenter={ { lat: 45.5051, lng: -122.66 } }
           >
             {listings.map(listing => (
               <Marker
