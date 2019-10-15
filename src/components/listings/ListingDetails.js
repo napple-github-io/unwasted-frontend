@@ -2,13 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ListingDetails.css';
 import ContactForm from '../contact/ContactForm';
-import Map from '../mapping/Map';
+import Map from '../mapping/MapDetail';
 import { Link } from 'react-router-dom';
 
 function ListingDetails({ listing, receivingUser, onChange, onSubmit, deleteClick, mapUrl, currentUser }) {
   const sameUser = currentUser.userMongooseId === listing.user._id ? true : false;
 
-  console.log(listing.user);
   return (
     <>
     <header className={styles.header}>
@@ -23,7 +22,7 @@ function ListingDetails({ listing, receivingUser, onChange, onSubmit, deleteClic
             <img src={listing.imageUrl || 'https://i.imgur.com/x73Ial1.jpg'} alt={listing.title} />
           </div>
           <div id={styles.map}>
-            <Map mapUrl={mapUrl} />
+            <Map listing={listing} />
           </div>
         </div>
       </section>

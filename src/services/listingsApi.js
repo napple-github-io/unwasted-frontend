@@ -1,22 +1,32 @@
 import { request } from './request';
 import { getToken } from '../selectors/userAuthSelectors';
 import store from '../store.js';
+import { getListingCoords } from './mapApi';
 
 export const postListingToApi = (title, description, imageUrl, category, street, zip, state, dietary, expiration, user) => {
-  return request('/listings/', 'POST', {
-    title,
-    description,
-    imageUrl,
-    category,
-    location:{
-      street,
-      zip,
-      state,
-    },
-    dietary,
-    expiration,
-    user
-  });
+  return getListingCoords('5734 NE 27th')
+    .then(res => {
+      const coords = res;
+      return coords;
+    })
+    .then(coords => {
+      return request('/listings/', 'POST', {
+        title,
+        description,
+        imageUrl,
+        category,
+        location:{
+          street,
+          zip,
+          state,
+        },
+        dietary,
+        expiration,
+        user,
+        coords
+      });
+    });
+
 };
 
 export const getAllListingsFromApi = () => {
