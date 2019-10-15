@@ -5,7 +5,7 @@ import ContactForm from '../contact/ContactForm';
 import Map from '../mapping/MapDetail';
 import { Link } from 'react-router-dom';
 
-function ListingDetails({ listing, receivingUser, onChange, onSubmit, deleteClick, mapUrl, currentUser }) {
+function ListingDetails({ listing, receivingUser, onChange, onSubmit, deleteClick, currentUser }) {
   const sameUser = currentUser.userMongooseId === listing.user._id ? true : false;
 
   return (

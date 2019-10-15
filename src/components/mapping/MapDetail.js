@@ -9,10 +9,6 @@ export class MapDetailContainer extends Component{
     listing: PropTypes.object
   }
 
-  componentDidMount() {
-    console.log('did mount');
-    console.log('!!!', this.props);
-  }
   render() {
     const { listing } = this.props; 
     if(listing){

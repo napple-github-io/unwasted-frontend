@@ -163,5 +163,6 @@ ListingForm.propTypes = {
   state: PropTypes.string.isRequired,
   zip: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  expiration: PropTypes.string.isRequired
+  expiration: PropTypes.string.isRequired,
+  imageFile: PropTypes.object
 };
